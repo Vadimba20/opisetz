@@ -28,7 +28,6 @@ export default async function handler(req, res) {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${apiKey}`,
-                // Эти два заголовка требует OpenRouter для бесплатных моделей
                 'HTTP-Referer': 'https://opisetz.vercel.app',
                 'X-Title': 'O Pisets'
             },
@@ -49,7 +48,6 @@ export default async function handler(req, res) {
             return;
         }
 
-        // Приводим ответ к простому формату { text: "..." }
         const text = data.choices?.[0]?.message?.content || '';
         res.status(200).json({ text });
 
