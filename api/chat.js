@@ -33,7 +33,7 @@ export default async function handler(req, res) {
                 'X-Title': 'O Pisets'
             },
             body: JSON.stringify({
-                model: 'google/gemini-2.0-flash-exp:free',
+                model: 'qwen/qwen3-next-80b-a3b-instruct:free',
                 max_tokens: max_tokens || 2000,
                 messages: [
                     { role: 'user', content: prompt }
