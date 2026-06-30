@@ -1469,18 +1469,18 @@ async function showAIIdeas() {
             ? `Ты литературный редактор и соавтор. Вот текст, который автор написал до этого момента:\n\n${fullContext.slice(-8000)}\n\nНа основе этого текста предложи ровно 3 конкретные идеи для развития сюжета в следующей сцене. Каждая идея — одно-два предложения, конкретная, интригующая, органично вытекающая из написанного. Отвечай строго в формате JSON: {"ideas": ["идея 1", "идея 2", "идея 3"]}. Только JSON, без пояснений.`
             : `Ты литературный редактор. Предложи 3 универсальные идеи для развития сюжета начинающего романа. Каждая идея — одно-два предложения, конкретная и интригующая. Строго JSON: {"ideas": ["идея 1", "идея 2", "идея 3"]}. Только JSON.`;
 
-        const response = await fetch('https://api.anthropic.com/v1/messages', {
+        const response = await fetch('/api/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                model: 'claude-sonnet-4-6',
-                max_tokens: 1000,
-                messages: [{ role: 'user', content: prompt }]
+                prompt: prompt,
+                max_tokens: 1000
             })
         });
 
         const data = await response.json();
-        const raw  = data.content.map(b => b.text || '').join('');
+        if (data.error) throw new Error(data.error);
+        const raw  = data.text || '';
         const clean = raw.replace(/```json|```/g, '').trim();
         const parsed = JSON.parse(clean);
         const ideas = parsed.ideas || [];
@@ -1616,13 +1616,12 @@ ${allText.slice(0, 40000)}
 - Только JSON, без markdown обёртки`;
 
     try {
-        const response = await fetch('https://api.anthropic.com/v1/messages', {
+        const response = await fetch('/api/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                model: 'claude-sonnet-4-6',
-                max_tokens: 4000,
-                messages: [{ role: 'user', content: prompt }]
+                prompt: prompt,
+                max_tokens: 4000
             })
         });
 
@@ -1632,7 +1631,8 @@ ${allText.slice(0, 40000)}
         progressStatus.textContent = 'Корректура завершена';
 
         const data = await response.json();
-        const raw  = data.content.map(b => b.text || '').join('');
+        if (data.error) throw new Error(data.error);
+        const raw  = data.text || '';
         const clean = raw.replace(/```json|```/g, '').trim();
 
         let parsed;
