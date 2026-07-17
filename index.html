@@ -7,1582 +7,1149 @@
 <link rel="icon" type="image/png" href="favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,sans-serif;background:#f5f5f5;color:#1d1d1f;overflow-x:hidden}
 
-body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    background: #f5f5f5;
-    color: #1d1d1f;
-    overflow-x: hidden;
-}
+/* NAV */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 50px;height:60px;background:#fff;border-bottom:1px solid #e0e0e0}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:'Playfair Display',serif;font-weight:900;font-size:20px;color:#1d1d1f;cursor:pointer;text-decoration:none}
+.nav-logo img{width:54px;height:54px}
+.nav-links{display:flex;gap:48px;align-items:center}
+.nav-links a{font-size:13px;font-weight:500;color:#1d1d1f;text-decoration:none;text-transform:uppercase;letter-spacing:2px;cursor:pointer;transition:color .3s}
+.nav-links a:hover{color:#0071e3}
+.nav-links a.how-link{color:#0071e3}
+.nav-user{display:none;align-items:center;gap:12px}
+.nav-user.visible{display:flex}
+.nav-user-name{font-size:13px;font-weight:500;color:#1d1d1f}
+.nav-logout-btn{font-size:12px;color:#86868b;cursor:pointer;text-transform:uppercase;letter-spacing:1px;border:1px solid #d2d2d7;padding:5px 14px;border-radius:980px;transition:all .3s;background:none}
+.nav-logout-btn:hover{border-color:#ff3b30;color:#ff3b30}
 
-/* === НАВИГАЦИЯ === */
-.navbar {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 50px; height: 60px;
-    background: #fff; border-bottom: 1px solid #e0e0e0;
-}
-.nav-logo {
-    display: flex; align-items: center; gap: 10px;
-    font-family: 'Playfair Display', serif; font-weight: 900; font-size: 20px;
-    color: #1d1d1f; cursor: pointer; text-decoration: none;
-}
-.nav-logo img { width: 54px; height: 54px; }
-.nav-links { display: flex; gap: 64px; align-items: center; }
-.nav-links a {
-    font-size: 13px; font-weight: 500; color: #1d1d1f;
-    text-decoration: none; text-transform: uppercase; letter-spacing: 2px;
-    cursor: pointer; transition: color .3s;
-}
-.nav-links a:hover { color: #0071e3; }
+/* SCREENS */
+.screen{display:none;min-height:100vh;padding-top:60px}
+.screen.active{display:block}
 
-.nav-user { display: none; align-items: center; gap: 12px; }
-.nav-user.visible { display: flex; }
-.nav-user-name { font-size: 13px; font-weight: 500; color: #1d1d1f; }
-.nav-logout-btn {
-    font-size: 12px; color: #86868b; cursor: pointer;
-    text-decoration: none; text-transform: uppercase; letter-spacing: 1px;
-    border: 1px solid #d2d2d7; padding: 5px 14px; border-radius: 980px;
-    transition: all .3s; background: none;
-}
-.nav-logout-btn:hover { border-color: #ff3b30; color: #ff3b30; }
+/* HOME */
+.home-screen{background:#f5f5f5}
+.hero-section{text-align:center;padding:80px 50px 40px}
+.hero-title{font-family:'Playfair Display',serif;font-size:64px;font-weight:900;color:#1d1d1f;line-height:1.1;margin-bottom:20px}
+.hero-subtitle{font-size:18px;color:#86868b;font-weight:300;line-height:1.6;margin-bottom:40px}
+.hero-btn{display:inline-block;padding:16px 48px;border:2px solid #1d1d1f;background:transparent;color:#1d1d1f;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:3px;cursor:pointer;transition:all .3s;text-decoration:none}
+.hero-btn:hover{background:#1d1d1f;color:#fff}
 
-/* === ЭКРАНЫ === */
-.screen { display: none; min-height: 100vh; padding-top: 60px; }
-.screen.active { display: block; }
+/* HOME DASHBOARD */
+.home-dashboard{max-width:960px;margin:0 auto;padding:0 50px 60px;display:none;flex-direction:column;gap:20px}
+.home-dashboard.visible{display:flex}
+.db-progress-card{background:#fff;border-radius:16px;box-shadow:0 2px 20px rgba(0,0,0,.06);padding:28px 32px;display:flex;gap:32px;align-items:center}
+.db-ring-wrap{position:relative;width:100px;height:100px;flex-shrink:0}
+.db-ring-wrap svg{width:100%;height:100%}
+.db-ring-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.db-ring-pct{font-size:1.3rem;font-weight:700;color:#1d1d1f}
+.db-ring-lbl{font-size:10px;color:#86868b;text-transform:uppercase;letter-spacing:.05em}
+.db-progress-info{flex:1}
+.db-progress-words{font-size:1.6rem;font-weight:700;color:#1d1d1f}
+.db-progress-sub{font-size:13px;color:#86868b;margin:4px 0 14px}
+.db-bar{height:4px;background:#e5e5e5;border-radius:2px;overflow:hidden;margin-bottom:6px}
+.db-bar-fill{height:100%;background:#1d1d1f;border-radius:2px;transition:width .5s}
+.db-bar-lbl{font-size:11px;color:#86868b}
+.db-stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.db-stat-card{background:#fff;border-radius:14px;box-shadow:0 2px 20px rgba(0,0,0,.06);padding:18px 20px}
+.db-stat-icon{font-size:1rem;margin-bottom:6px}
+.db-stat-num{font-size:1.4rem;font-weight:700;color:#1d1d1f}
+.db-stat-lbl{font-size:11px;color:#86868b;margin-top:3px}
+.db-msg{font-size:14px;color:#555;background:#fff;border-left:3px solid #1d1d1f;border-radius:0 10px 10px 0;padding:14px 18px;line-height:1.6;box-shadow:0 2px 20px rgba(0,0,0,.06)}
+.db-cta{display:flex;gap:12px}
 
-/* === ГЛАВНАЯ === */
-.home-screen { background: #f5f5f5; }
-.hero-section { text-align: center; padding: 80px 50px 40px; }
-.hero-title {
-    font-family: 'Playfair Display', serif; font-size: 64px; font-weight: 900;
-    color: #1d1d1f; line-height: 1.1; margin-bottom: 20px;
-}
-.hero-subtitle {
-    font-size: 18px; color: #86868b; font-weight: 300;
-    line-height: 1.6; margin-bottom: 40px;
-}
-.hero-btn {
-    display: inline-block; padding: 16px 48px;
-    border: 2px solid #1d1d1f; background: transparent; color: #1d1d1f;
-    font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px;
-    cursor: pointer; transition: all .3s; text-decoration: none;
-}
-.hero-btn:hover { background: #1d1d1f; color: #fff; }
+/* INFOGRAPHIC */
+.infographic{display:flex;justify-content:center;gap:60px;padding:40px 50px 60px;max-width:1000px;margin:0 auto}
+.info-step{text-align:center;flex:1}
+.info-num{font-family:'Playfair Display',serif;font-size:42px;font-weight:300;color:#ccc;margin-bottom:8px}
+.info-label{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px;color:#1d1d1f}
+.info-desc{font-size:12px;color:#86868b;line-height:1.6}
+.desk-section{width:100%}
+.desk-section img{width:100%;height:auto;display:block;object-fit:contain}
 
-/* ── ПАТЧ 6: ДАШБОРД НА ГЛАВНОЙ ── */
-.home-dashboard {
-    max-width: 960px; margin: 0 auto; padding: 0 50px 60px;
-    display: flex; flex-direction: column; gap: 20px;
-}
-.db-section-title {
-    font-family: 'Playfair Display', serif; font-size: 22px;
-    font-weight: 700; color: #1d1d1f; margin-bottom: 16px;
-}
-.db-progress-card {
-    background: #fff; border-radius: 16px;
-    box-shadow: 0 2px 20px rgba(0,0,0,.06);
-    padding: 28px 32px; display: flex; gap: 32px; align-items: center;
-}
-.db-ring-wrap { position: relative; width: 100px; height: 100px; flex-shrink: 0; }
-.db-ring-wrap svg { width: 100%; height: 100%; }
-.db-ring-center {
-    position: absolute; inset: 0; display: flex;
-    flex-direction: column; align-items: center; justify-content: center;
-}
-.db-ring-pct { font-size: 1.3rem; font-weight: 700; color: #1d1d1f; }
-.db-ring-lbl { font-size: 10px; color: #86868b; text-transform: uppercase; letter-spacing: .05em; }
-.db-progress-info { flex: 1; }
-.db-progress-words { font-size: 1.6rem; font-weight: 700; color: #1d1d1f; }
-.db-progress-sub { font-size: 13px; color: #86868b; margin: 4px 0 14px; }
-.db-progress-bar { height: 4px; background: #e5e5e5; border-radius: 2px; overflow: hidden; margin-bottom: 6px; }
-.db-progress-fill { height: 100%; background: #1d1d1f; border-radius: 2px; transition: width .5s; }
-.db-progress-bar-lbl { font-size: 11px; color: #86868b; }
-.db-stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-.db-stat-card {
-    background: #fff; border-radius: 14px;
-    box-shadow: 0 2px 20px rgba(0,0,0,.06);
-    padding: 18px 20px;
-}
-.db-stat-icon { font-size: 1rem; margin-bottom: 6px; }
-.db-stat-num { font-size: 1.4rem; font-weight: 700; color: #1d1d1f; }
-.db-stat-lbl { font-size: 11px; color: #86868b; margin-top: 3px; }
-.db-stat-badge {
-    display: inline-block; font-size: 10px; padding: 2px 8px;
-    border-radius: 980px; margin-top: 5px; font-weight: 600;
-}
-.db-badge-good { background: #e6f9ed; color: #34c759; }
-.db-badge-warn { background: #fff5e6; color: #ff9500; }
-.db-calendar-card {
-    background: #fff; border-radius: 16px;
-    box-shadow: 0 2px 20px rgba(0,0,0,.06);
-    padding: 24px 28px;
-}
-.db-calendar-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
-.db-calendar-title { font-size: 14px; font-weight: 600; color: #1d1d1f; }
-.db-calendar-streak { font-size: 13px; color: #ff9500; font-weight: 600; }
-.db-days-grid { display: flex; gap: 5px; flex-wrap: wrap; }
-.db-day {
-    width: 24px; height: 24px; border-radius: 5px;
-    border: 1px solid #e5e5e5; display: flex; align-items: center;
-    justify-content: center; font-size: 9px; color: #ccc;
-}
-.db-day.done { background: #1d1d1f; border-color: #1d1d1f; color: transparent; }
-.db-day.today { border-color: #0071e3; color: #0071e3; font-size: 8px; font-weight: 700; }
-.db-chapters-card {
-    background: #fff; border-radius: 16px;
-    box-shadow: 0 2px 20px rgba(0,0,0,.06);
-    overflow: hidden;
-}
-.db-chapters-head {
-    padding: 18px 24px 14px; border-bottom: 1px solid #f0f0f0;
-    display: flex; align-items: center; justify-content: space-between;
-}
-.db-chapters-head-title { font-size: 14px; font-weight: 600; color: #1d1d1f; }
-.db-chapters-head-count { font-size: 12px; color: #86868b; }
-.db-ch-item {
-    display: flex; align-items: center; gap: 12px;
-    padding: 12px 24px; border-bottom: 1px solid #f9f9f9;
-}
-.db-ch-item:last-child { border-bottom: none; }
-.db-ch-day { font-size: 11px; color: #86868b; min-width: 52px; }
-.db-ch-name { font-size: 13px; color: #1d1d1f; flex: 1; font-weight: 500; }
-.db-ch-words { font-size: 11px; color: #86868b; }
-.db-msg {
-    font-size: 14px; color: #555; background: #fff;
-    border-left: 3px solid #1d1d1f; border-radius: 0 10px 10px 0;
-    padding: 14px 18px; line-height: 1.6;
-    box-shadow: 0 2px 20px rgba(0,0,0,.06);
-}
-/* ── КОНЕЦ ПАТЧА 6 ── */
+/* ABOUT */
+.about-screen{background:#fff}
+.about-container{max-width:800px;margin:0 auto;padding:80px 40px 60px}
+.about-main-title{font-family:'Playfair Display',serif;font-size:48px;font-weight:900;text-align:center;margin-bottom:60px;color:#1d1d1f}
+.about-block{margin-bottom:50px}
+.about-block-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:#1d1d1f;margin-bottom:20px;line-height:1.3}
+.about-block p{font-size:16px;line-height:1.9;color:#333;margin-bottom:14px;font-weight:300}
+.about-block .highlight{font-weight:600;color:#1d1d1f}
+.about-block .rule-list{list-style:none;padding:0;margin:16px 0}
+.about-block .rule-list li{font-size:16px;line-height:1.9;color:#333;font-weight:400;padding-left:20px;position:relative;margin-bottom:4px}
+.about-block .rule-list li::before{content:'—';position:absolute;left:0;color:#999}
+.about-finale{text-align:center;padding:40px 0 20px;border-top:1px solid #e0e0e0;margin-top:60px}
+.about-finale p{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#1d1d1f;margin-bottom:8px}
+.about-finale .tagline{font-family:'Inter',sans-serif;font-size:14px;color:#86868b;font-weight:400;letter-spacing:2px;text-transform:uppercase;margin-bottom:40px}
+.about-cta-btn{display:inline-block;padding:18px 56px;border:2px solid #1d1d1f;background:transparent;color:#1d1d1f;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:3px;cursor:pointer;transition:all .3s;text-decoration:none}
+.about-cta-btn:hover{background:#1d1d1f;color:#fff}
 
-.infographic {
-    display: flex; justify-content: center; gap: 60px;
-    padding: 40px 50px 60px; max-width: 1000px; margin: 0 auto;
-}
-.info-step { text-align: center; flex: 1; }
-.info-num { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 300; color: #ccc; margin-bottom: 8px; }
-.info-label { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; color: #1d1d1f; }
-.info-desc { font-size: 12px; color: #86868b; line-height: 1.6; }
-.desk-section { width: 100%; }
-.desk-section img { width: 100%; height: auto; display: block; object-fit: contain; }
+/* CABINET */
+.cabinet-screen{background:#f5f5f5}
+.cabinet-layout{display:flex;gap:0;padding:0;max-width:100%;min-height:calc(100vh - 60px)}
 
-/* === О ПРОЕКТЕ === */
-.about-screen { background: #fff; }
-.about-container { max-width: 800px; margin: 0 auto; padding: 80px 40px 60px; }
-.about-main-title { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 900; text-align: center; margin-bottom: 60px; color: #1d1d1f; }
-.about-block { margin-bottom: 50px; }
-.about-block-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: #1d1d1f; margin-bottom: 20px; line-height: 1.3; }
-.about-block p { font-size: 16px; line-height: 1.9; color: #333; margin-bottom: 14px; font-weight: 300; }
-.about-block .highlight { font-weight: 600; color: #1d1d1f; }
-.about-block .rule-list { list-style: none; padding: 0; margin: 16px 0; }
-.about-block .rule-list li { font-size: 16px; line-height: 1.9; color: #333; font-weight: 400; padding-left: 20px; position: relative; margin-bottom: 4px; }
-.about-block .rule-list li::before { content: '—'; position: absolute; left: 0; color: #999; }
-.about-finale { text-align: center; padding: 40px 0 20px; border-top: 1px solid #e0e0e0; margin-top: 60px; }
-.about-finale p { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #1d1d1f; margin-bottom: 8px; }
-.about-finale .tagline { font-family: 'Inter', sans-serif; font-size: 14px; color: #86868b; font-weight: 400; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 40px; }
-.about-cta-btn { display: inline-block; padding: 18px 56px; border: 2px solid #1d1d1f; background: transparent; color: #1d1d1f; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; cursor: pointer; transition: all .3s; text-decoration: none; }
-.about-cta-btn:hover { background: #1d1d1f; color: #fff; }
+/* SIDEBAR */
+.sidebar{width:280px;display:flex;flex-direction:column;background:#fff;border-right:1px solid #e0e0e0;flex-shrink:0;min-height:calc(100vh - 60px)}
+.sidebar-books-section{padding:16px 16px 8px;border-bottom:1px solid #f0f0f0}
+.sidebar-section-label{font-size:11px;font-weight:600;color:#86868b;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px}
+.book-item{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:10px;cursor:pointer;transition:all .2s;margin-bottom:3px;border:1px solid transparent}
+.book-item:hover{background:#f5f5f7}
+.book-item.active{background:#f5f5f7;border-color:#e0e0e0}
+.book-item-icon{width:32px;height:32px;border-radius:8px;background:#1d1d1f;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.book-item-info{flex:1;min-width:0}
+.book-item-title{font-size:13px;font-weight:500;color:#1d1d1f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:2px}
+.book-item-meta{font-size:11px;color:#86868b}
+.book-item-progress{height:2px;background:#e5e5e5;border-radius:1px;margin-top:5px;overflow:hidden}
+.book-item-fill{height:100%;background:#1d1d1f;border-radius:1px}
+.book-add-btn{display:flex;align-items:center;gap:8px;width:100%;padding:8px 10px;border:1.5px dashed #d2d2d7;border-radius:10px;background:none;color:#86868b;font-size:13px;cursor:pointer;transition:all .2s;margin-top:4px}
+.book-add-btn:hover{border-color:#0071e3;color:#0071e3;background:#f0f7ff}
 
-/* === ЛИЧНЫЙ КАБИНЕТ === */
-.cabinet-screen { background: #f5f5f5; }
-.cabinet-layout { display: flex; gap: 30px; padding: 30px 40px; max-width: 1400px; margin: 0 auto; min-height: calc(100vh - 60px); }
-.writing-zone { flex: 1; display: flex; flex-direction: column; }
-.writing-card { background: #fff; border-radius: 16px; box-shadow: 0 2px 20px rgba(0,0,0,.06); padding: 30px; flex: 1; display: flex; flex-direction: column; }
-.toolbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
-.word-counter { font-size: 14px; color: #86868b; font-weight: 500; }
-.word-counter span { color: #1d1d1f; font-weight: 700; font-size: 18px; }
-.toolbar-actions { display: flex; gap: 10px; align-items: center; }
-.toolbar-btn { padding: 8px 20px; border-radius: 980px; border: 1.5px solid #d2d2d7; background: #fff; color: #1d1d1f; font-size: 12px; font-weight: 600; cursor: pointer; transition: all .3s; text-transform: uppercase; letter-spacing: 1px; }
-.toolbar-btn:hover { border-color: #0071e3; color: #0071e3; }
-.toolbar-btn.save-btn { display: none; border-color: #34c759; color: #34c759; }
-.toolbar-btn.save-btn:hover { background: #34c759; color: #fff; }
-.toolbar-btn.correction-btn { border-color: #ff9500; color: #ff9500; }
-.toolbar-btn.correction-btn:hover { background: #ff9500; color: #fff; }
+.sidebar-chapters-section{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.sidebar-chapters-head{padding:14px 16px 8px;display:flex;align-items:center;justify-content:space-between}
+.sidebar-chapters-title{font-size:11px;font-weight:600;color:#86868b;text-transform:uppercase;letter-spacing:1.5px}
+.sidebar-chapters-count{font-size:11px;color:#ccc}
+.chapters-scroll{flex:1;overflow-y:auto;padding:0 8px 8px}
+.chapter-item{display:flex;align-items:center;gap:6px;padding:7px 8px;border-radius:8px;transition:background .15s}
+.chapter-item:hover{background:#f5f5f7}
+.chapter-item:hover .ch-actions{opacity:1}
+.ch-day{font-size:11px;color:#86868b;min-width:44px;flex-shrink:0}
+.ch-name{font-size:13px;font-weight:500;color:#1d1d1f;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ch-words{font-size:11px;color:#ccc;margin-right:4px}
+.ch-actions{display:flex;gap:2px;opacity:0;transition:opacity .15s;flex-shrink:0}
+.ch-btn{width:24px;height:24px;border:none;border-radius:6px;background:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:13px;transition:all .15s;color:#86868b}
+.ch-btn:hover{background:#f5f5f7}
+.ch-btn.view:hover{background:#e3f0ff;color:#0071e3}
+.ch-btn.edit:hover{background:#fff5e6;color:#ff9500}
+.ch-btn.del:hover{background:#fff0f0;color:#ff3b30}
+.no-chapters{padding:24px 12px;text-align:center;font-size:13px;color:#ccc}
 
-/* ── ПАТЧ 3: КНОПКА «СДАТЬСЯ» ── */
-.toolbar-btn.giveup-btn {
-    border-color: transparent; color: #ccc; font-size: 11px;
-    padding: 6px 14px; opacity: .5; transition: all .3s;
-}
-.toolbar-btn.giveup-btn:hover { border-color: #ff3b30; color: #ff3b30; opacity: 1; background: #fff5f5; }
-/* ── КОНЕЦ ПАТЧА 3 ── */
+/* WRITING ZONE */
+.writing-zone{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.writing-card{background:#fff;margin:20px;border-radius:16px;box-shadow:0 2px 20px rgba(0,0,0,.06);padding:24px;flex:1;display:flex;flex-direction:column}
 
-/* ── ПАТЧ 2: ТАЙМЕР ── */
-.timer-zone { display: flex; flex-direction: column; align-items: center; margin-bottom: 20px; }
-.timer-display { font-family: 'Courier New', monospace; font-size: 72px; font-weight: 700; color: #1d1d1f; letter-spacing: 4px; line-height: 1; }
-.timer-display.warning { color: #ff3b30; animation: pulse .5s infinite; }
-.timer-sub-label { font-size: 12px; color: #86868b; text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; transition: color .3s; }
-.timer-sub-label.urgent { color: #ff3b30; font-weight: 600; }
-@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .4; } }
-.timer-controls { display: flex; gap: 12px; margin-top: 12px; }
-.timer-btn { padding: 10px 32px; border-radius: 980px; border: none; font-size: 13px; font-weight: 600; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: all .3s; }
-.start-btn { background: #1d1d1f; color: #fff; }
-.start-btn:hover { background: #333; }
-.stop-btn { background: #ff3b30; color: #fff; display: none; }
-.stop-btn:hover { background: #cc2d25; }
-/* ── КОНЕЦ ПАТЧА 2 ── */
+/* TOOLBAR */
+.toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px}
+.toolbar-left{display:flex;align-items:center;gap:12px}
+.book-title-badge{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#1d1d1f}
+.word-counter{font-size:13px;color:#86868b;font-weight:500}
+.word-counter span{color:#1d1d1f;font-weight:700;font-size:16px}
+.toolbar-actions{display:flex;gap:8px;align-items:center}
+.toolbar-btn{padding:7px 18px;border-radius:980px;border:1.5px solid #d2d2d7;background:#fff;color:#1d1d1f;font-size:12px;font-weight:600;cursor:pointer;transition:all .3s;text-transform:uppercase;letter-spacing:1px}
+.toolbar-btn:hover{border-color:#0071e3;color:#0071e3}
+.toolbar-btn.save-btn{display:none;border-color:#34c759;color:#34c759}
+.toolbar-btn.save-btn:hover{background:#34c759;color:#fff}
+.toolbar-btn.correction-btn{border-color:#ff9500;color:#ff9500}
+.toolbar-btn.correction-btn:hover{background:#ff9500;color:#fff}
+.toolbar-btn.giveup-btn{border-color:transparent;color:#ccc;font-size:11px;padding:6px 12px;opacity:.5}
+.toolbar-btn.giveup-btn:hover{border-color:#ff3b30;color:#ff3b30;opacity:1;background:#fff5f5}
 
-/* ── ПАТЧ 4: AI-КНОПКА ── */
-.ai-trigger-wrap { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
-.ai-trigger-btn {
-    padding: 7px 18px; border-radius: 980px; border: 1.5px solid #0071e3;
-    background: #f0f7ff; color: #0071e3; font-size: 12px; font-weight: 600;
-    cursor: pointer; transition: all .3s; text-transform: uppercase; letter-spacing: 1px;
-}
-.ai-trigger-btn:hover { background: #0071e3; color: #fff; }
-.ai-trigger-btn:disabled { border-color: #d2d2d7; color: #ccc; background: #fafafa; cursor: not-allowed; }
-.ai-trigger-hint { font-size: 11px; color: #ccc; }
-/* ── КОНЕЦ ПАТЧА 4 ── */
+/* TIMER */
+.timer-zone{display:flex;flex-direction:column;align-items:center;margin-bottom:16px}
+.timer-display{font-family:'Courier New',monospace;font-size:72px;font-weight:700;color:#1d1d1f;letter-spacing:4px;line-height:1}
+.timer-display.warning{color:#ff3b30;animation:pulse .5s infinite}
+.timer-sub-label{font-size:12px;color:#86868b;text-transform:uppercase;letter-spacing:2px;margin-top:4px;transition:color .3s}
+.timer-sub-label.urgent{color:#ff3b30;font-weight:600}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.timer-controls{display:flex;gap:12px;margin-top:10px}
+.timer-btn{padding:10px 32px;border-radius:980px;border:none;font-size:13px;font-weight:600;cursor:pointer;text-transform:uppercase;letter-spacing:1px;transition:all .3s}
+.start-btn{background:#1d1d1f;color:#fff}
+.start-btn:hover{background:#333}
+.stop-btn{background:#ff3b30;color:#fff;display:none}
 
-.writing-area { flex: 1; width: 100%; min-height: 400px; border: none; outline: none; font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.9; color: #1d1d1f; resize: none; padding: 10px 0; background: transparent; }
-.writing-area::placeholder { color: #ccc; }
+/* AI TRIGGER */
+.ai-trigger-wrap{display:flex;align-items:center;gap:8px;margin-top:8px}
+.ai-trigger-btn{padding:7px 18px;border-radius:980px;border:1.5px solid #0071e3;background:#f0f7ff;color:#0071e3;font-size:12px;font-weight:600;cursor:pointer;transition:all .3s;text-transform:uppercase;letter-spacing:1px}
+.ai-trigger-btn:hover{background:#0071e3;color:#fff}
+.ai-trigger-btn:disabled{border-color:#d2d2d7;color:#ccc;background:#fafafa;cursor:not-allowed}
+.ai-trigger-hint{font-size:11px;color:#ccc}
 
-.sidebar { width: 300px; display: flex; flex-direction: column; }
-.sidebar-card { background: #fff; border-radius: 16px; box-shadow: 0 2px 20px rgba(0,0,0,.06); padding: 24px; flex: 1; overflow-y: auto; }
-.sidebar-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; margin-bottom: 6px; color: #1d1d1f; }
-.sidebar-progress { font-size: 12px; color: #86868b; margin-bottom: 20px; }
-.progress-bar { width: 100%; height: 4px; background: #e5e5e5; border-radius: 2px; margin-bottom: 20px; overflow: hidden; }
-.progress-fill { height: 100%; background: #1d1d1f; border-radius: 2px; width: 0%; transition: width .5s; }
-.chapter-item { padding: 12px 0; border-bottom: 1px solid #f0f0f0; }
-.chapter-header { display: flex; align-items: center; justify-content: space-between; }
-.chapter-name { font-size: 13px; font-weight: 500; color: #1d1d1f; flex: 1; }
-.chapter-words { font-size: 11px; color: #86868b; margin-left: 8px; }
-.chapter-actions { display: flex; gap: 4px; margin-left: 8px; }
-.ch-action-btn { width: 28px; height: 28px; border: none; border-radius: 6px; background: #f5f5f7; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 14px; transition: all .2s; }
-.ch-action-btn:hover { background: #e0e0e0; }
-.ch-action-btn.view-btn:hover { background: #e3f0ff; }
-.ch-action-btn.edit-btn:hover { background: #fff5e6; }
-.ch-action-btn.dl-btn:hover { background: #e6f9ed; }
-.no-chapters { font-size: 13px; color: #ccc; text-align: center; padding: 40px 0; }
+/* TEXTAREA */
+.writing-area{flex:1;width:100%;min-height:300px;border:none;outline:none;font-family:'Inter',sans-serif;font-size:16px;line-height:1.9;color:#1d1d1f;resize:none;padding:8px 0;background:transparent}
+.writing-area::placeholder{color:#ccc}
 
-/* === МОДАЛКИ === */
-.modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,.5); z-index: 2000; align-items: center; justify-content: center; }
-.modal-overlay.active { display: flex; }
-.modal { background: #fff; border-radius: 20px; padding: 40px; max-width: 700px; width: 90%; max-height: 80vh; overflow-y: auto; position: relative; }
-.modal-close { position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 24px; cursor: pointer; color: #86868b; transition: color .3s; }
-.modal-close:hover { color: #1d1d1f; }
-.modal h2 { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; margin-bottom: 20px; }
-.modal textarea { width: 100%; min-height: 300px; border: 1px solid #e0e0e0; border-radius: 12px; padding: 16px; font-size: 15px; line-height: 1.8; font-family: 'Inter', sans-serif; outline: none; resize: vertical; }
-.modal textarea:focus { border-color: #0071e3; }
-.modal-actions { display: flex; gap: 12px; margin-top: 20px; justify-content: flex-end; }
-.modal-btn { padding: 10px 28px; border-radius: 980px; border: none; font-size: 13px; font-weight: 600; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: all .3s; }
-.modal-btn.primary { background: #1d1d1f; color: #fff; }
-.modal-btn.primary:hover { background: #333; }
-.modal-btn.secondary { background: #f5f5f5; color: #1d1d1f; }
-.view-content { font-size: 15px; line-height: 1.9; color: #333; white-space: pre-wrap; }
+/* AI IDEAS */
+.ai-ideas{background:#f0f7ff;border-radius:12px;padding:20px;margin-top:12px;display:none}
+.ai-ideas-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.ai-ideas h4{font-size:14px;font-weight:700;color:#0071e3;margin:0}
+.ai-ideas-close{background:none;border:none;color:#86868b;font-size:18px;cursor:pointer}
+.ai-ideas-close:hover{color:#1d1d1f}
+.ai-idea-item{background:#fff;border-radius:8px;padding:12px 16px;margin-bottom:8px;font-size:13px;line-height:1.6;cursor:pointer;transition:all .2s;border:1px solid #e0e0e0}
+.ai-idea-item:hover{border-color:#0071e3;background:#f8fbff}
+.ai-idea-use-hint{font-size:11px;color:#86868b;margin-top:4px;text-align:center;font-style:italic}
+.ai-loading{display:flex;align-items:center;gap:10px;padding:16px 0;font-size:13px;color:#0071e3}
+.ai-loading-dots{display:flex;gap:4px}
+.ai-loading-dots span{width:6px;height:6px;border-radius:50%;background:#0071e3;animation:dotPulse 1.2s infinite}
+.ai-loading-dots span:nth-child(2){animation-delay:.2s}
+.ai-loading-dots span:nth-child(3){animation-delay:.4s}
+@keyframes dotPulse{0%,80%,100%{opacity:.2;transform:scale(.8)}40%{opacity:1;transform:scale(1)}}
 
-.save-dialog { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,.5); z-index: 2000; align-items: center; justify-content: center; }
-.save-dialog.active { display: flex; }
-.save-dialog-box { background: #fff; border-radius: 20px; padding: 40px; max-width: 450px; width: 90%; text-align: center; }
-.save-dialog-box h3 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 20px; }
-.save-dialog-box input { width: 100%; padding: 14px 18px; border: 1.5px solid #e0e0e0; border-radius: 12px; font-size: 15px; outline: none; font-family: 'Inter', sans-serif; margin-bottom: 20px; }
-.save-dialog-box input:focus { border-color: #0071e3; }
+/* CORRECTION */
+.correction-screen{background:#fff}
+.correction-container{max-width:860px;margin:0 auto;padding:80px 40px 60px}
+.correction-title{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;text-align:center;margin-bottom:12px}
+.correction-subtitle{text-align:center;font-size:15px;color:#86868b;margin-bottom:40px;line-height:1.6}
+.correction-progress-wrap{background:#f5f5f7;border-radius:16px;padding:28px;margin-bottom:28px;text-align:center;display:none}
+.correction-progress-wrap.active{display:block}
+.correction-progress-label{font-size:13px;color:#86868b;margin-bottom:12px;font-weight:500;text-transform:uppercase;letter-spacing:1px}
+.correction-progress-bar{width:100%;height:6px;background:#e0e0e0;border-radius:3px;overflow:hidden;margin-bottom:10px}
+.correction-progress-fill{height:100%;background:linear-gradient(90deg,#0071e3,#34c759);border-radius:3px;width:0%;transition:width .6s ease}
+.correction-progress-status{font-size:13px;color:#555}
+.correction-section{margin-bottom:28px;border:1px solid #e8e8e8;border-radius:16px;overflow:hidden}
+.correction-section-header{padding:18px 24px;background:#f9f9f9;display:flex;align-items:center;gap:12px;border-bottom:1px solid #e8e8e8}
+.correction-section-icon{font-size:20px}
+.correction-section-title{font-size:16px;font-weight:700;color:#1d1d1f;flex:1}
+.correction-section-badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:980px;text-transform:uppercase;letter-spacing:1px}
+.badge-ok{background:#e6f9ed;color:#34c759}
+.badge-warn{background:#fff5e6;color:#ff9500}
+.badge-info{background:#f0f7ff;color:#0071e3}
+.correction-section-body{padding:20px 24px}
+.correction-issue{padding:12px 16px;border-radius:10px;border-left:3px solid #ff9500;background:#fffbf5;margin-bottom:10px;font-size:13px;line-height:1.7}
+.correction-issue:last-child{margin-bottom:0}
+.issue-original{color:#ff3b30;text-decoration:line-through;font-weight:500}
+.issue-arrow{color:#86868b;margin:0 6px}
+.issue-suggested{color:#34c759;font-weight:600}
+.issue-comment{display:block;font-size:12px;color:#86868b;margin-top:4px}
+.correction-empty{font-size:13px;color:#86868b;font-style:italic;padding:4px 0}
+.correction-start-btn{display:block;width:100%;padding:18px;border:2px solid #1d1d1f;background:transparent;color:#1d1d1f;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:3px;cursor:pointer;transition:all .3s;border-radius:4px;text-align:center;margin-bottom:20px}
+.correction-start-btn:hover{background:#1d1d1f;color:#fff}
+.correction-start-btn:disabled{opacity:.5;cursor:not-allowed}
 
-.continue-dialog { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,.5); z-index: 2000; align-items: center; justify-content: center; }
-.continue-dialog.active { display: flex; }
+/* COVER */
+.cover-screen{background:#f5f5f5}
+.cover-container{max-width:900px;margin:0 auto;padding:80px 40px 60px;text-align:center}
+.cover-title{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;margin-bottom:40px}
+.cover-preview{width:340px;height:480px;margin:0 auto 40px;background:#1d1d1f;border-radius:4px;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.3)}
+.cover-bg-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;display:none}
+.cover-preview.has-image .cover-bg-img{display:block}
+.cover-overlay{position:relative;z-index:1;text-align:center;background:rgba(0,0,0,.4);padding:30px;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.cover-preview:not(.has-image) .cover-overlay{background:none}
+.cover-author-el{font-size:14px;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px}
+.cover-book-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;margin-bottom:20px}
+.cover-year-el{font-size:12px;letter-spacing:2px}
+.cover-form{max-width:400px;margin:0 auto}
+.cover-form input{width:100%;padding:14px 18px;border:1.5px solid #e0e0e0;border-radius:12px;font-size:15px;outline:none;font-family:'Inter',sans-serif;margin-bottom:14px;background:#fff}
+.cover-form input:focus{border-color:#0071e3}
+.cover-form label{display:block;text-align:left;font-size:12px;font-weight:600;color:#86868b;margin-bottom:6px;text-transform:uppercase;letter-spacing:1px}
 
-.stop-warning { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,.5); z-index: 2000; align-items: center; justify-content: center; }
-.stop-warning.active { display: flex; }
+/* MODALS */
+.modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);z-index:2000;align-items:center;justify-content:center}
+.modal-overlay.active{display:flex}
+.modal{background:#fff;border-radius:20px;padding:40px;max-width:700px;width:90%;max-height:80vh;overflow-y:auto;position:relative}
+.modal-close{position:absolute;top:16px;right:20px;background:none;border:none;font-size:24px;cursor:pointer;color:#86868b}
+.modal-close:hover{color:#1d1d1f}
+.modal h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:20px}
+.modal textarea{width:100%;min-height:300px;border:1px solid #e0e0e0;border-radius:12px;padding:16px;font-size:15px;line-height:1.8;font-family:'Inter',sans-serif;outline:none;resize:vertical}
+.modal textarea:focus{border-color:#0071e3}
+.modal-actions{display:flex;gap:12px;margin-top:20px;justify-content:flex-end}
+.modal-btn{padding:10px 28px;border-radius:980px;border:none;font-size:13px;font-weight:600;cursor:pointer;text-transform:uppercase;letter-spacing:1px;transition:all .3s}
+.modal-btn.primary{background:#1d1d1f;color:#fff}
+.modal-btn.primary:hover{background:#333}
+.modal-btn.secondary{background:#f5f5f5;color:#1d1d1f}
+.view-content{font-size:15px;line-height:1.9;color:#333;white-space:pre-wrap}
 
-/* === ОБЛОЖКА === */
-.cover-screen { background: #f5f5f5; }
-.cover-container { max-width: 900px; margin: 0 auto; padding: 80px 40px 60px; text-align: center; }
-.cover-title { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; margin-bottom: 40px; }
-.cover-preview { width: 340px; height: 480px; margin: 0 auto 40px; background: #1d1d1f; border-radius: 4px; color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,.3); }
-.cover-bg-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; display: none; }
-.cover-preview.has-image .cover-bg-img { display: block; }
-.cover-overlay { position: relative; z-index: 1; text-align: center; background: rgba(0,0,0,.4); padding: 30px; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.cover-preview:not(.has-image) .cover-overlay { background: none; }
-.cover-author { font-size: 14px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; }
-.cover-book-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; margin-bottom: 20px; }
-.cover-year { font-size: 12px; letter-spacing: 2px; }
-.cover-form { max-width: 400px; margin: 0 auto; }
-.cover-form input { width: 100%; padding: 14px 18px; border: 1.5px solid #e0e0e0; border-radius: 12px; font-size: 15px; outline: none; font-family: 'Inter', sans-serif; margin-bottom: 14px; background: #fff; }
-.cover-form input:focus { border-color: #0071e3; }
-.cover-form label { display: block; text-align: left; font-size: 12px; font-weight: 600; color: #86868b; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; }
+/* DIALOGS */
+.save-dialog,.continue-dialog,.stop-warning,.new-book-dialog{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);z-index:2000;align-items:center;justify-content:center}
+.save-dialog.active,.continue-dialog.active,.stop-warning.active,.new-book-dialog.active{display:flex}
+.dialog-box{background:#fff;border-radius:20px;padding:40px;max-width:460px;width:90%;text-align:center}
+.dialog-box h3{font-family:'Playfair Display',serif;font-size:22px;margin-bottom:16px}
+.dialog-box input{width:100%;padding:14px 18px;border:1.5px solid #e0e0e0;border-radius:12px;font-size:15px;outline:none;font-family:'Inter',sans-serif;margin-bottom:20px}
+.dialog-box input:focus{border-color:#0071e3}
+.dialog-box p{font-size:14px;color:#555;line-height:1.6;margin-bottom:16px}
 
-/* === AI ИДЕИ === */
-.ai-ideas { background: #f0f7ff; border-radius: 12px; padding: 20px; margin-top: 16px; display: none; }
-.ai-ideas-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
-.ai-ideas h4 { font-size: 14px; font-weight: 700; color: #0071e3; margin: 0; }
-.ai-ideas-close { background: none; border: none; color: #86868b; font-size: 18px; cursor: pointer; line-height: 1; padding: 0 4px; }
-.ai-ideas-close:hover { color: #1d1d1f; }
-.ai-idea-item { background: #fff; border-radius: 8px; padding: 12px 16px; margin-bottom: 8px; font-size: 13px; line-height: 1.6; cursor: pointer; transition: all .2s; border: 1px solid #e0e0e0; }
-.ai-idea-item:hover { border-color: #0071e3; background: #f8fbff; }
-.ai-idea-use-hint { font-size: 11px; color: #86868b; margin-top: 4px; text-align: center; font-style: italic; }
-.ai-loading { display: flex; align-items: center; gap: 10px; padding: 16px 0; font-size: 13px; color: #0071e3; }
-.ai-loading-dots { display: flex; gap: 4px; }
-.ai-loading-dots span { width: 6px; height: 6px; border-radius: 50%; background: #0071e3; animation: dotPulse 1.2s infinite; }
-.ai-loading-dots span:nth-child(2) { animation-delay: .2s; }
-.ai-loading-dots span:nth-child(3) { animation-delay: .4s; }
-@keyframes dotPulse { 0%,80%,100% { opacity: .2; transform: scale(.8); } 40% { opacity: 1; transform: scale(1); } }
+/* DAY SAVED */
+.day-saved-box{background:#fff;border-radius:20px;padding:36px 40px;max-width:480px;width:90%;text-align:center}
+.day-saved-emoji{font-size:2.2rem;display:block;margin-bottom:8px}
+.day-saved-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;margin-bottom:4px}
+.day-saved-chapter{font-size:13px;color:#86868b;margin-bottom:20px}
+.day-saved-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:18px}
+.ds-stat{background:#f9f9f9;border-radius:12px;padding:12px 8px}
+.ds-stat-num{font-size:1.2rem;font-weight:700;color:#1d1d1f}
+.ds-stat-lbl{font-size:10px;color:#86868b;margin-top:3px}
+.day-saved-progress{background:#f5f5f7;border-radius:12px;padding:14px 16px;margin-bottom:14px}
+.dsp-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.dsp-title{font-size:12px;color:#86868b;font-weight:500}
+.dsp-pct{font-size:1.05rem;font-weight:700;color:#1d1d1f}
+.dsp-bar{height:4px;background:#e5e5e5;border-radius:2px;overflow:hidden;margin-bottom:6px}
+.dsp-fill{height:100%;background:#1d1d1f;border-radius:2px}
+.dsp-sub{display:flex;justify-content:space-between;font-size:11px;color:#86868b}
+.day-saved-streak{display:flex;align-items:center;gap:10px;background:#fff5e6;border-radius:10px;padding:10px 14px;margin-bottom:14px;text-align:left}
+.dss-icon{font-size:1.3rem;flex-shrink:0}
+.dss-text{font-size:13px;color:#ff9500;line-height:1.4}
+.dss-text strong{color:#1d1d1f}
+.day-saved-motivation{font-size:13px;color:#555;background:#f9f9f9;border-left:3px solid #1d1d1f;border-radius:0 8px 8px 0;padding:10px 14px;margin-bottom:20px;line-height:1.6;text-align:left}
+.day-saved-actions{display:flex;flex-direction:column;gap:8px}
 
-/* === КОРРЕКТУРА === */
-.correction-screen { background: #fff; }
-.correction-container { max-width: 860px; margin: 0 auto; padding: 80px 40px 60px; }
-.correction-title { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; text-align: center; margin-bottom: 12px; }
-.correction-subtitle { text-align: center; font-size: 15px; color: #86868b; margin-bottom: 40px; line-height: 1.6; }
-.correction-progress-wrap { background: #f5f5f7; border-radius: 16px; padding: 28px; margin-bottom: 28px; text-align: center; display: none; }
-.correction-progress-wrap.active { display: block; }
-.correction-progress-label { font-size: 13px; color: #86868b; margin-bottom: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
-.correction-progress-bar { width: 100%; height: 6px; background: #e0e0e0; border-radius: 3px; overflow: hidden; margin-bottom: 10px; }
-.correction-progress-fill { height: 100%; background: linear-gradient(90deg, #0071e3, #34c759); border-radius: 3px; width: 0%; transition: width .6s ease; }
-.correction-progress-status { font-size: 13px; color: #555; }
-.correction-section { margin-bottom: 28px; border: 1px solid #e8e8e8; border-radius: 16px; overflow: hidden; }
-.correction-section-header { padding: 18px 24px; background: #f9f9f9; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #e8e8e8; }
-.correction-section-icon { font-size: 20px; }
-.correction-section-title { font-size: 16px; font-weight: 700; color: #1d1d1f; flex: 1; }
-.correction-section-badge { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 980px; text-transform: uppercase; letter-spacing: 1px; }
-.badge-ok { background: #e6f9ed; color: #34c759; }
-.badge-warn { background: #fff5e6; color: #ff9500; }
-.badge-info { background: #f0f7ff; color: #0071e3; }
-.correction-section-body { padding: 20px 24px; }
-.correction-issue { padding: 12px 16px; border-radius: 10px; border-left: 3px solid #ff9500; background: #fffbf5; margin-bottom: 10px; font-size: 13px; line-height: 1.7; }
-.correction-issue:last-child { margin-bottom: 0; }
-.correction-issue .issue-original { color: #ff3b30; text-decoration: line-through; font-weight: 500; }
-.correction-issue .issue-arrow { color: #86868b; margin: 0 6px; }
-.correction-issue .issue-suggested { color: #34c759; font-weight: 600; }
-.correction-issue .issue-comment { display: block; font-size: 12px; color: #86868b; margin-top: 4px; }
-.correction-empty { font-size: 13px; color: #86868b; font-style: italic; padding: 4px 0; }
-.correction-start-btn { display: block; width: 100%; padding: 18px; border: 2px solid #1d1d1f; background: transparent; color: #1d1d1f; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; cursor: pointer; transition: all .3s; border-radius: 4px; text-align: center; margin-bottom: 20px; }
-.correction-start-btn:hover { background: #1d1d1f; color: #fff; }
-.correction-start-btn:disabled { opacity: .5; cursor: not-allowed; }
-.correction-raw { background: #f9f9f9; border-radius: 12px; padding: 20px; font-size: 14px; line-height: 1.8; color: #333; white-space: pre-wrap; max-height: 400px; overflow-y: auto; }
+/* GIVEUP */
+.giveup-stats{display:flex;justify-content:center;gap:24px;margin:16px 0;background:#f9f9f9;border-radius:12px;padding:16px}
+.gu-stat{text-align:center}
+.gu-stat-num{font-size:1.3rem;font-weight:700;color:#1d1d1f}
+.gu-stat-lbl{font-size:10px;color:#86868b;margin-top:3px}
+.gu-countdown{font-size:12px;color:#ccc;text-align:center;min-height:18px;margin:8px 0}
 
-/* ── ПАТЧ 7: МОДАЛКА «СОХРАНЕНО» ── */
-.day-saved-box {
-    background: #fff; border-radius: 20px; padding: 36px 40px;
-    max-width: 480px; width: 90%; text-align: center;
-}
-.day-saved-emoji { font-size: 2.2rem; display: block; margin-bottom: 8px; }
-.day-saved-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; margin-bottom: 4px; }
-.day-saved-chapter { font-size: 13px; color: #86868b; margin-bottom: 20px; }
-.day-saved-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 18px; }
-.ds-stat { background: #f9f9f9; border-radius: 12px; padding: 12px 8px; }
-.ds-stat-num { font-size: 1.2rem; font-weight: 700; color: #1d1d1f; }
-.ds-stat-lbl { font-size: 10px; color: #86868b; margin-top: 3px; }
-.day-saved-progress { background: #f5f5f7; border-radius: 12px; padding: 14px 16px; margin-bottom: 14px; }
-.dsp-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
-.dsp-title { font-size: 12px; color: #86868b; font-weight: 500; }
-.dsp-pct { font-size: 1.05rem; font-weight: 700; color: #1d1d1f; }
-.dsp-bar { height: 4px; background: #e5e5e5; border-radius: 2px; overflow: hidden; margin-bottom: 6px; }
-.dsp-fill { height: 100%; background: #1d1d1f; border-radius: 2px; }
-.dsp-sub { display: flex; justify-content: space-between; font-size: 11px; color: #86868b; }
-.day-saved-streak { display: flex; align-items: center; gap: 10px; background: #fff5e6; border-radius: 10px; padding: 10px 14px; margin-bottom: 14px; text-align: left; }
-.dss-icon { font-size: 1.3rem; flex-shrink: 0; }
-.dss-text { font-size: 13px; color: #ff9500; line-height: 1.4; }
-.dss-text strong { color: #1d1d1f; }
-.day-saved-motivation { font-size: 13px; color: #555; background: #f9f9f9; border-left: 3px solid #1d1d1f; border-radius: 0 8px 8px 0; padding: 10px 14px; margin-bottom: 20px; line-height: 1.6; text-align: left; }
-.day-saved-actions { display: flex; flex-direction: column; gap: 8px; }
-.day-saved-share { display: flex; gap: 8px; justify-content: center; }
-.day-saved-share-btn { font-size: 12px; color: #86868b; background: none; border: 1px solid #e0e0e0; border-radius: 980px; padding: 5px 14px; cursor: pointer; transition: all .2s; }
-.day-saved-share-btn:hover { border-color: #1d1d1f; color: #1d1d1f; }
-/* ── КОНЕЦ ПАТЧА 7 ── */
+/* DELETE CONFIRM */
+.del-confirm-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);z-index:2500;align-items:center;justify-content:center}
+.del-confirm-overlay.active{display:flex}
+.del-confirm-box{background:#fff;border-radius:16px;padding:28px 32px;max-width:360px;width:90%;text-align:center}
+.del-confirm-box h3{font-family:'Playfair Display',serif;font-size:18px;margin-bottom:10px;color:#ff3b30}
+.del-confirm-box p{font-size:13px;color:#555;line-height:1.6;margin-bottom:20px}
+.del-confirm-btns{display:flex;gap:10px;justify-content:center}
+.del-cancel-btn{padding:9px 24px;border-radius:980px;border:1.5px solid #e0e0e0;background:#fff;color:#1d1d1f;font-size:13px;cursor:pointer}
+.del-confirm-btn{padding:9px 24px;border-radius:980px;border:none;background:#ff3b30;color:#fff;font-size:13px;font-weight:600;cursor:pointer}
 
-/* ── ПАТЧ 3: СДАТЬСЯ ── */
-.giveup-stats { display: flex; justify-content: center; gap: 24px; margin: 16px 0; background: #f9f9f9; border-radius: 12px; padding: 16px; }
-.gu-stat { text-align: center; }
-.gu-stat-num { font-size: 1.3rem; font-weight: 700; color: #1d1d1f; }
-.gu-stat-lbl { font-size: 10px; color: #86868b; margin-top: 3px; }
-.gu-countdown { font-size: 12px; color: #ccc; text-align: center; min-height: 18px; margin: 8px 0; }
-/* ── КОНЕЦ ПАТЧА 3 ── */
+/* ONBOARDING */
+.onboarding-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);z-index:4000;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.onboarding-overlay.active{display:flex}
+.ob-box{background:#fff;border-radius:24px;max-width:480px;width:90%;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.2)}
+.ob-illo{height:140px;background:#f5f5f7;display:flex;align-items:center;justify-content:center}
+.ob-body{padding:28px 36px 16px;text-align:center}
+.ob-step-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#1d1d1f;margin-bottom:10px}
+.ob-step-text{font-size:15px;color:#555;line-height:1.7;margin:0}
+.ob-rule-pill{display:inline-block;margin-top:12px;font-size:12px;color:#86868b;background:#f5f5f7;border-radius:980px;padding:5px 14px}
+.ob-dots{display:flex;gap:6px;justify-content:center;padding:16px 0 8px}
+.ob-dot{width:7px;height:7px;border-radius:50%;background:#e0e0e0;cursor:pointer;transition:all .2s}
+.ob-dot.active{background:#1d1d1f;transform:scale(1.3)}
+.ob-foot{padding:8px 36px 28px;display:flex;align-items:center;gap:10px}
+.ob-skip{font-size:12px;color:#ccc;background:none;border:none;cursor:pointer;flex:1;text-align:left;text-transform:uppercase;letter-spacing:1px}
+.ob-skip:hover{color:#86868b}
+.ob-back{font-size:13px;color:#86868b;background:none;border:1px solid #e0e0e0;border-radius:980px;padding:7px 18px;cursor:pointer}
+.ob-next{font-size:13px;font-weight:600;background:#1d1d1f;color:#fff;border:none;border-radius:980px;padding:9px 24px;cursor:pointer}
+.ob-next:hover{background:#333}
+.ob-step-num{font-size:12px;color:#ccc;margin-left:auto}
 
-/* ── ПАТЧ 1: ОНБОРДИНГ ── */
-.onboarding-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,.6); z-index: 4000; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
-.onboarding-overlay.active { display: flex; }
-.ob-box { background: #fff; border-radius: 24px; max-width: 480px; width: 90%; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,.2); }
-.ob-illo { height: 140px; background: #f5f5f7; display: flex; align-items: center; justify-content: center; }
-.ob-body { padding: 28px 36px 16px; text-align: center; }
-.ob-step-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #1d1d1f; margin-bottom: 10px; }
-.ob-step-text { font-size: 15px; color: #555; line-height: 1.7; margin: 0; }
-.ob-rule-pill { display: inline-block; margin-top: 12px; font-size: 12px; color: #86868b; background: #f5f5f7; border-radius: 980px; padding: 5px 14px; }
-.ob-dots { display: flex; gap: 6px; justify-content: center; padding: 16px 0 8px; }
-.ob-dot { width: 7px; height: 7px; border-radius: 50%; background: #e0e0e0; cursor: pointer; transition: all .2s; }
-.ob-dot.active { background: #1d1d1f; transform: scale(1.3); }
-.ob-foot { padding: 8px 36px 28px; display: flex; align-items: center; gap: 10px; }
-.ob-skip { font-size: 12px; color: #ccc; background: none; border: none; cursor: pointer; flex: 1; text-align: left; text-transform: uppercase; letter-spacing: 1px; }
-.ob-skip:hover { color: #86868b; }
-.ob-back { font-size: 13px; color: #86868b; background: none; border: 1px solid #e0e0e0; border-radius: 980px; padding: 7px 18px; cursor: pointer; }
-.ob-next { font-size: 13px; font-weight: 600; background: #1d1d1f; color: #fff; border: none; border-radius: 980px; padding: 9px 24px; cursor: pointer; transition: background .2s; }
-.ob-next:hover { background: #333; }
-.ob-step-num { font-size: 12px; color: #ccc; margin-left: auto; }
-/* ── КОНЕЦ ПАТЧА 1 ── */
+/* AUTH */
+.auth-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);z-index:3000;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.auth-overlay.active{display:flex}
+.auth-box{background:#fff;border-radius:24px;padding:50px 44px;max-width:420px;width:90%;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.2);animation:authIn .3s ease}
+@keyframes authIn{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.auth-logo-row{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:28px}
+.auth-logo-row span{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:#1d1d1f}
+.auth-logo-row img{width:40px;height:40px}
+.auth-tabs{display:flex;border-bottom:1.5px solid #e0e0e0;margin-bottom:28px}
+.auth-tab{flex:1;padding:10px;text-align:center;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;color:#86868b;border-bottom:2px solid transparent;margin-bottom:-1.5px;transition:all .2s}
+.auth-tab.active{color:#1d1d1f;border-bottom-color:#1d1d1f}
+.auth-panel{display:none}
+.auth-panel.active{display:block}
+.auth-field{margin-bottom:16px}
+.auth-field label{display:block;font-size:11px;font-weight:600;color:#86868b;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.auth-field input{width:100%;padding:13px 16px;border:1.5px solid #e0e0e0;border-radius:12px;font-size:15px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;background:#fafafa;color:#1d1d1f}
+.auth-field input:focus{border-color:#0071e3;background:#fff}
+.auth-error{font-size:12px;color:#ff3b30;margin-bottom:12px;min-height:16px;text-align:center}
+.auth-submit{width:100%;padding:15px;border:none;border-radius:12px;background:#1d1d1f;color:#fff;font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:2px;cursor:pointer;transition:background .2s;margin-top:4px}
+.auth-submit:hover{background:#333}
+.auth-close{position:absolute;top:16px;right:18px;background:none;border:none;font-size:22px;cursor:pointer;color:#86868b;line-height:1}
+.auth-close:hover{color:#1d1d1f}
+.auth-hint{font-size:12px;color:#86868b;text-align:center;margin-top:16px;line-height:1.6}
+.auth-hint a{color:#0071e3;cursor:pointer;text-decoration:none}
+.auth-hint a:hover{text-decoration:underline}
 
-/* === AUTH === */
-.auth-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,.6); z-index: 3000; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
-.auth-overlay.active { display: flex; }
-.auth-box { background: #fff; border-radius: 24px; padding: 50px 44px; max-width: 420px; width: 90%; position: relative; box-shadow: 0 30px 80px rgba(0,0,0,.2); animation: authIn .3s ease; }
-@keyframes authIn { from { opacity: 0; transform: translateY(20px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
-.auth-logo-row { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 28px; }
-.auth-logo-row span { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 22px; color: #1d1d1f; }
-.auth-logo-row img { width: 40px; height: 40px; }
-.auth-tabs { display: flex; border-bottom: 1.5px solid #e0e0e0; margin-bottom: 28px; }
-.auth-tab { flex: 1; padding: 10px; text-align: center; font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; color: #86868b; border-bottom: 2px solid transparent; margin-bottom: -1.5px; transition: all .2s; }
-.auth-tab.active { color: #1d1d1f; border-bottom-color: #1d1d1f; }
-.auth-panel { display: none; }
-.auth-panel.active { display: block; }
-.auth-field { margin-bottom: 16px; }
-.auth-field label { display: block; font-size: 11px; font-weight: 600; color: #86868b; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
-.auth-field input { width: 100%; padding: 13px 16px; border: 1.5px solid #e0e0e0; border-radius: 12px; font-size: 15px; font-family: 'Inter', sans-serif; outline: none; transition: border-color .2s; background: #fafafa; color: #1d1d1f; }
-.auth-field input:focus { border-color: #0071e3; background: #fff; }
-.auth-error { font-size: 12px; color: #ff3b30; margin-bottom: 12px; min-height: 16px; text-align: center; }
-.auth-submit { width: 100%; padding: 15px; border: none; border-radius: 12px; background: #1d1d1f; color: #fff; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: background .2s; margin-top: 4px; }
-.auth-submit:hover { background: #333; }
-.auth-close { position: absolute; top: 16px; right: 18px; background: none; border: none; font-size: 22px; cursor: pointer; color: #86868b; line-height: 1; }
-.auth-close:hover { color: #1d1d1f; }
-.auth-hint { font-size: 12px; color: #86868b; text-align: center; margin-top: 16px; line-height: 1.6; }
-.auth-hint a { color: #0071e3; cursor: pointer; text-decoration: none; }
-.auth-hint a:hover { text-decoration: underline; }
-
-@media (max-width: 768px) {
-    .navbar { padding: 0 20px; }
-    .nav-links { gap: 20px; }
-    .nav-links a { font-size: 11px; letter-spacing: 1px; }
-    .hero-title { font-size: 36px; }
-    .infographic { flex-direction: column; gap: 30px; }
-    .cabinet-layout { flex-direction: column; padding: 20px; }
-    .sidebar { width: 100%; }
-    .timer-display { font-size: 48px; }
-    .db-stats-row { grid-template-columns: 1fr 1fr; }
+@media(max-width:768px){
+  .navbar{padding:0 20px}
+  .nav-links{gap:20px}
+  .nav-links a{font-size:11px;letter-spacing:1px}
+  .hero-title{font-size:36px}
+  .infographic{flex-direction:column;gap:30px}
+  .cabinet-layout{flex-direction:column}
+  .sidebar{width:100%;min-height:auto;border-right:none;border-bottom:1px solid #e0e0e0}
+  .timer-display{font-size:48px}
+  .db-stats-row{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
 <body>
 
-<!-- НАВИГАЦИЯ -->
 <nav class="navbar">
-    <a class="nav-logo" onclick="showScreen('home')">
-        <img src="favicon.png" alt="logo">
-        О, Писец!
-    </a>
-    <div class="nav-links">
-        <a onclick="showScreen('home')">Главная</a>
-        <a onclick="showScreen('about')">О проекте</a>
-        <a id="nav-cabinet-link" onclick="handleCabinetNav()">Личный кабинет</a>
-        <!-- ПАТЧ 1: ссылка на онбординг -->
-        <a onclick="obOpen()" style="color:#0071e3">Как это работает</a>
-    </div>
-    <div class="nav-user" id="nav-user">
-        <span class="nav-user-name" id="nav-user-name"></span>
-        <button class="nav-logout-btn" onclick="logout()">Выйти</button>
-    </div>
+  <a class="nav-logo" onclick="showScreen('home')">
+    <img src="favicon.png" alt="logo">О, Писец!
+  </a>
+  <div class="nav-links">
+    <a onclick="showScreen('home')">Главная</a>
+    <a onclick="showScreen('about')">О проекте</a>
+    <a onclick="handleCabinetNav()">Личный кабинет</a>
+    <a class="how-link" onclick="obOpen()">Как это работает</a>
+  </div>
+  <div class="nav-user" id="nav-user">
+    <span class="nav-user-name" id="nav-user-name"></span>
+    <button class="nav-logout-btn" onclick="logout()">Выйти</button>
+  </div>
 </nav>
 
-<!-- === ГЛАВНАЯ === -->
+<!-- HOME -->
 <div id="home-screen" class="screen home-screen active">
-    <div class="hero-section">
-        <h1 class="hero-title">Напиши свою книгу<br>за 60 дней!</h1>
-        <p class="hero-subtitle">800 слов в день. 200 страниц. 50 000 слов в итоге.<br>Пиши — или потеряешь написанное.</p>
-        <a class="hero-btn" onclick="handleWriteClick()">Писать сегодня</a>
+  <div class="hero-section">
+    <h1 class="hero-title">Напиши свою книгу<br>за 60 дней!</h1>
+    <p class="hero-subtitle">800 слов в день. 200 страниц. 50 000 слов в итоге.<br>Пиши — или потеряешь написанное.</p>
+    <a class="hero-btn" onclick="handleWriteClick()">Писать сегодня</a>
+  </div>
+  <!-- DASHBOARD -->
+  <div class="home-dashboard" id="home-dashboard">
+    <div class="db-progress-card">
+      <div class="db-ring-wrap">
+        <svg viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="42" fill="none" stroke="#e5e5e5" stroke-width="8"/>
+          <circle cx="50" cy="50" r="42" fill="none" stroke="#1d1d1f" stroke-width="8"
+            stroke-dasharray="263.9" id="db-ring" stroke-dashoffset="263.9"
+            stroke-linecap="round" transform="rotate(-90 50 50)" style="transition:stroke-dashoffset .5s ease"/>
+        </svg>
+        <div class="db-ring-center">
+          <div class="db-ring-pct" id="db-pct">0%</div>
+          <div class="db-ring-lbl">книги</div>
+        </div>
+      </div>
+      <div class="db-progress-info">
+        <div class="db-progress-words" id="db-total-words">0</div>
+        <div class="db-progress-sub" id="db-book-name">из 50 000 слов написано</div>
+        <div class="db-bar"><div class="db-bar-fill" id="db-prog-fill" style="width:0%"></div></div>
+        <div class="db-bar-lbl" id="db-prog-lbl">осталось 50 000 слов</div>
+      </div>
     </div>
-
-    <!-- ПАТЧ 6: ДАШБОРД -->
-    <div class="home-dashboard" id="home-dashboard" style="display:none">
-        <div class="db-progress-card">
-            <div class="db-ring-wrap">
-                <svg viewBox="0 0 100 100">
-                    <circle cx="50" cy="50" r="42" fill="none" stroke="#e5e5e5" stroke-width="8"/>
-                    <circle cx="50" cy="50" r="42" fill="none" stroke="#1d1d1f" stroke-width="8"
-                        stroke-dasharray="263.9" id="db-ring" stroke-dashoffset="263.9"
-                        stroke-linecap="round" transform="rotate(-90 50 50)"
-                        style="transition:stroke-dashoffset .5s ease"/>
-                </svg>
-                <div class="db-ring-center">
-                    <div class="db-ring-pct" id="db-pct">0%</div>
-                    <div class="db-ring-lbl">книги</div>
-                </div>
-            </div>
-            <div class="db-progress-info">
-                <div class="db-progress-words" id="db-total-words">0</div>
-                <div class="db-progress-sub">из 50 000 слов написано</div>
-                <div class="db-progress-bar"><div class="db-progress-fill" id="db-prog-fill" style="width:0%"></div></div>
-                <div class="db-progress-bar-lbl" id="db-prog-lbl">осталось 50 000 слов</div>
-            </div>
-        </div>
-        <div class="db-stats-row">
-            <div class="db-stat-card">
-                <div class="db-stat-icon">📅</div>
-                <div class="db-stat-num" id="db-days">0</div>
-                <div class="db-stat-lbl">дней написано</div>
-                <div class="db-stat-badge db-badge-good" id="db-days-badge">из 60</div>
-            </div>
-            <div class="db-stat-card">
-                <div class="db-stat-icon">🔥</div>
-                <div class="db-stat-num" id="db-streak">0</div>
-                <div class="db-stat-lbl">дней подряд</div>
-                <div class="db-stat-badge db-badge-warn" id="db-streak-badge">начни сегодня</div>
-            </div>
-            <div class="db-stat-card">
-                <div class="db-stat-icon">✍️</div>
-                <div class="db-stat-num" id="db-avg">0</div>
-                <div class="db-stat-lbl">слов в среднем</div>
-                <div class="db-stat-badge db-badge-warn" id="db-avg-badge">цель 800</div>
-            </div>
-            <div class="db-stat-card">
-                <div class="db-stat-icon">📖</div>
-                <div class="db-stat-num" id="db-chaps">0</div>
-                <div class="db-stat-lbl">глав написано</div>
-                <div class="db-stat-badge db-badge-good">сохранено</div>
-            </div>
-        </div>
-        <div class="db-calendar-card">
-            <div class="db-calendar-head">
-                <div class="db-calendar-title">Календарь дней</div>
-                <div class="db-calendar-streak" id="db-cal-streak"></div>
-            </div>
-            <div class="db-days-grid" id="db-days-grid"></div>
-        </div>
-        <div class="db-chapters-card" id="db-chapters-card" style="display:none">
-            <div class="db-chapters-head">
-                <div class="db-chapters-head-title">Последние главы</div>
-                <div class="db-chapters-head-count" id="db-chaps-count"></div>
-            </div>
-            <div id="db-chaps-list"></div>
-        </div>
-        <div class="db-msg" id="db-msg">Начни первый день — первая строчка самая важная.</div>
+    <div class="db-stats-row">
+      <div class="db-stat-card"><div class="db-stat-icon">📅</div><div class="db-stat-num" id="db-days">0</div><div class="db-stat-lbl">дней написано</div></div>
+      <div class="db-stat-card"><div class="db-stat-icon">🔥</div><div class="db-stat-num" id="db-streak">0</div><div class="db-stat-lbl">дней подряд</div></div>
+      <div class="db-stat-card"><div class="db-stat-icon">✍️</div><div class="db-stat-num" id="db-avg">0</div><div class="db-stat-lbl">слов в среднем</div></div>
+      <div class="db-stat-card"><div class="db-stat-icon">📚</div><div class="db-stat-num" id="db-books-count">0</div><div class="db-stat-lbl">книг в работе</div></div>
     </div>
-    <!-- КОНЕЦ ПАТЧА 6 -->
-
-    <div class="infographic">
-        <div class="info-step"><div class="info-num">01</div><div class="info-label">Начни</div><div class="info-desc">Открой страницу и начни писать. Таймер не даст тебе остановиться.</div></div>
-        <div class="info-step"><div class="info-num">02</div><div class="info-label">Пиши</div><div class="info-desc">800 слов каждый день. 15 секунд паузы — и текст исчезнет.</div></div>
-        <div class="info-step"><div class="info-num">03</div><div class="info-label">Заверши</div><div class="info-desc">50 000 слов — и ИИ-редактор проверит орфографию, логику и смысл.</div></div>
-        <div class="info-step"><div class="info-num">04</div><div class="info-label">Опубликуй</div><div class="info-desc">ИИ создаст обложку, а ты сохранишь книгу в PDF.</div></div>
+    <div class="db-msg" id="db-msg">Начни первый день — первая строчка самая важная.</div>
+    <div class="db-cta">
+      <a class="hero-btn" onclick="handleWriteClick()">Писать сегодня</a>
     </div>
-    <div class="desk-section"><img src="desk-bg.jpg" alt="Рабочий стол писателя"></div>
+  </div>
+  <div class="infographic">
+    <div class="info-step"><div class="info-num">01</div><div class="info-label">Начни</div><div class="info-desc">Открой страницу и начни писать. Таймер не даст тебе остановиться.</div></div>
+    <div class="info-step"><div class="info-num">02</div><div class="info-label">Пиши</div><div class="info-desc">800 слов каждый день. 15 секунд паузы — и текст исчезнет.</div></div>
+    <div class="info-step"><div class="info-num">03</div><div class="info-label">Заверши</div><div class="info-desc">50 000 слов — и ИИ-редактор проверит орфографию, логику и смысл.</div></div>
+    <div class="info-step"><div class="info-num">04</div><div class="info-label">Опубликуй</div><div class="info-desc">ИИ создаст обложку, а ты сохранишь книгу в PDF.</div></div>
+  </div>
+  <div class="desk-section"><img src="desk-bg.jpg" alt="Рабочий стол писателя"></div>
 </div>
 
-<!-- === О ПРОЕКТЕ === -->
+<!-- ABOUT -->
 <div id="about-screen" class="screen about-screen">
-    <div class="about-container">
-        <h1 class="about-main-title">О проекте</h1>
-        <div class="about-block">
-            <h2 class="about-block-title">Когда-нибудь я напишу книгу</h2>
-            <p>Вы наверняка хотя бы раз думали:<br><em>«Когда-нибудь я напишу книгу.»</em></p>
-            <p>Но проходит месяц. Потом ещё один. Вы придумываете сюжет, мысленно разговариваете с героями, представляете будущую обложку… а первая глава так и не появляется.</p>
-        </div>
-        <div class="about-block">
-            <h2 class="about-block-title">Проблема не в отсутствии таланта</h2>
-            <p>Проблема в том, что вы слишком рано включаете внутреннего редактора.</p>
-            <p>Вы пишете одно предложение и сразу начинаете его исправлять. Перечитываете. Сомневаетесь. Удаляете. Переписываете.</p>
-            <p>В результате книга так и остаётся мечтой.</p>
-            <p>Большинство начинающих авторов совершают одну и ту же ошибку. Они начинают редактировать книгу, которую ещё не написали.</p>
-        </div>
-        <div class="about-block">
-            <h2 class="about-block-title">Писатель и редактор — две разные профессии</h2>
-            <p>Невозможно одновременно создавать историю и оценивать каждую фразу.</p>
-            <p>Поэтому в проекте «О, Писец!» действует всего одно правило:</p>
-            <p class="highlight">Каждый день писать не менее 800 слов.</p>
-            <ul class="rule-list"><li>Не исправлять.</li><li>Не перечитывать.</li><li>Не редактировать.</li><li>Просто писать одним потоком.</li></ul>
-            <p>800 слов — это всего 30–60 минут в день. Небольшой ежедневный шаг, который за 60 дней превращается в полноценную рукопись объёмом более 50 000 слов.</p>
-            <p class="highlight">И только после этого наступает время редактора.</p>
-        </div>
-        <div class="about-block">
-            <h2 class="about-block-title">Мы помогаем не бросить на полпути</h2>
-            <p>Писать каждый день непросто. Заканчивается вдохновение. Появляются сомнения. Кажется, что текст стал хуже.</p>
-            <p>Именно в этот момент большинство людей останавливается.</p>
-            <p class="highlight">Мы не позволим этому случиться.</p>
-            <p>Проект считает слова, напоминает о ежедневной цели, поддерживает серию дней и помогает сохранить темп.</p>
-            <p>А если вы застряли, потеряли нить сюжета, не знаете, как развить сцену или раскрыть героя — ИИ поможет найти направление и продолжить писать.</p>
-            <p>Но он никогда не напишет книгу вместо вас.</p>
-            <p class="highlight">Потому что эта история должна быть вашей.</p>
-        </div>
-        <div class="about-block">
-            <h2 class="about-block-title">Через 60 дней</h2>
-            <p>Возможно, ваша книга ещё не станет идеальной. Но она станет настоящей.</p>
-            <p>У вас будет законченная рукопись. А рукопись всегда можно улучшить.</p>
-            <p class="highlight">Нельзя улучшить книгу, которой не существует.</p>
-        </div>
-        <div class="about-finale">
-            <p>Писатель пишет. Редактор редактирует. Не одновременно.</p>
-            <p>Добро пожаловать в «О, Писец!»</p>
-            <p class="tagline">Ни дня без строчки</p>
-            <a class="about-cta-btn" onclick="handleWriteClick()">Писать сегодня</a>
-        </div>
+  <div class="about-container">
+    <h1 class="about-main-title">О проекте</h1>
+    <div class="about-block">
+      <h2 class="about-block-title">Когда-нибудь я напишу книгу</h2>
+      <p>Вы наверняка хотя бы раз думали:<br><em>«Когда-нибудь я напишу книгу.»</em></p>
+      <p>Но проходит месяц. Потом ещё один. Вы придумываете сюжет, мысленно разговариваете с героями, представляете будущую обложку… а первая глава так и не появляется.</p>
     </div>
+    <div class="about-block">
+      <h2 class="about-block-title">Проблема не в отсутствии таланта</h2>
+      <p>Проблема в том, что вы слишком рано включаете внутреннего редактора.</p>
+      <p>Большинство начинающих авторов совершают одну и ту же ошибку. Они начинают редактировать книгу, которую ещё не написали.</p>
+    </div>
+    <div class="about-block">
+      <h2 class="about-block-title">Писатель и редактор — две разные профессии</h2>
+      <p>В проекте «О, Писец!» действует всего одно правило:</p>
+      <p class="highlight">Каждый день писать не менее 800 слов.</p>
+      <ul class="rule-list"><li>Не исправлять.</li><li>Не перечитывать.</li><li>Не редактировать.</li><li>Просто писать одним потоком.</li></ul>
+      <p class="highlight">И только после этого наступает время редактора.</p>
+    </div>
+    <div class="about-block">
+      <h2 class="about-block-title">Мы помогаем не бросить на полпути</h2>
+      <p class="highlight">Мы не позволим этому случиться.</p>
+      <p>А если вы застряли — ИИ поможет найти направление и продолжить писать. Но он никогда не напишет книгу вместо вас.</p>
+      <p class="highlight">Потому что эта история должна быть вашей.</p>
+    </div>
+    <div class="about-finale">
+      <p>Писатель пишет. Редактор редактирует. Не одновременно.</p>
+      <p>Добро пожаловать в «О, Писец!»</p>
+      <p class="tagline">Ни дня без строчки</p>
+      <a class="about-cta-btn" onclick="handleWriteClick()">Писать сегодня</a>
+    </div>
+  </div>
 </div>
 
-<!-- === ЛИЧНЫЙ КАБИНЕТ === -->
+<!-- CABINET -->
 <div id="cabinet-screen" class="screen cabinet-screen">
-    <div class="cabinet-layout">
-        <div class="writing-zone">
-            <div class="writing-card">
-                <div class="toolbar">
-                    <div class="word-counter">Слов: <span id="word-count">0</span> / 800</div>
-                    <div class="toolbar-actions">
-                        <button class="toolbar-btn save-btn" id="save-btn" onclick="saveChapter()">💾 Сохранить</button>
-                        <button class="toolbar-btn correction-btn" id="correction-btn" onclick="startCorrection()" style="display:none;">Корректура</button>
-                        <!-- ПАТЧ 3: кнопка «Сдаться» -->
-                        <button class="toolbar-btn giveup-btn" id="giveup-btn" onclick="showGiveUp()" style="display:none;">Сдаться</button>
-                    </div>
-                </div>
-
-                <!-- ПАТЧ 2: ТАЙМЕР с подписью -->
-                <div class="timer-zone">
-                    <div class="timer-display" id="timer-display">00:15</div>
-                    <div class="timer-sub-label" id="timer-sub-label">до удаления текста</div>
-                    <div class="timer-controls">
-                        <button class="timer-btn start-btn" id="start-btn" onclick="startWriting()">🚀 Начать писать</button>
-                        <button class="timer-btn stop-btn" id="stop-btn" style="display:none" onclick="showGiveUp()">⏹ Сдаться</button>
-                    </div>
-                </div>
-
-                <textarea class="writing-area" id="writing-area" placeholder="Начните писать свою историю..." disabled></textarea>
-
-                <!-- ПАТЧ 4: кнопка AI отдельно от textarea -->
-                <div class="ai-trigger-wrap">
-                    <button class="ai-trigger-btn" id="ai-trigger-btn" onclick="showAIIdeas()" disabled>✨ Идеи от ИИ</button>
-                    <span class="ai-trigger-hint" id="ai-trigger-hint">Напиши 400 слов — и ИИ предложит идеи</span>
-                </div>
-
-                <div class="ai-ideas" id="ai-ideas">
-                    <div class="ai-ideas-header">
-                        <h4>✨ Писец думает, что дальше...</h4>
-                        <button class="ai-ideas-close" onclick="document.getElementById('ai-ideas').style.display='none'">×</button>
-                    </div>
-                    <div id="ai-ideas-list"></div>
-                    <div class="ai-idea-use-hint">Нажмите на идею, чтобы добавить её в текст</div>
-                </div>
-            </div>
+  <div class="cabinet-layout" style="display:flex">
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="sidebar-books-section">
+        <div class="sidebar-section-label">Мои книги</div>
+        <div id="books-list"></div>
+        <button class="book-add-btn" onclick="showNewBookDialog()">+ Новая книга</button>
+      </div>
+      <div class="sidebar-chapters-section">
+        <div class="sidebar-chapters-head">
+          <div class="sidebar-chapters-title" id="chapters-sidebar-title">Главы</div>
+          <div class="sidebar-chapters-count" id="chapters-sidebar-count"></div>
         </div>
-
-        <div class="sidebar">
-            <div class="sidebar-card">
-                <div class="sidebar-title">Ваша книга</div>
-                <div class="sidebar-progress"><span id="total-words">0</span> / 50 000 слов</div>
-                <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
-                <div id="chapters-list"><div class="no-chapters">Пока нет глав. Начните писать!</div></div>
-            </div>
-        </div>
+        <div class="chapters-scroll" id="chapters-scroll"></div>
+      </div>
     </div>
+    <!-- WRITING ZONE -->
+    <div class="writing-zone">
+      <div class="writing-card">
+        <div class="toolbar">
+          <div class="toolbar-left">
+            <div class="book-title-badge" id="active-book-badge">—</div>
+            <div class="word-counter">Слов: <span id="word-count">0</span> / 800</div>
+          </div>
+          <div class="toolbar-actions">
+            <button class="toolbar-btn save-btn" id="save-btn" onclick="saveChapter()">💾 Сохранить</button>
+            <button class="toolbar-btn correction-btn" id="correction-btn" onclick="startCorrection()" style="display:none">Корректура</button>
+            <button class="toolbar-btn giveup-btn" id="giveup-btn" onclick="showGiveUp()" style="display:none">Сдаться</button>
+          </div>
+        </div>
+        <div class="timer-zone">
+          <div class="timer-display" id="timer-display">00:15</div>
+          <div class="timer-sub-label" id="timer-sub-label">до удаления текста</div>
+          <div class="timer-controls">
+            <button class="timer-btn start-btn" id="start-btn" onclick="startWriting()">🚀 Начать писать</button>
+            <button class="timer-btn stop-btn" id="stop-btn" style="display:none" onclick="showGiveUp()">⏹ Сдаться</button>
+          </div>
+        </div>
+        <textarea class="writing-area" id="writing-area" placeholder="Начните писать свою историю..." disabled></textarea>
+        <div class="ai-trigger-wrap">
+          <button class="ai-trigger-btn" id="ai-trigger-btn" onclick="showAIIdeas()" disabled>✨ Идеи от ИИ</button>
+          <span class="ai-trigger-hint" id="ai-trigger-hint">Напиши 400 слов — и ИИ предложит идеи</span>
+        </div>
+        <div class="ai-ideas" id="ai-ideas">
+          <div class="ai-ideas-header">
+            <h4>✨ Писец думает, что дальше...</h4>
+            <button class="ai-ideas-close" onclick="document.getElementById('ai-ideas').style.display='none'">×</button>
+          </div>
+          <div id="ai-ideas-list"></div>
+          <div class="ai-idea-use-hint">Нажмите на идею, чтобы добавить её в текст</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<!-- === КОРРЕКТУРА === -->
+<!-- CORRECTION -->
 <div id="correction-screen" class="screen correction-screen">
-    <div class="correction-container">
-        <h1 class="correction-title">✍️ Корректура текста</h1>
-        <p class="correction-subtitle">ИИ проанализирует вашу рукопись: орфографию, логику, смысл и стиль.<br>Это может занять минуту-две — зависит от объёма текста.</p>
-        <button class="correction-start-btn" id="correction-start-btn" onclick="runAICorrection()">🤖 Запустить ИИ-корректуру</button>
-        <div class="correction-progress-wrap" id="correction-progress">
-            <div class="correction-progress-label" id="correction-progress-label">Анализ текста...</div>
-            <div class="correction-progress-bar"><div class="correction-progress-fill" id="correction-progress-fill"></div></div>
-            <div class="correction-progress-status" id="correction-progress-status">Подготовка...</div>
-        </div>
-        <div id="correction-results"></div>
-        <div id="correction-footer" style="text-align:center;margin-top:40px;display:none;">
-            <button class="hero-btn" onclick="showCoverScreen()">Создать обложку →</button>
-        </div>
+  <div class="correction-container">
+    <h1 class="correction-title">✍️ Корректура текста</h1>
+    <p class="correction-subtitle">ИИ проанализирует вашу рукопись: орфографию, логику, смысл и стиль.</p>
+    <button class="correction-start-btn" id="correction-start-btn" onclick="runAICorrection()">🤖 Запустить ИИ-корректуру</button>
+    <div class="correction-progress-wrap" id="correction-progress">
+      <div class="correction-progress-label" id="correction-progress-label">Анализ текста...</div>
+      <div class="correction-progress-bar"><div class="correction-progress-fill" id="correction-progress-fill"></div></div>
+      <div class="correction-progress-status" id="correction-progress-status">Подготовка...</div>
     </div>
+    <div id="correction-results"></div>
+    <div id="correction-footer" style="text-align:center;margin-top:40px;display:none">
+      <button class="hero-btn" onclick="showCoverScreen()">Создать обложку →</button>
+    </div>
+  </div>
 </div>
 
-<!-- === ОБЛОЖКА === -->
+<!-- COVER -->
 <div id="cover-screen" class="screen cover-screen">
-    <div class="cover-container">
-        <h1 class="cover-title">Обложка книги</h1>
-        <div class="cover-preview" id="cover-preview">
-            <!-- ПАТЧ 5: img с id для превью -->
-            <img class="cover-bg-img" id="cover-bg-img" src="" alt="">
-            <div class="cover-overlay">
-                <div class="cover-author" id="cover-author">Имя автора</div>
-                <div class="cover-book-title" id="cover-book-title">Название книги</div>
-                <div class="cover-year" id="cover-year">2025</div>
-            </div>
-        </div>
-        <div class="cover-form">
-            <label>Имя автора</label>
-            <input type="text" id="author-input" placeholder="Ваше имя" oninput="updateCover()">
-            <label>Название книги</label>
-            <input type="text" id="title-input" placeholder="Название вашей книги" oninput="updateCover()">
-            <label>Год</label>
-            <input type="text" id="year-input" placeholder="2025" oninput="updateCover()">
-            <label>Загрузить изображение для обложки</label>
-            <!-- ПАТЧ 5: исправленный обработчик -->
-            <input type="file" id="cover-upload" accept="image/*" onchange="uploadCoverImage(event)">
-            <div style="margin-top:20px;">
-                <button class="hero-btn" onclick="exportBook()">Сохранить книгу в PDF</button>
-            </div>
-        </div>
+  <div class="cover-container">
+    <h1 class="cover-title">Обложка книги</h1>
+    <div class="cover-preview" id="cover-preview">
+      <img class="cover-bg-img" id="cover-bg-img" src="" alt="">
+      <div class="cover-overlay">
+        <div class="cover-author-el" id="cover-author">Имя автора</div>
+        <div class="cover-book-title" id="cover-book-title">Название книги</div>
+        <div class="cover-year-el" id="cover-year">2025</div>
+      </div>
     </div>
+    <div class="cover-form">
+      <label>Имя автора</label><input type="text" id="author-input" placeholder="Ваше имя" oninput="updateCover()">
+      <label>Название книги</label><input type="text" id="title-input" placeholder="Название вашей книги" oninput="updateCover()">
+      <label>Год</label><input type="text" id="year-input" placeholder="2025" oninput="updateCover()">
+      <label>Загрузить изображение для обложки</label>
+      <input type="file" id="cover-upload" accept="image/*" onchange="uploadCoverImage(event)">
+      <div style="margin-top:20px"><button class="hero-btn" onclick="exportBook()">Сохранить книгу в PDF</button></div>
+    </div>
+  </div>
 </div>
 
-<!-- МОДАЛКИ (без изменений) -->
+<!-- MODALS -->
 <div class="modal-overlay" id="view-modal">
-    <div class="modal">
-        <button class="modal-close" onclick="closeModal('view-modal')">&times;</button>
-        <h2 id="view-modal-title">Глава</h2>
-        <div class="view-content" id="view-modal-content"></div>
-    </div>
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('view-modal')">&times;</button>
+    <h2 id="view-modal-title">Глава</h2>
+    <div class="view-content" id="view-modal-content"></div>
+  </div>
 </div>
 <div class="modal-overlay" id="edit-modal">
-    <div class="modal">
-        <button class="modal-close" onclick="closeModal('edit-modal')">&times;</button>
-        <h2 id="edit-modal-title">Редактирование</h2>
-        <textarea id="edit-modal-textarea"></textarea>
-        <div class="modal-actions">
-            <button class="modal-btn secondary" onclick="closeModal('edit-modal')">Отмена</button>
-            <button class="modal-btn primary" onclick="saveEditedChapter()">Сохранить</button>
-        </div>
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('edit-modal')">&times;</button>
+    <h2 id="edit-modal-title">Редактирование</h2>
+    <textarea id="edit-modal-textarea"></textarea>
+    <div class="modal-actions">
+      <button class="modal-btn secondary" onclick="closeModal('edit-modal')">Отмена</button>
+      <button class="modal-btn primary" onclick="saveEditedChapter()">Сохранить</button>
     </div>
+  </div>
 </div>
+
+<!-- SAVE DIALOG -->
 <div class="save-dialog" id="save-dialog">
-    <div class="save-dialog-box">
-        <h3>Дайте название главе</h3>
-        <input type="text" id="chapter-name-input" placeholder="Название главы...">
-        <div class="modal-actions" style="justify-content:center;">
-            <button class="modal-btn primary" onclick="confirmSaveChapter()">Сохранить</button>
-        </div>
+  <div class="dialog-box">
+    <h3>Дайте название главе</h3>
+    <input type="text" id="chapter-name-input" placeholder="Название главы...">
+    <div class="modal-actions" style="justify-content:center">
+      <button class="modal-btn primary" onclick="confirmSaveChapter()">Сохранить</button>
     </div>
+  </div>
 </div>
 
-<!-- ПАТЧ 7: РАСШИРЕННАЯ МОДАЛКА «СОХРАНЕНО» -->
+<!-- DAY SAVED -->
 <div class="continue-dialog" id="continue-dialog">
-    <div class="day-saved-box">
-        <span class="day-saved-emoji" id="ds-emoji">🎉</span>
-        <div class="day-saved-title" id="ds-title">День сохранён!</div>
-        <div class="day-saved-chapter" id="ds-chapter-name"></div>
-        <div class="day-saved-stats">
-            <div class="ds-stat"><div class="ds-stat-num" id="ds-today">0</div><div class="ds-stat-lbl">слов сегодня</div></div>
-            <div class="ds-stat"><div class="ds-stat-num" id="ds-total">0</div><div class="ds-stat-lbl">слов в книге</div></div>
-            <div class="ds-stat"><div class="ds-stat-num" id="ds-left" style="color:#86868b">0</div><div class="ds-stat-lbl">до финала</div></div>
-        </div>
-        <div class="day-saved-progress">
-            <div class="dsp-head"><span class="dsp-title">Прогресс книги</span><span class="dsp-pct" id="ds-pct">0%</span></div>
-            <div class="dsp-bar"><div class="dsp-fill" id="ds-fill" style="width:0%"></div></div>
-            <div class="dsp-sub"><span id="ds-days-left"></span><span id="ds-day-of"></span></div>
-        </div>
-        <div class="day-saved-streak" id="ds-streak">
-            <span class="dss-icon" id="ds-streak-icon">🔥</span>
-            <div class="dss-text" id="ds-streak-text"></div>
-        </div>
-        <div class="day-saved-motivation" id="ds-motivation"></div>
-        <div class="day-saved-actions">
-            <button class="modal-btn primary" onclick="continueWriting()" style="width:100%;border-radius:12px;padding:13px">Продолжить писать →</button>
-            <button class="modal-btn secondary" onclick="goHomeAfterSave()" style="width:100%;border-radius:12px;padding:12px">На главную</button>
-            <div class="day-saved-share">
-                <button class="day-saved-share-btn">📤 Поделиться</button>
-                <button class="day-saved-share-btn" onclick="goHomeAfterSave()">📖 История глав</button>
-            </div>
-        </div>
+  <div class="day-saved-box">
+    <span class="day-saved-emoji" id="ds-emoji">🎉</span>
+    <div class="day-saved-title" id="ds-title">День сохранён!</div>
+    <div class="day-saved-chapter" id="ds-chapter-name"></div>
+    <div class="day-saved-stats">
+      <div class="ds-stat"><div class="ds-stat-num" id="ds-today">0</div><div class="ds-stat-lbl">слов сегодня</div></div>
+      <div class="ds-stat"><div class="ds-stat-num" id="ds-total">0</div><div class="ds-stat-lbl">слов в книге</div></div>
+      <div class="ds-stat"><div class="ds-stat-num" id="ds-left" style="color:#86868b">0</div><div class="ds-stat-lbl">до финала</div></div>
     </div>
+    <div class="day-saved-progress">
+      <div class="dsp-head"><span class="dsp-title">Прогресс книги</span><span class="dsp-pct" id="ds-pct">0%</span></div>
+      <div class="dsp-bar"><div class="dsp-fill" id="ds-fill" style="width:0%"></div></div>
+      <div class="dsp-sub"><span id="ds-days-left"></span><span id="ds-day-of"></span></div>
+    </div>
+    <div class="day-saved-streak"><span class="dss-icon" id="ds-streak-icon">🔥</span><div class="dss-text" id="ds-streak-text"></div></div>
+    <div class="day-saved-motivation" id="ds-motivation"></div>
+    <div class="day-saved-actions">
+      <button class="modal-btn primary" onclick="continueWriting()" style="width:100%;border-radius:12px;padding:13px">Продолжить писать →</button>
+      <button class="modal-btn secondary" onclick="goHomeAfterSave()" style="width:100%;border-radius:12px;padding:12px">На главную</button>
+    </div>
+  </div>
 </div>
-<!-- КОНЕЦ ПАТЧА 7 -->
 
-<!-- ПАТЧ 3: ДИАЛОГ «СДАТЬСЯ» -->
+<!-- GIVEUP -->
 <div class="stop-warning" id="stop-warning">
-    <div class="save-dialog-box">
-        <h3 style="color:#ff3b30;">😔 Ты правда хочешь сдаться?</h3>
-        <p id="gu-desc" style="margin:12px 0;font-size:14px;color:#555;line-height:1.6;"></p>
-        <div class="giveup-stats">
-            <div class="gu-stat"><div class="gu-stat-num" id="gu-words">0</div><div class="gu-stat-lbl">слов написано</div></div>
-            <div class="gu-stat"><div class="gu-stat-num" style="color:#ff3b30">0</div><div class="gu-stat-lbl">останется</div></div>
-            <div class="gu-stat"><div class="gu-stat-num" id="gu-time">~0 мин</div><div class="gu-stat-lbl">до цели дня</div></div>
-        </div>
-        <div class="modal-actions" style="justify-content:center;flex-direction:column;gap:8px;margin-top:0">
-            <button class="modal-btn primary" style="border-radius:980px" onclick="closeStopWarning()">Продолжить писать →</button>
-            <div class="gu-countdown" id="gu-countdown"></div>
-            <button class="modal-btn secondary" id="gu-confirm-btn" disabled style="border-radius:980px;color:#ff3b30;border:1.5px solid #ff3b30" onclick="confirmStop()">Да, удалить всё и выйти</button>
-        </div>
+  <div class="dialog-box">
+    <h3 style="color:#ff3b30">😔 Ты правда хочешь сдаться?</h3>
+    <p id="gu-desc"></p>
+    <div class="giveup-stats">
+      <div class="gu-stat"><div class="gu-stat-num" id="gu-words">0</div><div class="gu-stat-lbl">слов написано</div></div>
+      <div class="gu-stat"><div class="gu-stat-num" style="color:#ff3b30">0</div><div class="gu-stat-lbl">останется</div></div>
+      <div class="gu-stat"><div class="gu-stat-num" id="gu-time">~0 мин</div><div class="gu-stat-lbl">до цели дня</div></div>
     </div>
+    <div class="modal-actions" style="justify-content:center;flex-direction:column;gap:8px;margin-top:0">
+      <button class="modal-btn primary" style="border-radius:980px" onclick="closeStopWarning()">Продолжить писать →</button>
+      <div class="gu-countdown" id="gu-countdown"></div>
+      <button class="modal-btn secondary" id="gu-confirm-btn" disabled style="border-radius:980px;color:#ff3b30;border:1.5px solid #ff3b30" onclick="confirmStop()">Да, удалить всё и выйти</button>
+    </div>
+  </div>
 </div>
-<!-- КОНЕЦ ПАТЧА 3 -->
+
+<!-- NEW BOOK -->
+<div class="new-book-dialog" id="new-book-dialog">
+  <div class="dialog-box">
+    <h3>Новая книга</h3>
+    <p>Дайте название новой книге. Вы сможете переименовать её позже.</p>
+    <input type="text" id="new-book-input" placeholder="Название книги...">
+    <div class="modal-actions" style="justify-content:center">
+      <button class="modal-btn secondary" onclick="closeNewBook()">Отмена</button>
+      <button class="modal-btn primary" onclick="confirmNewBook()">Создать</button>
+    </div>
+  </div>
+</div>
+
+<!-- DELETE CHAPTER -->
+<div class="del-confirm-overlay" id="del-confirm-overlay">
+  <div class="del-confirm-box">
+    <h3>🗑 Удалить главу?</h3>
+    <p id="del-confirm-text">Это действие нельзя отменить. Текст главы будет удалён безвозвратно.</p>
+    <div class="del-confirm-btns">
+      <button class="del-cancel-btn" onclick="closeDel()">Отмена</button>
+      <button class="del-confirm-btn" onclick="confirmDelete()">Удалить</button>
+    </div>
+  </div>
+</div>
+
+<!-- ONBOARDING -->
+<div class="onboarding-overlay" id="ob-overlay">
+  <div class="ob-box">
+    <div class="ob-illo" id="ob-illo">
+      <div id="ob-s0" style="display:flex;flex-direction:column;align-items:center;gap:8px">
+        <div style="position:relative;width:64px;height:64px">
+          <svg width="64" height="64" viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" fill="none" stroke="#e5e5e5" stroke-width="5"/><circle cx="32" cy="32" r="26" fill="none" stroke="#1d1d1f" stroke-width="5" stroke-dasharray="163.4" id="ob-ring" stroke-dashoffset="0" stroke-linecap="round" transform="rotate(-90 32 32)"/></svg>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:700;color:#1d1d1f" id="ob-timer-n">15</div>
+        </div>
+        <div style="font-size:11px;color:#86868b;text-transform:uppercase;letter-spacing:1px">секунд до удаления</div>
+      </div>
+      <div id="ob-s1" style="display:none;align-items:flex-end;gap:5px">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:3px"><div style="width:16px;height:34px;background:#1d1d1f;border-radius:3px 3px 0 0"></div><div style="font-size:8px;color:#ccc">пн</div></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:3px"><div style="width:16px;height:48px;background:#1d1d1f;border-radius:3px 3px 0 0"></div><div style="font-size:8px;color:#ccc">вт</div></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:3px"><div style="width:16px;height:40px;background:#1d1d1f;border-radius:3px 3px 0 0"></div><div style="font-size:8px;color:#ccc">ср</div></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:3px"><div style="width:16px;height:56px;background:#e5e5e5;border-radius:3px 3px 0 0"></div><div style="font-size:8px;color:#ccc">чт</div></div>
+        <div style="font-size:1.6rem;margin-left:6px">🔥</div>
+      </div>
+      <div id="ob-s2" style="display:none;flex-direction:column;gap:7px;width:75%">
+        <div style="align-self:flex-end;background:#f5f5f7;border-radius:10px;padding:7px 12px;font-size:12px;color:#555">Не знаю, что писать дальше…</div>
+        <div style="display:flex;gap:3px;align-items:center;padding:7px 12px;background:#f0f7ff;border-radius:10px;width:fit-content">
+          <span style="width:5px;height:5px;border-radius:50%;background:#0071e3;animation:dotPulse 1.2s infinite"></span>
+          <span style="width:5px;height:5px;border-radius:50%;background:#0071e3;animation:dotPulse 1.2s .2s infinite"></span>
+          <span style="width:5px;height:5px;border-radius:50%;background:#0071e3;animation:dotPulse 1.2s .4s infinite"></span>
+        </div>
+        <div style="background:#f0f7ff;border-radius:10px;padding:7px 12px;font-size:12px;color:#0071e3;line-height:1.5;max-width:85%">Герой находит письмо, которое меняет всё.</div>
+      </div>
+    </div>
+    <div class="ob-body">
+      <div id="ob-t0"><p class="ob-step-title">Пиши без остановок</p><p class="ob-step-text">Таймер отсчитывает 15 секунд. Пока ты пишешь — он сбрасывается. Остановился — текст сегодняшнего дня удаляется.</p><span class="ob-rule-pill">Цель — 800 слов в день, без редактирования</span></div>
+      <div id="ob-t1" style="display:none"><p class="ob-step-title">Строй серию дней</p><p class="ob-step-text">Каждый сохранённый день — это глава. 60 дней × 800 слов = 50 000 слов, полноценная книга. Серия сгорит, если пропустишь день.</p><span class="ob-rule-pill">Сохрани день — дай главе название</span></div>
+      <div id="ob-t2" style="display:none"><p class="ob-step-title">ИИ придёт на помощь</p><p class="ob-step-text">Написал 400 слов и застрял? Нажми «Идеи от ИИ» — он прочитает все твои главы и предложит три конкретные идеи для продолжения.</p><span class="ob-rule-pill">После 50 000 слов — корректура и создание обложки</span></div>
+    </div>
+    <div class="ob-dots"><div class="ob-dot active" onclick="obGo(0)"></div><div class="ob-dot" onclick="obGo(1)"></div><div class="ob-dot" onclick="obGo(2)"></div></div>
+    <div class="ob-foot">
+      <button class="ob-skip" onclick="obClose()">Пропустить</button>
+      <button class="ob-back" id="ob-back" style="display:none" onclick="obPrev()">Назад</button>
+      <button class="ob-next" id="ob-next" onclick="obNext()">Далее →</button>
+      <span class="ob-step-num" id="ob-step-num">1 / 3</span>
+    </div>
+  </div>
+</div>
 
 <!-- AUTH -->
 <div class="auth-overlay" id="auth-overlay">
-    <div class="auth-box">
-        <button class="auth-close" onclick="closeAuth()">&times;</button>
-        <div class="auth-logo-row"><img src="favicon.png" alt="logo"><span>О, Писец!</span></div>
-        <div class="auth-tabs">
-            <div class="auth-tab active" id="tab-register" onclick="switchTab('register')">Регистрация</div>
-            <div class="auth-tab" id="tab-login" onclick="switchTab('login')">Войти</div>
-        </div>
-        <div class="auth-panel active" id="panel-register">
-            <div class="auth-field"><label>Имя</label><input type="text" id="reg-name" placeholder="Как вас зовут?"></div>
-            <div class="auth-field"><label>Email</label><input type="email" id="reg-email" placeholder="your@email.com"></div>
-            <div class="auth-field"><label>Пароль</label><input type="password" id="reg-password" placeholder="Минимум 6 символов"></div>
-            <div class="auth-error" id="reg-error"></div>
-            <button class="auth-submit" onclick="doRegister()">Начать писать</button>
-            <div class="auth-hint">Уже есть аккаунт? <a onclick="switchTab('login')">Войти</a></div>
-        </div>
-        <div class="auth-panel" id="panel-login">
-            <div class="auth-field"><label>Email</label><input type="email" id="login-email" placeholder="your@email.com"></div>
-            <div class="auth-field"><label>Пароль</label><input type="password" id="login-password" placeholder="Ваш пароль"></div>
-            <div class="auth-error" id="login-error"></div>
-            <button class="auth-submit" onclick="doLogin()">Войти</button>
-            <div class="auth-hint">Нет аккаунта? <a onclick="switchTab('register')">Зарегистрироваться</a></div>
-        </div>
+  <div class="auth-box">
+    <button class="auth-close" onclick="closeAuth()">&times;</button>
+    <div class="auth-logo-row"><img src="favicon.png" alt="logo"><span>О, Писец!</span></div>
+    <div class="auth-tabs">
+      <div class="auth-tab active" id="tab-register" onclick="switchTab('register')">Регистрация</div>
+      <div class="auth-tab" id="tab-login" onclick="switchTab('login')">Войти</div>
     </div>
-</div>
-
-<!-- ПАТЧ 1: ОНБОРДИНГ -->
-<div class="onboarding-overlay" id="ob-overlay">
-    <div class="ob-box">
-        <div class="ob-illo" id="ob-illo">
-            <div id="ob-s0" style="display:flex;flex-direction:column;align-items:center;gap:8px">
-                <div style="position:relative;width:64px;height:64px">
-                    <svg width="64" height="64" viewBox="0 0 64 64">
-                        <circle cx="32" cy="32" r="26" fill="none" stroke="#e5e5e5" stroke-width="5"/>
-                        <circle cx="32" cy="32" r="26" fill="none" stroke="#1d1d1f" stroke-width="5"
-                            stroke-dasharray="163.4" id="ob-ring" stroke-dashoffset="0"
-                            stroke-linecap="round" transform="rotate(-90 32 32)"/>
-                    </svg>
-                    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:700;color:#1d1d1f" id="ob-timer-n">15</div>
-                </div>
-                <div style="font-size:11px;color:#86868b;text-transform:uppercase;letter-spacing:1px">секунд до удаления</div>
-            </div>
-            <div id="ob-s1" style="display:none;align-items:flex-end;gap:5px">
-                <div style="display:flex;flex-direction:column;align-items:center;gap:3px"><div style="width:16px;height:34px;background:#1d1d1f;border-radius:3px 3px 0 0"></div><div style="font-size:8px;color:#ccc">пн</div></div>
-                <div style="display:flex;flex-direction:column;align-items:center;gap:3px"><div style="width:16px;height:48px;background:#1d1d1f;border-radius:3px 3px 0 0"></div><div style="font-size:8px;color:#ccc">вт</div></div>
-                <div style="display:flex;flex-direction:column;align-items:center;gap:3px"><div style="width:16px;height:40px;background:#1d1d1f;border-radius:3px 3px 0 0"></div><div style="font-size:8px;color:#ccc">ср</div></div>
-                <div style="display:flex;flex-direction:column;align-items:center;gap:3px"><div style="width:16px;height:56px;background:#e5e5e5;border-radius:3px 3px 0 0"></div><div style="font-size:8px;color:#ccc">чт</div></div>
-                <div style="font-size:1.6rem;margin-left:6px">🔥</div>
-            </div>
-            <div id="ob-s2" style="display:none;flex-direction:column;gap:7px;width:75%">
-                <div style="align-self:flex-end;background:#f5f5f7;border-radius:10px;padding:7px 12px;font-size:12px;color:#555">Не знаю, что писать дальше…</div>
-                <div style="display:flex;gap:3px;align-items:center;padding:7px 12px;background:#f0f7ff;border-radius:10px;width:fit-content">
-                    <span style="width:5px;height:5px;border-radius:50%;background:#0071e3;animation:dotPulse 1.2s infinite"></span>
-                    <span style="width:5px;height:5px;border-radius:50%;background:#0071e3;animation:dotPulse 1.2s .2s infinite"></span>
-                    <span style="width:5px;height:5px;border-radius:50%;background:#0071e3;animation:dotPulse 1.2s .4s infinite"></span>
-                </div>
-                <div style="background:#f0f7ff;border-radius:10px;padding:7px 12px;font-size:12px;color:#0071e3;line-height:1.5;max-width:85%">Герой находит письмо, которое меняет всё.</div>
-            </div>
-        </div>
-        <div class="ob-body">
-            <div id="ob-t0"><p class="ob-step-title">Пиши без остановок</p><p class="ob-step-text">Таймер отсчитывает 15 секунд. Пока ты пишешь — он сбрасывается. Остановился — текст сегодняшнего дня удаляется.</p><span class="ob-rule-pill">Цель — 800 слов в день, без редактирования</span></div>
-            <div id="ob-t1" style="display:none"><p class="ob-step-title">Строй серию дней</p><p class="ob-step-text">Каждый сохранённый день — это глава. 60 дней × 800 слов = 50 000 слов, полноценная книга. Серия сгорит, если пропустишь день.</p><span class="ob-rule-pill">Сохрани день — дай главе название</span></div>
-            <div id="ob-t2" style="display:none"><p class="ob-step-title">ИИ придёт на помощь</p><p class="ob-step-text">Написал 400 слов и застрял? Нажми «Идеи от ИИ» — он прочитает все твои главы и предложит три конкретные идеи для продолжения.</p><span class="ob-rule-pill">После 50 000 слов — корректура и создание обложки</span></div>
-        </div>
-        <div class="ob-dots">
-            <div class="ob-dot active" onclick="obGo(0)"></div>
-            <div class="ob-dot" onclick="obGo(1)"></div>
-            <div class="ob-dot" onclick="obGo(2)"></div>
-        </div>
-        <div class="ob-foot">
-            <button class="ob-skip" onclick="obClose()">Пропустить</button>
-            <button class="ob-back" id="ob-back" style="display:none" onclick="obPrev()">Назад</button>
-            <button class="ob-next" id="ob-next" onclick="obNext()">Далее →</button>
-            <span class="ob-step-num" id="ob-step-num">1 / 3</span>
-        </div>
+    <div class="auth-panel active" id="panel-register">
+      <div class="auth-field"><label>Имя</label><input type="text" id="reg-name" placeholder="Как вас зовут?"></div>
+      <div class="auth-field"><label>Email</label><input type="email" id="reg-email" placeholder="your@email.com"></div>
+      <div class="auth-field"><label>Пароль</label><input type="password" id="reg-password" placeholder="Минимум 6 символов"></div>
+      <div class="auth-error" id="reg-error"></div>
+      <button class="auth-submit" onclick="doRegister()">Начать писать</button>
+      <div class="auth-hint">Уже есть аккаунт? <a onclick="switchTab('login')">Войти</a></div>
     </div>
+    <div class="auth-panel" id="panel-login">
+      <div class="auth-field"><label>Email</label><input type="email" id="login-email" placeholder="your@email.com"></div>
+      <div class="auth-field"><label>Пароль</label><input type="password" id="login-password" placeholder="Ваш пароль"></div>
+      <div class="auth-error" id="login-error"></div>
+      <button class="auth-submit" onclick="doLogin()">Войти</button>
+      <div class="auth-hint">Нет аккаунта? <a onclick="switchTab('register')">Зарегистрироваться</a></div>
+    </div>
+  </div>
 </div>
-<!-- КОНЕЦ ПАТЧА 1 -->
 
 <script>
-// ===================================================
-// === AUTH (без изменений) ==========================
-// ===================================================
-function getUsers() { return JSON.parse(localStorage.getItem('opisets_users') || '[]'); }
-function saveUsers(u) { localStorage.setItem('opisets_users', JSON.stringify(u)); }
-function getCurrentUser() { return JSON.parse(localStorage.getItem('opisets_current_user') || 'null'); }
-function setCurrentUser(u) { localStorage.setItem('opisets_current_user', JSON.stringify(u)); }
+// ── AUTH ──
+function getUsers(){return JSON.parse(localStorage.getItem('opisets_users')||'[]')}
+function saveUsers(u){localStorage.setItem('opisets_users',JSON.stringify(u))}
+function getCurrentUser(){return JSON.parse(localStorage.getItem('opisets_current_user')||'null')}
+function setCurrentUser(u){localStorage.setItem('opisets_current_user',JSON.stringify(u))}
+function openAuth(t){switchTab(t||'register');document.getElementById('auth-overlay').classList.add('active');document.getElementById('reg-error').textContent='';document.getElementById('login-error').textContent=''}
+function closeAuth(){document.getElementById('auth-overlay').classList.remove('active')}
+function switchTab(t){document.querySelectorAll('.auth-tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.auth-panel').forEach(x=>x.classList.remove('active'));document.getElementById('tab-'+t).classList.add('active');document.getElementById('panel-'+t).classList.add('active')}
+function doRegister(){
+  const name=document.getElementById('reg-name').value.trim(),email=document.getElementById('reg-email').value.trim().toLowerCase(),pw=document.getElementById('reg-password').value,err=document.getElementById('reg-error');
+  if(!name){err.textContent='Введите ваше имя.';return}
+  if(!email||!email.includes('@')){err.textContent='Введите корректный email.';return}
+  if(pw.length<6){err.textContent='Пароль — минимум 6 символов.';return}
+  const users=getUsers();
+  if(users.find(u=>u.email===email)){err.textContent='Этот email уже зарегистрирован.';return}
+  users.push({name,email,password:pw,createdAt:Date.now()});saveUsers(users);
+  setCurrentUser({name,email});closeAuth();onLoginSuccess({name,email})
+}
+function doLogin(){
+  const email=document.getElementById('login-email').value.trim().toLowerCase(),pw=document.getElementById('login-password').value,err=document.getElementById('login-error');
+  const user=getUsers().find(u=>u.email===email&&u.password===pw);
+  if(!user){err.textContent='Неверный email или пароль.';return}
+  setCurrentUser({name:user.name,email:user.email});closeAuth();onLoginSuccess({name:user.name,email:user.email})
+}
+function onLoginSuccess(user){updateNavForUser(user);loadUserData(user.email);showScreen('cabinet')}
+function updateNavForUser(user){
+  if(user){document.getElementById('nav-user').classList.add('visible');document.getElementById('nav-user-name').textContent=user.name}
+  else{document.getElementById('nav-user').classList.remove('visible');document.getElementById('nav-user-name').textContent=''}
+}
+function logout(){
+  localStorage.removeItem('opisets_current_user');updateNavForUser(null);
+  books=[];activeBookIdx=0;renderBooksList();renderChaptersList();
+  showScreen('home')
+}
+function handleWriteClick(){const u=getCurrentUser();if(u)showScreen('cabinet');else openAuth('register')}
+function handleCabinetNav(){const u=getCurrentUser();if(u)showScreen('cabinet');else openAuth('login')}
+document.addEventListener('keydown',e=>{
+  if(e.key==='Enter'){const ov=document.getElementById('auth-overlay');if(ov.classList.contains('active')){const p=document.querySelector('.auth-panel.active');if(p&&p.id==='panel-register')doRegister();if(p&&p.id==='panel-login')doLogin()}}
+  if(e.key==='Escape'){const ov=document.getElementById('auth-overlay');if(ov.classList.contains('active'))closeAuth()}
+})
 
-function openAuth(tab) {
-    switchTab(tab || 'register');
-    document.getElementById('auth-overlay').classList.add('active');
-    document.getElementById('reg-error').textContent = '';
-    document.getElementById('login-error').textContent = '';
-}
-function closeAuth() { document.getElementById('auth-overlay').classList.remove('active'); }
-function switchTab(tab) {
-    document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.auth-panel').forEach(p => p.classList.remove('active'));
-    document.getElementById('tab-' + tab).classList.add('active');
-    document.getElementById('panel-' + tab).classList.add('active');
-}
-function doRegister() {
-    const name = document.getElementById('reg-name').value.trim();
-    const email = document.getElementById('reg-email').value.trim().toLowerCase();
-    const password = document.getElementById('reg-password').value;
-    const errEl = document.getElementById('reg-error');
-    if (!name) { errEl.textContent = 'Введите ваше имя.'; return; }
-    if (!email || !email.includes('@')) { errEl.textContent = 'Введите корректный email.'; return; }
-    if (password.length < 6) { errEl.textContent = 'Пароль — минимум 6 символов.'; return; }
-    const users = getUsers();
-    if (users.find(u => u.email === email)) { errEl.textContent = 'Этот email уже зарегистрирован.'; return; }
-    const user = { name, email, password, createdAt: Date.now() };
-    users.push(user); saveUsers(users);
-    setCurrentUser({ name, email });
-    closeAuth(); onLoginSuccess({ name, email });
-}
-function doLogin() {
-    const email = document.getElementById('login-email').value.trim().toLowerCase();
-    const password = document.getElementById('login-password').value;
-    const errEl = document.getElementById('login-error');
-    const user = getUsers().find(u => u.email === email && u.password === password);
-    if (!user) { errEl.textContent = 'Неверный email или пароль.'; return; }
-    setCurrentUser({ name: user.name, email: user.email });
-    closeAuth(); onLoginSuccess({ name: user.name, email: user.email });
-}
-function onLoginSuccess(user) {
-    updateNavForUser(user);
-    loadUserData(user.email);
-    showScreen('cabinet');
-}
-function updateNavForUser(user) {
-    if (user) {
-        document.getElementById('nav-user').classList.add('visible');
-        document.getElementById('nav-user-name').textContent = user.name;
+// ── STATE ──
+// books: [{id, title, chapters:[{day,name,text,words}]}]
+let books=[];
+let activeBookIdx=0;
+let currentDay=1;
+let timerInterval=null,timeLeft=15,timerRunning=false,reached800=false,editingIndex=-1,deleteIndex=-1,guInterval=null;
+
+// ── PERSISTENCE ──
+function getUserKey(suffix){const u=getCurrentUser();return u?'opisets_'+suffix+'_'+u.email:null}
+function saveBooks(){const k=getUserKey('books');if(k)localStorage.setItem(k,JSON.stringify(books))}
+function loadUserData(email){
+  const k='opisets_books_'+email;
+  const stored=localStorage.getItem(k);
+  if(stored){
+    books=JSON.parse(stored);
+  } else {
+    // миграция старого формата (один массив глав)
+    const oldKey='opisets_chapters_'+email;
+    const oldData=localStorage.getItem(oldKey);
+    if(oldData){
+      const oldChapters=JSON.parse(oldData);
+      books=[{id:Date.now(),title:'Моя первая книга',chapters:oldChapters}];
     } else {
-        document.getElementById('nav-user').classList.remove('visible');
-        document.getElementById('nav-user-name').textContent = '';
+      books=[{id:Date.now(),title:'Моя первая книга',chapters:[]}];
     }
-}
-function logout() {
-    localStorage.removeItem('opisets_current_user');
-    updateNavForUser(null);
-    chapters = []; currentDay = 1;
-    renderChapters(); updateTotalWords();
-    showScreen('home');
-}
-function loadUserData(email) {
-    const key = 'opisets_chapters_' + email;
-    chapters = JSON.parse(localStorage.getItem(key) || '[]');
-    currentDay = chapters.length + 1;
-    renderChapters(); updateTotalWords();
-}
-function handleWriteClick() {
-    const user = getCurrentUser();
-    if (user) showScreen('cabinet'); else openAuth('register');
-}
-function handleCabinetNav() {
-    const user = getCurrentUser();
-    if (user) showScreen('cabinet'); else openAuth('login');
-}
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') {
-        const ov = document.getElementById('auth-overlay');
-        if (ov.classList.contains('active')) {
-            const p = document.querySelector('.auth-panel.active');
-            if (p && p.id === 'panel-register') doRegister();
-            if (p && p.id === 'panel-login') doLogin();
-        }
-    }
-    if (e.key === 'Escape') {
-        const ov = document.getElementById('auth-overlay');
-        if (ov.classList.contains('active')) closeAuth();
-    }
-});
-
-// ===================================================
-// === СОСТОЯНИЕ =====================================
-// ===================================================
-let chapters = [];
-let currentDay = 1;
-let timerInterval = null;
-let timeLeft = 15;
-let timerRunning = false;
-let reached800 = false;
-let editingIndex = -1;
-
-// === ЗВУКИ ===
-const AudioCtx = window.AudioContext || window.webkitAudioContext;
-const audioCtx = new AudioCtx();
-
-// ПАТЧ 2: улучшенный playTick (громче, при ≤5 сек)
-function playTick() {
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    osc.connect(gain); gain.connect(audioCtx.destination);
-    osc.type = 'square';
-    osc.frequency.setValueAtTime(1100, audioCtx.currentTime);
-    osc.frequency.exponentialRampToValueAtTime(500, audioCtx.currentTime + 0.06);
-    gain.gain.setValueAtTime(0.5, audioCtx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.1);
-    osc.start(); osc.stop(audioCtx.currentTime + 0.1);
+    saveBooks();
+  }
+  activeBookIdx=0;
+  renderBooksList();
+  renderChaptersList();
+  updateTotalWords();
+  updateHomeDashboard();
 }
 
-function playTypeSound() {
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    osc.connect(gain); gain.connect(audioCtx.destination);
-    osc.type = 'sine';
-    osc.frequency.setValueAtTime(200 + Math.random() * 100, audioCtx.currentTime);
-    gain.gain.setValueAtTime(0.03, audioCtx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
-    osc.start(); osc.stop(audioCtx.currentTime + 0.05);
+// ── BOOKS ──
+function getActiveBook(){return books[activeBookIdx]||null}
+
+function renderBooksList(){
+  const el=document.getElementById('books-list');
+  if(!books.length){el.innerHTML='';return}
+  el.innerHTML=books.map((b,i)=>{
+    const total=b.chapters.reduce((s,c)=>s+c.words,0);
+    const pct=Math.min(total/50000*100,100);
+    const active=i===activeBookIdx;
+    return`<div class="book-item${active?' active':''}" onclick="selectBook(${i})">
+      <div class="book-item-icon">📖</div>
+      <div class="book-item-info">
+        <div class="book-item-title">${esc(b.title)}</div>
+        <div class="book-item-meta">${b.chapters.length} глав · ${total.toLocaleString('ru')} слов</div>
+        <div class="book-item-progress"><div class="book-item-fill" style="width:${pct}%"></div></div>
+      </div>
+    </div>`
+  }).join('');
 }
 
-// === НАВИГАЦИЯ ===
-function showScreen(name) {
-    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-    document.getElementById(name + '-screen').classList.add('active');
-    if (name !== 'cabinet') stopTimer();
-    if (name === 'cabinet') renderChapters();
-    // ПАТЧ 6: обновить дашборд при переходе на главную
-    if (name === 'home') updateHomeDashboard();
+function selectBook(i){
+  activeBookIdx=i;
+  renderBooksList();
+  renderChaptersList();
+  updateTotalWords();
+  const b=getActiveBook();
+  if(b){
+    document.getElementById('active-book-badge').textContent=b.title;
+    currentDay=b.chapters.length+1;
+  }
+  // сброс редактора
+  document.getElementById('writing-area').value='';
+  document.getElementById('writing-area').disabled=true;
+  reached800=false;
+  updateWordCount();
+  stopTimer();
 }
 
-// === ТАЙМЕР ===
-function startWriting() {
-    const area = document.getElementById('writing-area');
-    area.disabled = false;
-    area.focus();
-    timerRunning = true;
-    timeLeft = 15;
-    updateTimerDisplay();
-    document.getElementById('start-btn').style.display = 'none';
-    document.getElementById('stop-btn').style.display = 'inline-block';
-    document.getElementById('giveup-btn').style.display = 'inline-block'; // ПАТЧ 3
-    startTimer();
+function showNewBookDialog(){
+  document.getElementById('new-book-input').value='';
+  document.getElementById('new-book-dialog').classList.add('active');
+  setTimeout(()=>document.getElementById('new-book-input').focus(),80);
+}
+function closeNewBook(){document.getElementById('new-book-dialog').classList.remove('active')}
+function confirmNewBook(){
+  const title=document.getElementById('new-book-input').value.trim()||'Новая книга';
+  books.push({id:Date.now(),title,chapters:[]});
+  saveBooks();
+  activeBookIdx=books.length-1;
+  renderBooksList();renderChaptersList();updateTotalWords();
+  document.getElementById('active-book-badge').textContent=title;
+  currentDay=1;
+  closeNewBook();
 }
 
-function startTimer() {
-    clearInterval(timerInterval);
-    timerInterval = setInterval(() => {
-        timeLeft--;
-        updateTimerDisplay();
-        // ПАТЧ 2: тиканье только при ≤5 сек
-        if (timeLeft <= 5 && timeLeft > 0) {
-            playTick();
-            document.getElementById('timer-display').classList.add('warning');
-            document.getElementById('timer-sub-label').classList.add('urgent');
-        }
-        if (timeLeft <= 0) {
-            clearInterval(timerInterval);
-            timerRunning = false;
-            const wc = countWords(document.getElementById('writing-area').value);
-            if (wc < 800) {
-                document.getElementById('writing-area').value = '';
-                updateWordCount();
-                alert('⏰ Время вышло! Текст удалён. Попробуйте снова.');
-            }
-            resetTimerUI();
-        }
-    }, 1000);
+// ── CHAPTERS ──
+function renderChaptersList(){
+  const b=getActiveBook();
+  const titleEl=document.getElementById('chapters-sidebar-title');
+  const countEl=document.getElementById('chapters-sidebar-count');
+  const scroll=document.getElementById('chapters-scroll');
+  if(!b){scroll.innerHTML='<div class="no-chapters">Выберите книгу</div>';return}
+  titleEl.textContent=b.title;
+  countEl.textContent=b.chapters.length?b.chapters.length+' глав':'';
+  if(!b.chapters.length){scroll.innerHTML='<div class="no-chapters">Пока нет глав</div>';return}
+  scroll.innerHTML=b.chapters.map((ch,i)=>`
+    <div class="chapter-item">
+      <span class="ch-day">День ${ch.day}</span>
+      <span class="ch-name">${esc(ch.name)}</span>
+      <span class="ch-words">${ch.words}</span>
+      <div class="ch-actions">
+        <button class="ch-btn view" title="Просмотр" onclick="viewChapter(${i})">👁</button>
+        <button class="ch-btn edit" title="Редактировать" onclick="editChapter(${i})">✏️</button>
+        <button class="ch-btn del" title="Удалить" onclick="showDelConfirm(${i})">🗑</button>
+      </div>
+    </div>`).join('');
 }
 
-function resetTimer() {
-    timeLeft = 15;
-    updateTimerDisplay();
-    document.getElementById('timer-display').classList.remove('warning');
-    // ПАТЧ 2: убрать urgent при сбросе
-    document.getElementById('timer-sub-label').classList.remove('urgent');
+function updateTotalWords(){
+  const b=getActiveBook();
+  if(!b){document.getElementById('active-book-badge').textContent='—';return}
+  const total=b.chapters.reduce((s,c)=>s+c.words,0);
+  document.getElementById('active-book-badge').textContent=b.title;
+  document.getElementById('correction-btn').style.display=total>=50000?'inline-block':'none';
 }
 
-function stopTimer() {
-    clearInterval(timerInterval);
-    timerRunning = false;
-    resetTimerUI();
+// ── DELETE CHAPTER ──
+function showDelConfirm(i){
+  deleteIndex=i;
+  const b=getActiveBook();
+  const ch=b&&b.chapters[i];
+  document.getElementById('del-confirm-text').textContent=
+    ch?`Удалить «${ch.name}» (День ${ch.day})? Это нельзя отменить.`:'Удалить главу? Это нельзя отменить.';
+  document.getElementById('del-confirm-overlay').classList.add('active');
 }
-
-function resetTimerUI() {
-    document.getElementById('start-btn').style.display = 'inline-block';
-    document.getElementById('stop-btn').style.display = 'none';
-    document.getElementById('giveup-btn').style.display = 'none'; // ПАТЧ 3
-    document.getElementById('timer-display').classList.remove('warning');
-    document.getElementById('timer-sub-label').classList.remove('urgent'); // ПАТЧ 2
-    timeLeft = 15;
-    updateTimerDisplay();
-}
-
-function updateTimerDisplay() {
-    const m = String(Math.floor(timeLeft / 60)).padStart(2, '0');
-    const s = String(timeLeft % 60).padStart(2, '0');
-    document.getElementById('timer-display').textContent = m + ':' + s;
-}
-
-// ПАТЧ 3: СДАТЬСЯ вместо СТОП
-let guInterval = null;
-function showGiveUp() {
-    const wc = countWords(document.getElementById('writing-area').value);
-    const need = Math.max(0, 800 - wc);
-    const mins = Math.ceil(need / 15);
-    document.getElementById('gu-words').textContent = wc;
-    document.getElementById('gu-time').textContent = '~' + mins + ' мин';
-    document.getElementById('gu-desc').textContent =
-        'Ты уже написал ' + wc + ' слов. До цели осталось ' + need + '. Если уйдёшь сейчас — весь текст дня удалится.';
-    const btn = document.getElementById('gu-confirm-btn');
-    btn.disabled = true;
-    let cd = 5;
-    const cdEl = document.getElementById('gu-countdown');
-    cdEl.textContent = 'Кнопка удаления станет активна через ' + cd + ' сек…';
-    clearInterval(guInterval);
-    guInterval = setInterval(() => {
-        cd--;
-        if (cd > 0) { cdEl.textContent = 'Кнопка удаления станет активна через ' + cd + ' сек…'; }
-        else { clearInterval(guInterval); btn.disabled = false; cdEl.textContent = ''; }
-    }, 1000);
-    document.getElementById('stop-warning').classList.add('active');
-}
-function showStopWarning() { showGiveUp(); } // обратная совместимость
-
-function closeStopWarning() {
-    document.getElementById('stop-warning').classList.remove('active');
-    clearInterval(guInterval);
-}
-
-function confirmStop() {
-    closeStopWarning();
-    clearInterval(timerInterval);
-    timerRunning = false;
-    document.getElementById('writing-area').value = '';
-    document.getElementById('writing-area').disabled = true;
-    reached800 = false;
-    updateWordCount();
-    resetTimerUI();
-}
-
-// === ПОДСЧЁТ СЛОВ ===
-function countWords(text) {
-    return text.trim().split(/\s+/).filter(w => w.length > 0).length;
-}
-
-function updateWordCount() {
-    const area = document.getElementById('writing-area');
-    const wc = countWords(area.value);
-    document.getElementById('word-count').textContent = wc;
-    const saveBtn = document.getElementById('save-btn');
-    if (wc >= 800) {
-        saveBtn.style.display = 'inline-block';
-        if (!reached800) {
-            reached800 = true;
-            autoSaveText(area.value);
-            showDaySavedDialog(); // ПАТЧ 7
-        }
-    } else {
-        saveBtn.style.display = 'none';
-    }
-
-    // ПАТЧ 4: разблокировать ИИ после 400 слов
-    const aiBtn = document.getElementById('ai-trigger-btn');
-    const aiHint = document.getElementById('ai-trigger-hint');
-    if (wc >= 400) {
-        aiBtn.disabled = false;
-        aiHint.textContent = '';
-    } else {
-        aiBtn.disabled = true;
-        aiHint.textContent = 'Напиши ' + (400 - wc) + ' слов — и ИИ предложит идеи';
-    }
-}
-
-function autoSaveText(text) {
-    const user = getCurrentUser();
-    if (user) localStorage.setItem('opisets_autosave_' + user.email, text);
-}
-
-// ПАТЧ 7: показать расширенную модалку «Сохранено»
-function showDaySavedDialog() {
-    // временное сохранение — пользователь ещё не дал название
-    document.getElementById('continue-dialog').classList.add('active');
-    const wc = countWords(document.getElementById('writing-area').value);
-    const totalW = chapters.reduce((s, c) => s + c.words, 0) + wc;
-    const pct = Math.min(totalW / 50000 * 100, 100);
-    const left = Math.max(0, 50000 - totalW);
-    const streak = chapters.length; // упрощённо — дней подряд = всего глав
-    document.getElementById('ds-emoji').textContent = totalW >= 50000 ? '🏆' : wc >= 800 ? '🎉' : '✅';
-    document.getElementById('ds-title').textContent = 'День ' + currentDay + ' завершён!';
-    document.getElementById('ds-chapter-name').textContent = 'Дайте название главе при сохранении';
-    document.getElementById('ds-today').textContent = wc.toLocaleString('ru');
-    document.getElementById('ds-today').style.color = wc >= 800 ? '#34c759' : '#1d1d1f';
-    document.getElementById('ds-total').textContent = totalW.toLocaleString('ru');
-    document.getElementById('ds-left').textContent = left.toLocaleString('ru');
-    const pctRound = Math.round(pct * 10) / 10;
-    document.getElementById('ds-pct').textContent = pctRound + '%';
-    document.getElementById('ds-fill').style.width = pct + '%';
-    document.getElementById('ds-days-left').textContent = left > 0 ? 'осталось ~' + Math.ceil(left / 800) + ' дней' : 'готово к корректуре!';
-    document.getElementById('ds-day-of').textContent = 'день ' + currentDay + ' из 60';
-    const si = streak >= 14 ? '🔥🔥' : streak >= 7 ? '🔥' : '✨';
-    document.getElementById('ds-streak-icon').textContent = si;
-    document.getElementById('ds-streak-text').innerHTML =
-        streak >= 7
-        ? '<strong>' + streak + ' дней подряд!</strong> Неделя без пропусков — уже привычка.'
-        : '<strong>' + (streak + 1) + '-й день подряд.</strong> Не останавливайся завтра.';
-    const motives = [
-        'Начни первый день — первая строчка самая важная.',
-        'Каждое слово приближает к готовой книге.',
-        'Ты набираешь темп — скоро писать станет привычкой.',
-        'Четверть книги написана. Многие бросают здесь — ты продолжаешь.',
-        'Половина позади! Ты точно дойдёшь до конца.',
-        'Финишная прямая. Осталось меньше, чем уже написано.',
-        '🎉 50 000 слов! Пора на корректуру.'
-    ];
-    const mi = totalW >= 50000 ? 6 : pct >= 75 ? 5 : pct >= 50 ? 4 : pct >= 25 ? 3 : currentDay <= 3 ? 1 : 2;
-    document.getElementById('ds-motivation').textContent = motives[mi];
-}
-
-function continueWriting() {
-    document.getElementById('continue-dialog').classList.remove('active');
-    clearInterval(timerInterval);
-    timerRunning = false;
-    document.getElementById('timer-display').textContent = '∞';
-    document.getElementById('stop-btn').style.display = 'none';
-    document.getElementById('start-btn').style.display = 'none';
-}
-
-function goHomeAfterSave() {
-    document.getElementById('continue-dialog').classList.remove('active');
-    saveChapter();
-}
-
-// === СОХРАНЕНИЕ ГЛАВЫ ===
-function saveChapter() {
-    document.getElementById('save-dialog').classList.add('active');
-    document.getElementById('chapter-name-input').value = '';
-    document.getElementById('chapter-name-input').focus();
-}
-
-function confirmSaveChapter() {
-    const name = document.getElementById('chapter-name-input').value.trim() || 'Без названия';
-    const text = document.getElementById('writing-area').value;
-    const wc = countWords(text);
-    chapters.push({ day: currentDay, name: name, text: text, words: wc });
-    const user = getCurrentUser();
-    if (user) localStorage.setItem('opisets_chapters_' + user.email, JSON.stringify(chapters));
-    currentDay++;
-    document.getElementById('writing-area').value = '';
-    document.getElementById('writing-area').disabled = true;
-    reached800 = false;
-    updateWordCount();
-    document.getElementById('save-dialog').classList.remove('active');
-    stopTimer();
-    renderChapters();
+function closeDel(){document.getElementById('del-confirm-overlay').classList.remove('active');deleteIndex=-1}
+function confirmDelete(){
+  const b=getActiveBook();
+  if(b&&deleteIndex>=0){
+    b.chapters.splice(deleteIndex,1);
+    saveBooks();
+    renderChaptersList();
     updateTotalWords();
-    const total = chapters.reduce((s, c) => s + c.words, 0);
-    if (total >= 50000) {
-        alert('🎉 Поздравляем! Вы написали 50 000 слов! Время корректуры!');
-        startCorrection();
-    }
+  }
+  closeDel();
 }
 
-// === РЕНДЕР ГЛАВ ===
-function renderChapters() {
-    const list = document.getElementById('chapters-list');
-    if (chapters.length === 0) {
-        list.innerHTML = '<div class="no-chapters">Пока нет глав. Начните писать!</div>';
-        return;
-    }
-    list.innerHTML = chapters.map((ch, i) => `
-        <div class="chapter-item">
-            <div class="chapter-header">
-                <span class="chapter-name">День ${ch.day}: ${ch.name}</span>
-                <span class="chapter-words">${ch.words} сл.</span>
-                <div class="chapter-actions">
-                    <button class="ch-action-btn view-btn" title="Посмотреть" onclick="viewChapter(${i})">👁</button>
-                    <button class="ch-action-btn edit-btn" title="Редактировать" onclick="editChapter(${i})">✏️</button>
-                    <button class="ch-action-btn dl-btn" title="Сохранить" onclick="downloadChapter(${i})">💾</button>
-                </div>
-            </div>
-        </div>`).join('');
+// ── AUDIO ──
+const AudioCtx=window.AudioContext||window.webkitAudioContext;
+const audioCtx=new AudioCtx();
+function playTick(){try{const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.connect(g);g.connect(audioCtx.destination);o.type='square';o.frequency.setValueAtTime(1100,audioCtx.currentTime);o.frequency.exponentialRampToValueAtTime(500,audioCtx.currentTime+.06);g.gain.setValueAtTime(.5,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+.1);o.start();o.stop(audioCtx.currentTime+.1)}catch(e){}}
+function playTypeSound(){try{const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.connect(g);g.connect(audioCtx.destination);o.type='sine';o.frequency.setValueAtTime(200+Math.random()*100,audioCtx.currentTime);g.gain.setValueAtTime(.03,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+.05);o.start();o.stop(audioCtx.currentTime+.05)}catch(e){}}
+
+// ── NAVIGATION ──
+function showScreen(name){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(name+'-screen').classList.add('active');
+  if(name!=='cabinet')stopTimer();
+  if(name==='cabinet')renderChaptersList();
+  if(name==='home')updateHomeDashboard();
 }
 
-function updateTotalWords() {
-    const total = chapters.reduce((s, c) => s + c.words, 0);
-    document.getElementById('total-words').textContent = total;
-    const pct = Math.min((total / 50000) * 100, 100);
-    document.getElementById('progress-fill').style.width = pct + '%';
-    document.getElementById('correction-btn').style.display = total >= 50000 ? 'inline-block' : 'none';
+// ── TIMER ──
+function startWriting(){
+  const b=getActiveBook();
+  if(!b){alert('Выберите книгу');return}
+  const area=document.getElementById('writing-area');
+  area.disabled=false;area.focus();
+  timerRunning=true;timeLeft=15;updateTimerDisplay();
+  document.getElementById('start-btn').style.display='none';
+  document.getElementById('stop-btn').style.display='inline-block';
+  document.getElementById('giveup-btn').style.display='inline-block';
+  startTimer();
+}
+function startTimer(){
+  clearInterval(timerInterval);
+  timerInterval=setInterval(()=>{
+    timeLeft--;updateTimerDisplay();
+    if(timeLeft<=5&&timeLeft>0){playTick();document.getElementById('timer-display').classList.add('warning');document.getElementById('timer-sub-label').classList.add('urgent')}
+    if(timeLeft<=0){clearInterval(timerInterval);timerRunning=false;const wc=countWords(document.getElementById('writing-area').value);if(wc<800){document.getElementById('writing-area').value='';updateWordCount();alert('⏰ Время вышло! Текст удалён.')}resetTimerUI()}
+  },1000)
+}
+function resetTimer(){timeLeft=15;updateTimerDisplay();document.getElementById('timer-display').classList.remove('warning');document.getElementById('timer-sub-label').classList.remove('urgent')}
+function stopTimer(){clearInterval(timerInterval);timerRunning=false;resetTimerUI()}
+function resetTimerUI(){document.getElementById('start-btn').style.display='inline-block';document.getElementById('stop-btn').style.display='none';document.getElementById('giveup-btn').style.display='none';document.getElementById('timer-display').classList.remove('warning');document.getElementById('timer-sub-label').classList.remove('urgent');timeLeft=15;updateTimerDisplay()}
+function updateTimerDisplay(){const m=String(Math.floor(timeLeft/60)).padStart(2,'0'),s=String(timeLeft%60).padStart(2,'0');document.getElementById('timer-display').textContent=m+':'+s}
+
+// ── GIVE UP ──
+function showGiveUp(){
+  const wc=countWords(document.getElementById('writing-area').value),need=Math.max(0,800-wc),mins=Math.ceil(need/15);
+  document.getElementById('gu-words').textContent=wc;
+  document.getElementById('gu-time').textContent='~'+mins+' мин';
+  document.getElementById('gu-desc').textContent='Ты уже написал '+wc+' слов. До цели осталось '+need+'. Если уйдёшь сейчас — весь текст дня удалится.';
+  const btn=document.getElementById('gu-confirm-btn');btn.disabled=true;let cd=5;
+  const cdEl=document.getElementById('gu-countdown');cdEl.textContent='Кнопка станет активна через '+cd+' сек…';
+  clearInterval(guInterval);
+  guInterval=setInterval(()=>{cd--;if(cd>0)cdEl.textContent='Кнопка станет активна через '+cd+' сек…';else{clearInterval(guInterval);btn.disabled=false;cdEl.textContent=''}},1000);
+  document.getElementById('stop-warning').classList.add('active');
+}
+function closeStopWarning(){document.getElementById('stop-warning').classList.remove('active');clearInterval(guInterval)}
+function confirmStop(){closeStopWarning();clearInterval(timerInterval);timerRunning=false;document.getElementById('writing-area').value='';document.getElementById('writing-area').disabled=true;reached800=false;updateWordCount();resetTimerUI()}
+
+// ── WORD COUNT ──
+function countWords(t){return t.trim().split(/\s+/).filter(w=>w.length>0).length}
+function updateWordCount(){
+  const area=document.getElementById('writing-area'),wc=countWords(area.value);
+  document.getElementById('word-count').textContent=wc;
+  const saveBtn=document.getElementById('save-btn');
+  if(wc>=800){saveBtn.style.display='inline-block';if(!reached800){reached800=true;showDaySavedDialog()}}
+  else saveBtn.style.display='none';
+  const aiBtn=document.getElementById('ai-trigger-btn'),aiHint=document.getElementById('ai-trigger-hint');
+  if(wc>=400){aiBtn.disabled=false;aiHint.textContent=''}
+  else{aiBtn.disabled=true;aiHint.textContent='Напиши '+(400-wc)+' слов — и ИИ предложит идеи'}
 }
 
-// ПАТЧ 6: ДАШБОРД НА ГЛАВНОЙ
-function updateHomeDashboard() {
-    const user = getCurrentUser();
-    if (!user || chapters.length === 0) {
-        document.getElementById('home-dashboard').style.display = 'none';
-        return;
-    }
-    document.getElementById('home-dashboard').style.display = 'flex';
-    const total = chapters.reduce((s, c) => s + c.words, 0);
-    const pct = Math.min(total / 50000 * 100, 100);
-    const left = Math.max(0, 50000 - total);
-    const days = chapters.length;
-    const avg = days ? Math.round(total / days) : 0;
-    // упрощённый streak — последовательные дни без пропусков
-    let streak = 0;
-    for (let i = chapters.length - 1; i >= 0; i--) {
-        if (chapters[i].words >= 800) streak++;
-        else break;
-    }
-    document.getElementById('db-ring').style.strokeDashoffset = 263.9 * (1 - pct / 100);
-    document.getElementById('db-pct').textContent = Math.round(pct) + '%';
-    document.getElementById('db-total-words').textContent = total.toLocaleString('ru');
-    document.getElementById('db-prog-fill').style.width = pct + '%';
-    document.getElementById('db-prog-lbl').textContent = left > 0 ? 'осталось ' + left.toLocaleString('ru') + ' слов' : '🎉 Книга написана!';
-    document.getElementById('db-days').textContent = days;
-    document.getElementById('db-streak').textContent = streak;
-    document.getElementById('db-streak-badge').textContent = streak >= 7 ? '🔥 горячая серия!' : streak >= 3 ? 'серия идёт!' : 'держись!';
-    document.getElementById('db-avg').textContent = avg;
-    document.getElementById('db-avg-badge').textContent = avg >= 800 ? 'цель выполнена!' : avg >= 600 ? 'чуть до цели' : 'пиши больше';
-    document.getElementById('db-chaps').textContent = days;
-    document.getElementById('db-cal-streak').textContent = streak > 0 ? '🔥 ' + streak + ' подряд' : '';
-    // календарь
-    const grid = document.getElementById('db-days-grid');
-    grid.innerHTML = '';
-    for (let i = 1; i <= 60; i++) {
-        const d = document.createElement('div');
-        d.className = 'db-day' + (i <= days ? ' done' : i === days + 1 ? ' today' : '');
-        if (i === days + 1) d.textContent = 'сег';
-        else if (i > days) d.textContent = i;
-        grid.appendChild(d);
-    }
-    // последние главы
-    const cc = document.getElementById('db-chapters-card');
-    if (chapters.length) {
-        cc.style.display = 'block';
-        document.getElementById('db-chaps-count').textContent = chapters.length + ' глав';
-        document.getElementById('db-chaps-list').innerHTML = chapters.slice(-4).reverse().map((c, i) =>
-            `<div class="db-ch-item"><div class="db-ch-day">День ${chapters.length - i}</div><div class="db-ch-name">${c.name}</div><div class="db-ch-words">${c.words} слов</div></div>`
-        ).join('');
-    } else cc.style.display = 'none';
-    // мотивация
-    const msgs = ['Начни первый день — первая строчка самая важная.', 'Отличный старт! Каждое слово приближает к готовой книге.', 'Четверть книги написана. Многие бросают здесь — ты продолжаешь.', 'Половина позади! Ты точно дойдёшь до конца.', 'Финишная прямая. Осталось меньше, чем уже написано.', '🎉 Книга написана! Пора на корректуру.'];
-    const mi = total >= 50000 ? 5 : pct >= 75 ? 4 : pct >= 50 ? 3 : pct >= 25 ? 2 : days > 0 ? 1 : 0;
-    document.getElementById('db-msg').textContent = msgs[mi];
+// ── DAY SAVED DIALOG ──
+function showDaySavedDialog(){
+  const b=getActiveBook();
+  const wc=countWords(document.getElementById('writing-area').value);
+  const totalW=(b?b.chapters.reduce((s,c)=>s+c.words,0):0)+wc;
+  const pct=Math.min(totalW/50000*100,100),left=Math.max(0,50000-totalW);
+  const streak=b?b.chapters.length:0;
+  document.getElementById('ds-emoji').textContent=totalW>=50000?'🏆':wc>=800?'🎉':'✅';
+  document.getElementById('ds-title').textContent='День '+(b?b.chapters.length+1:1)+' завершён!';
+  document.getElementById('ds-chapter-name').textContent=b?'Книга: «'+b.title+'»':'';
+  document.getElementById('ds-today').textContent=wc.toLocaleString('ru');
+  document.getElementById('ds-today').style.color=wc>=800?'#34c759':'#1d1d1f';
+  document.getElementById('ds-total').textContent=totalW.toLocaleString('ru');
+  document.getElementById('ds-left').textContent=left.toLocaleString('ru');
+  const pctR=Math.round(pct*10)/10;
+  document.getElementById('ds-pct').textContent=pctR+'%';
+  document.getElementById('ds-fill').style.width=pct+'%';
+  document.getElementById('ds-days-left').textContent=left>0?'осталось ~'+Math.ceil(left/800)+' дней':'готово к корректуре!';
+  document.getElementById('ds-day-of').textContent='день '+(streak+1)+' из 60';
+  document.getElementById('ds-streak-icon').textContent=streak>=14?'🔥🔥':streak>=7?'🔥':'✨';
+  document.getElementById('ds-streak-text').innerHTML=streak>=7?'<strong>'+streak+' дней подряд!</strong> Неделя без пропусков — уже привычка.':'<strong>'+(streak+1)+'-й день подряд.</strong> Не останавливайся завтра.';
+  const motives=['Начни первый день — первая строчка самая важная.','Каждое слово приближает к готовой книге.','Ты набираешь темп — скоро писать станет привычкой.','Четверть книги написана. Многие бросают здесь — ты продолжаешь.','Половина позади! Ты точно дойдёшь до конца.','Финишная прямая. Осталось меньше, чем уже написано.','🎉 50 000 слов! Пора на корректуру.'];
+  const mi=totalW>=50000?6:pct>=75?5:pct>=50?4:pct>=25?3:streak<=3?1:2;
+  document.getElementById('ds-motivation').textContent=motives[mi];
+  document.getElementById('continue-dialog').classList.add('active');
+}
+function continueWriting(){document.getElementById('continue-dialog').classList.remove('active');clearInterval(timerInterval);timerRunning=false;document.getElementById('timer-display').textContent='∞';document.getElementById('stop-btn').style.display='none';document.getElementById('start-btn').style.display='none'}
+function goHomeAfterSave(){document.getElementById('continue-dialog').classList.remove('active');saveChapter()}
+
+// ── SAVE CHAPTER ──
+function saveChapter(){
+  document.getElementById('save-dialog').classList.add('active');
+  document.getElementById('chapter-name-input').value='';
+  setTimeout(()=>document.getElementById('chapter-name-input').focus(),80);
+}
+function confirmSaveChapter(){
+  const b=getActiveBook();if(!b)return;
+  const name=document.getElementById('chapter-name-input').value.trim()||'Без названия';
+  const text=document.getElementById('writing-area').value,wc=countWords(text);
+  b.chapters.push({day:currentDay,name,text,words:wc});
+  saveBooks();currentDay++;
+  document.getElementById('writing-area').value='';document.getElementById('writing-area').disabled=true;
+  reached800=false;updateWordCount();
+  document.getElementById('save-dialog').classList.remove('active');
+  stopTimer();renderBooksList();renderChaptersList();updateTotalWords();updateHomeDashboard();
+  const total=b.chapters.reduce((s,c)=>s+c.words,0);
+  if(total>=50000){alert('🎉 Поздравляем! Вы написали 50 000 слов! Время корректуры!');startCorrection()}
 }
 
-// === ДЕЙСТВИЯ С ГЛАВАМИ ===
-function viewChapter(i) {
-    document.getElementById('view-modal-title').textContent = 'День ' + chapters[i].day + ': ' + chapters[i].name;
-    document.getElementById('view-modal-content').textContent = chapters[i].text;
-    document.getElementById('view-modal').classList.add('active');
-}
-function editChapter(i) {
-    editingIndex = i;
-    document.getElementById('edit-modal-title').textContent = 'Редактирование: День ' + chapters[i].day;
-    document.getElementById('edit-modal-textarea').value = chapters[i].text;
-    document.getElementById('edit-modal').classList.add('active');
-}
-function saveEditedChapter() {
-    const text = document.getElementById('edit-modal-textarea').value;
-    chapters[editingIndex].text = text;
-    chapters[editingIndex].words = countWords(text);
-    const user = getCurrentUser();
-    if (user) localStorage.setItem('opisets_chapters_' + user.email, JSON.stringify(chapters));
-    closeModal('edit-modal');
-    renderChapters(); updateTotalWords();
-}
-function downloadChapter(i) {
-    const ch = chapters[i];
-    const blob = new Blob([ch.text], { type: 'text/plain;charset=utf-8' });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'День_' + ch.day + '_' + ch.name.replace(/\s+/g, '_') + '.txt';
-    a.click();
-}
-function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+// ── VIEW / EDIT ──
+function viewChapter(i){const b=getActiveBook();if(!b)return;const ch=b.chapters[i];document.getElementById('view-modal-title').textContent='День '+ch.day+': '+ch.name;document.getElementById('view-modal-content').textContent=ch.text;document.getElementById('view-modal').classList.add('active')}
+function editChapter(i){const b=getActiveBook();if(!b)return;editingIndex=i;const ch=b.chapters[i];document.getElementById('edit-modal-title').textContent='Редактирование: День '+ch.day;document.getElementById('edit-modal-textarea').value=ch.text;document.getElementById('edit-modal').classList.add('active')}
+function saveEditedChapter(){const b=getActiveBook();if(!b)return;const text=document.getElementById('edit-modal-textarea').value;b.chapters[editingIndex].text=text;b.chapters[editingIndex].words=countWords(text);saveBooks();closeModal('edit-modal');renderChaptersList();updateTotalWords()}
+function closeModal(id){document.getElementById(id).classList.remove('active')}
 
-// ПАТЧ 4: AI-ИДЕИ (открываются кнопкой, работают только от 400 слов)
-function showAIIdeas() {
-    const wc = countWords(document.getElementById('writing-area').value);
-    if (wc < 400) return;
-    const panel = document.getElementById('ai-ideas');
-    const list = document.getElementById('ai-ideas-list');
-    panel.style.display = 'block';
-    // собрать весь текст книги + текущий
-    const allChaptersText = chapters.map((c, i) => `=== День ${c.day}: ${c.name} ===\n${c.text}`).join('\n\n');
-    const currentText = document.getElementById('writing-area').value;
-    const fullContext = [allChaptersText, currentText].filter(Boolean).join('\n\n---\n\n');
-    list.innerHTML = `<div class="ai-loading"><div class="ai-loading-dots"><span></span><span></span><span></span></div>Анализирую всю книгу...</div>`;
-    callAI(fullContext.slice(-8000), list);
+// ── AI IDEAS ──
+function showAIIdeas(){
+  const wc=countWords(document.getElementById('writing-area').value);if(wc<400)return;
+  const b=getActiveBook();
+  const panel=document.getElementById('ai-ideas'),list=document.getElementById('ai-ideas-list');
+  panel.style.display='block';
+  const allChaptersText=b?b.chapters.map((c,i)=>`=== День ${c.day}: ${c.name} ===\n${c.text}`).join('\n\n'):'';
+  const currentText=document.getElementById('writing-area').value;
+  const fullContext=[allChaptersText,currentText].filter(Boolean).join('\n\n---\n\n');
+  list.innerHTML=`<div class="ai-loading"><div class="ai-loading-dots"><span></span><span></span><span></span></div>Анализирую всю книгу...</div>`;
+  callAI(fullContext.slice(-8000),list);
 }
-
-async function callAI(fullContext, listEl) {
-    try {
-        const prompt = `Ты литературный редактор и соавтор. Вот текст, который автор написал:\n\n${fullContext}\n\nПредложи ровно 3 конкретные идеи для развития сюжета. Каждая — 1-2 предложения, конкретная, интригующая. JSON: {"ideas": ["идея 1", "идея 2", "идея 3"]}. Только JSON.`;
-        const response = await fetch('/api/chat', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ prompt, max_tokens: 1000 })
-        });
-        const data = await response.json();
-        if (data.error) throw new Error(data.error);
-        const parsed = JSON.parse(data.text.replace(/```json|```/g, '').trim());
-        const ideas = parsed.ideas || [];
-        listEl.innerHTML = ideas.map(idea =>
-            `<div class="ai-idea-item" onclick="useIdea(this)">${idea}</div>`
-        ).join('');
-    } catch(err) {
-        listEl.innerHTML = `<div class="ai-idea-item" style="color:#ff3b30;cursor:default;">Не удалось получить идеи. Попробуйте снова.</div>`;
-    }
+async function callAI(ctx,listEl){
+  try{
+    const prompt=`Ты литературный редактор и соавтор. Вот текст, который автор написал:\n\n${ctx}\n\nПредложи ровно 3 конкретные идеи для развития сюжета. Каждая — 1-2 предложения, конкретная, интригующая, органично вытекающая из написанного. JSON: {"ideas":["идея 1","идея 2","идея 3"]}. Только JSON.`;
+    const r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt,max_tokens:1000})});
+    const d=await r.json();if(d.error)throw new Error(d.error);
+    const parsed=JSON.parse(d.text.replace(/```json|```/g,'').trim());
+    listEl.innerHTML=(parsed.ideas||[]).map(idea=>`<div class="ai-idea-item" onclick="useIdea(this)">${idea}</div>`).join('');
+  }catch(e){listEl.innerHTML=`<div class="ai-idea-item" style="color:#ff3b30;cursor:default">Не удалось получить идеи. Попробуйте снова.</div>`}
 }
+function checkForAITrigger(t){if(/писец,?\s*что\s*дальше\??/i.test(t))showAIIdeas()}
+function useIdea(el){const area=document.getElementById('writing-area');area.value=area.value.trimEnd()+'\n\n'+el.textContent+'\n\n';document.getElementById('ai-ideas').style.display='none';area.focus();resetTimer();if(timerRunning){clearInterval(timerInterval);startTimer()}updateWordCount()}
 
-// Оставляем поддержку фразы-триггера
-function checkForAITrigger(text) {
-    if (/писец,?\s*что\s*дальше\??/i.test(text)) showAIIdeas();
+// ── CORRECTION ──
+async function runAICorrection(){
+  const b=getActiveBook();if(!b||!b.chapters.length){alert('Нет сохранённых глав для корректуры.');return}
+  const btn=document.getElementById('correction-start-btn'),progress=document.getElementById('correction-progress'),results=document.getElementById('correction-results'),footer=document.getElementById('correction-footer');
+  btn.disabled=true;btn.textContent='⏳ Анализ выполняется...';progress.classList.add('active');results.innerHTML='';footer.style.display='none';
+  const allText=b.chapters.map(c=>`=== День ${c.day}: ${c.name} ===\n${c.text}`).join('\n\n');
+  const steps=[{pct:15,label:'Читаю рукопись...',status:'Передаю текст ИИ'},{pct:40,label:'Анализирую орфографию...',status:'Проверка слов и знаков'},{pct:65,label:'Проверяю логику...',status:'Ищу несоответствия'},{pct:85,label:'Оцениваю стиль...',status:'Анализ повторов и ритма'},{pct:95,label:'Формирую отчёт...',status:'Почти готово'}];
+  let si=0;const pF=document.getElementById('correction-progress-fill'),pL=document.getElementById('correction-progress-label'),pS=document.getElementById('correction-progress-status');
+  const pT=setInterval(()=>{if(si<steps.length){const s=steps[si++];pF.style.width=s.pct+'%';pL.textContent=s.label;pS.textContent=s.status}},1800);
+  const prompt=`Ты профессиональный литературный редактор. Рукопись:\n${allText.slice(0,40000)}\n\nВерни строго JSON:\n{"summary":"...","sections":[{"icon":"✏️","title":"Орфография","badge":"warn|ok|info","issues":[{"original":"...","suggested":"...","comment":"..."}]}]}\nТолько JSON.`;
+  try{
+    const r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt,max_tokens:4000})});
+    clearInterval(pT);pF.style.width='100%';pL.textContent='Готово!';pS.textContent='Корректура завершена';
+    const d=await r.json();if(d.error)throw new Error(d.error);
+    const parsed=JSON.parse(d.text.replace(/```json|```/g,'').trim());
+    let html='';
+    if(parsed.summary)html+=`<div style="background:#f0f7ff;border-radius:14px;padding:22px 26px;margin-bottom:24px;font-size:15px;line-height:1.8;color:#1d1d1f;border-left:4px solid #0071e3"><strong>Общая оценка:</strong><br>${parsed.summary}</div>`;
+    const bm={ok:['badge-ok','✓ Хорошо'],warn:['badge-warn','⚠ Внимание'],info:['badge-info','ℹ Рекомендации']};
+    (parsed.sections||[]).forEach(sec=>{const[bc,bt]=bm[sec.badge]||bm.info;const iss=!sec.issues||!sec.issues.length?`<p class="correction-empty">Проблем не обнаружено.</p>`:sec.issues.map(i=>`<div class="correction-issue">${i.original?`<span class="issue-original">${esc(i.original)}</span><span class="issue-arrow">→</span><span class="issue-suggested">${esc(i.suggested)}</span>`:`<span class="issue-suggested">${esc(i.suggested||i.comment||'')}</span>`}${i.comment?`<span class="issue-comment">${esc(i.comment)}</span>`:''}</div>`).join('');html+=`<div class="correction-section"><div class="correction-section-header"><span class="correction-section-icon">${sec.icon||'📌'}</span><span class="correction-section-title">${esc(sec.title)}</span><span class="correction-section-badge ${bc}">${bt}</span></div><div class="correction-section-body">${iss}</div></div>`});
+    results.innerHTML=html;footer.style.display='block';
+  }catch(e){clearInterval(pT);results.innerHTML=`<div class="correction-section"><div class="correction-section-body"><p style="color:#ff3b30">Ошибка. Попробуйте снова.</p></div></div>`;btn.disabled=false;btn.textContent='🔄 Попробовать снова'}
+  progress.classList.remove('active');btn.style.display='none';
 }
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function startCorrection(){showScreen('correction');document.getElementById('correction-start-btn').style.display='block';document.getElementById('correction-start-btn').disabled=false;document.getElementById('correction-start-btn').textContent='🤖 Запустить ИИ-корректуру';document.getElementById('correction-progress').classList.remove('active');document.getElementById('correction-results').innerHTML='';document.getElementById('correction-footer').style.display='none';document.getElementById('correction-progress-fill').style.width='0%'}
 
-function useIdea(el) {
-    const area = document.getElementById('writing-area');
-    area.value = area.value.trimEnd() + '\n\n' + el.textContent + '\n\n';
-    document.getElementById('ai-ideas').style.display = 'none';
-    area.focus(); resetTimer();
-    if (timerRunning) { clearInterval(timerInterval); startTimer(); }
-    updateWordCount();
+// ── COVER ──
+function showCoverScreen(){showScreen('cover')}
+function updateCover(){document.getElementById('cover-author').textContent=document.getElementById('author-input').value||'Имя автора';document.getElementById('cover-book-title').textContent=document.getElementById('title-input').value||'Название книги';document.getElementById('cover-year').textContent=document.getElementById('year-input').value||'2025'}
+function uploadCoverImage(e){const file=e.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=ev=>{const img=document.getElementById('cover-bg-img');img.src=ev.target.result;img.style.display='block';document.getElementById('cover-preview').classList.add('has-image')};reader.readAsDataURL(file)}
+function exportBook(){
+  const b=getActiveBook();
+  const allText=b?b.chapters.map(c=>`=== День ${c.day}: ${c.name} ===\n\n${c.text}`).join('\n\n\n'):'';
+  const author=document.getElementById('author-input').value||'Автор';
+  const title=document.getElementById('title-input').value||(b?b.title:'Моя книга');
+  const blob=new Blob([`${title}\n${author}\n${'='.repeat(40)}\n\n${allText}`],{type:'text/plain;charset=utf-8'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=title.replace(/\s+/g,'_')+'.txt';a.click();
+  alert('📖 Книга сохранена!');
 }
 
-// === КОРРЕКТУРА (без изменений) ===
-async function runAICorrection() {
-    if (chapters.length === 0) { alert('Нет сохранённых глав для корректуры.'); return; }
-    const btn = document.getElementById('correction-start-btn');
-    const progress = document.getElementById('correction-progress');
-    const results = document.getElementById('correction-results');
-    const footer = document.getElementById('correction-footer');
-    btn.disabled = true; btn.textContent = '⏳ Анализ выполняется...';
-    progress.classList.add('active'); results.innerHTML = ''; footer.style.display = 'none';
-    const allText = chapters.map(c => `=== День ${c.day}: ${c.name} ===\n${c.text}`).join('\n\n');
-    const steps = [
-        { pct: 15, label: 'Читаю рукопись...', status: 'Передаю текст ИИ' },
-        { pct: 40, label: 'Анализирую орфографию...', status: 'Проверка слов и знаков препинания' },
-        { pct: 65, label: 'Проверяю логику сюжета...', status: 'Ищу несоответствия между главами' },
-        { pct: 85, label: 'Оцениваю стиль...', status: 'Анализ повторов и ритма текста' },
-        { pct: 95, label: 'Формирую отчёт...', status: 'Почти готово' },
-    ];
-    let stepIdx = 0;
-    const pFill = document.getElementById('correction-progress-fill');
-    const pLabel = document.getElementById('correction-progress-label');
-    const pStatus = document.getElementById('correction-progress-status');
-    const pTimer = setInterval(() => {
-        if (stepIdx < steps.length) {
-            const s = steps[stepIdx++];
-            pFill.style.width = s.pct + '%';
-            pLabel.textContent = s.label;
-            pStatus.textContent = s.status;
-        }
-    }, 1800);
-    const prompt = `Ты профессиональный литературный редактор. Текст рукописи:\n${allText.slice(0, 40000)}\n\nВыполни корректуру. Верни строго JSON:\n{"summary":"...","sections":[{"icon":"✏️","title":"Орфография и пунктуация","badge":"warn|ok|info","issues":[{"original":"...","suggested":"...","comment":"..."}]}]}\nТолько JSON.`;
-    try {
-        const response = await fetch('/api/chat', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ prompt, max_tokens: 4000 })
-        });
-        clearInterval(pTimer);
-        pFill.style.width = '100%'; pLabel.textContent = 'Готово!'; pStatus.textContent = 'Корректура завершена';
-        const data = await response.json();
-        if (data.error) throw new Error(data.error);
-        const parsed = JSON.parse(data.text.replace(/```json|```/g, '').trim());
-        let html = '';
-        if (parsed.summary) html += `<div style="background:#f0f7ff;border-radius:14px;padding:22px 26px;margin-bottom:24px;font-size:15px;line-height:1.8;color:#1d1d1f;border-left:4px solid #0071e3;"><strong>Общая оценка:</strong><br>${parsed.summary}</div>`;
-        const badgeMap = { ok: ['badge-ok', '✓ Хорошо'], warn: ['badge-warn', '⚠ Внимание'], info: ['badge-info', 'ℹ Рекомендации'] };
-        (parsed.sections || []).forEach(sec => {
-            const [bc, bt] = badgeMap[sec.badge] || badgeMap.info;
-            const issHtml = !sec.issues || !sec.issues.length
-                ? `<p class="correction-empty">Проблем не обнаружено.</p>`
-                : sec.issues.map(iss => `<div class="correction-issue">${iss.original ? `<span class="issue-original">${esc(iss.original)}</span><span class="issue-arrow">→</span><span class="issue-suggested">${esc(iss.suggested)}</span>` : `<span class="issue-suggested">${esc(iss.suggested||iss.comment||'')}</span>`}${iss.comment ? `<span class="issue-comment">${esc(iss.comment)}</span>` : ''}</div>`).join('');
-            html += `<div class="correction-section"><div class="correction-section-header"><span class="correction-section-icon">${sec.icon||'📌'}</span><span class="correction-section-title">${esc(sec.title)}</span><span class="correction-section-badge ${bc}">${bt}</span></div><div class="correction-section-body">${issHtml}</div></div>`;
-        });
-        results.innerHTML = html;
-        footer.style.display = 'block';
-    } catch(err) {
-        clearInterval(pTimer);
-        results.innerHTML = `<div class="correction-section"><div class="correction-section-body"><p style="color:#ff3b30;">Ошибка. Попробуйте снова.</p></div></div>`;
-        btn.disabled = false; btn.textContent = '🔄 Попробовать снова';
-    }
-    progress.classList.remove('active'); btn.style.display = 'none';
-}
-function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-function startCorrection() {
-    showScreen('correction');
-    document.getElementById('correction-start-btn').style.display = 'block';
-    document.getElementById('correction-start-btn').disabled = false;
-    document.getElementById('correction-start-btn').textContent = '🤖 Запустить ИИ-корректуру';
-    document.getElementById('correction-progress').classList.remove('active');
-    document.getElementById('correction-results').innerHTML = '';
-    document.getElementById('correction-footer').style.display = 'none';
-    document.getElementById('correction-progress-fill').style.width = '0%';
+// ── HOME DASHBOARD ──
+function updateHomeDashboard(){
+  const user=getCurrentUser();
+  if(!user||!books.length){document.getElementById('home-dashboard').classList.remove('visible');return}
+  document.getElementById('home-dashboard').classList.add('visible');
+  // считаем по активной книге
+  const b=getActiveBook()||books[0];
+  const total=b.chapters.reduce((s,c)=>s+c.words,0);
+  const pct=Math.min(total/50000*100,100),left=Math.max(0,50000-total);
+  const days=b.chapters.length,avg=days?Math.round(total/days):0;
+  let streak=0;for(let i=b.chapters.length-1;i>=0;i--){if(b.chapters[i].words>=800)streak++;else break}
+  document.getElementById('db-ring').style.strokeDashoffset=263.9*(1-pct/100);
+  document.getElementById('db-pct').textContent=Math.round(pct)+'%';
+  document.getElementById('db-total-words').textContent=total.toLocaleString('ru');
+  document.getElementById('db-book-name').textContent='«'+b.title+'» · из 50 000 слов';
+  document.getElementById('db-prog-fill').style.width=pct+'%';
+  document.getElementById('db-prog-lbl').textContent=left>0?'осталось '+left.toLocaleString('ru')+' слов':'🎉 Книга написана!';
+  document.getElementById('db-days').textContent=days;
+  document.getElementById('db-streak').textContent=streak;
+  document.getElementById('db-avg').textContent=avg;
+  document.getElementById('db-books-count').textContent=books.length;
+  const msgs=['Начни первый день — первая строчка самая важная.','Каждое слово приближает к готовой книге.','Четверть книги написана. Многие бросают здесь — ты продолжаешь.','Половина позади! Ты точно дойдёшь до конца.','Финишная прямая. Осталось меньше, чем уже написано.','🎉 Книга написана! Пора на корректуру.'];
+  const mi=total>=50000?5:pct>=75?4:pct>=50?3:pct>=25?2:days>0?1:0;
+  document.getElementById('db-msg').textContent=msgs[mi];
 }
 
-// ПАТЧ 5: ОБЛОЖКА — превью фото сразу отображается
-function showCoverScreen() { showScreen('cover'); }
-function updateCover() {
-    document.getElementById('cover-author').textContent = document.getElementById('author-input').value || 'Имя автора';
-    document.getElementById('cover-book-title').textContent = document.getElementById('title-input').value || 'Название книги';
-    document.getElementById('cover-year').textContent = document.getElementById('year-input').value || '2025';
-}
-function uploadCoverImage(e) {
-    const file = e.target.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = function(ev) {
-        const img = document.getElementById('cover-bg-img');
-        img.src = ev.target.result;
-        img.style.display = 'block'; // ПАТЧ 5: явно показываем
-        document.getElementById('cover-preview').classList.add('has-image');
-    };
-    reader.readAsDataURL(file);
-}
+// ── SEASONAL BG ──
+function setSeasonalBackground(){const m=new Date().getMonth()+1;let bg;if(m>=11||m<=2)bg='winter-bg.jpg';else if(m>=3&&m<=5)bg='spring-bg.jpg';else if(m>=6&&m<=8)bg='summer-bg.jpg';else bg='autumn-bg.jpg';const cs=document.getElementById('cabinet-screen');cs.style.backgroundImage=`url(${bg})`;cs.style.backgroundSize='cover';cs.style.backgroundPosition='center'}
 
-function exportBook() {
-    const allText = chapters.map(c => `=== День ${c.day}: ${c.name} ===\n\n${c.text}`).join('\n\n\n');
-    const author = document.getElementById('author-input').value || 'Автор';
-    const title = document.getElementById('title-input').value || 'Моя книга';
-    const blob = new Blob([`${title}\n${author}\n${'='.repeat(40)}\n\n${allText}`], { type: 'text/plain;charset=utf-8' });
-    const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
-    a.download = title.replace(/\s+/g, '_') + '.txt'; a.click();
-    alert('📖 Книга сохранена!');
-}
+// ── INPUT ──
+document.getElementById('writing-area').addEventListener('input',function(){if(timerRunning){resetTimer();clearInterval(timerInterval);startTimer()}updateWordCount();checkForAITrigger(this.value)})
+document.getElementById('writing-area').addEventListener('keydown',function(e){if(e.key.length===1)playTypeSound()})
+document.getElementById('chapter-name-input').addEventListener('keydown',e=>{if(e.key==='Enter')confirmSaveChapter()})
+document.getElementById('new-book-input').addEventListener('keydown',e=>{if(e.key==='Enter')confirmNewBook()})
 
-// === СЕЗОННЫЙ ФОН ===
-function setSeasonalBackground() {
-    const month = new Date().getMonth() + 1;
-    let bg;
-    if (month >= 11 || month <= 2) bg = 'winter-bg.jpg';
-    else if (month >= 3 && month <= 5) bg = 'spring-bg.jpg';
-    else if (month >= 6 && month <= 8) bg = 'summer-bg.jpg';
-    else bg = 'autumn-bg.jpg';
-    document.getElementById('cabinet-screen').style.backgroundImage = `url(${bg})`;
-    document.getElementById('cabinet-screen').style.backgroundSize = 'cover';
-    document.getElementById('cabinet-screen').style.backgroundPosition = 'center';
-}
+// ── ONBOARDING ──
+let obStep=0,obTimerInt=null,obTimerVal=15;
+function obOpen(){document.getElementById('ob-overlay').classList.add('active');obGo(0);obStartTimer()}
+function obClose(){document.getElementById('ob-overlay').classList.remove('active');localStorage.setItem('ob_seen','1');clearInterval(obTimerInt)}
+function obGo(n){obStep=n;[0,1,2].forEach(i=>{document.getElementById('ob-t'+i).style.display=i===n?'block':'none';document.getElementById('ob-s'+i).style.display=i===n?'flex':'none'});document.querySelectorAll('.ob-dot').forEach((d,i)=>d.classList.toggle('active',i===n));document.getElementById('ob-back').style.display=n>0?'inline-block':'none';document.getElementById('ob-next').textContent=n===2?'Начать писать ✓':'Далее →';document.getElementById('ob-step-num').textContent=(n+1)+' / 3';if(n===0)obStartTimer();else clearInterval(obTimerInt)}
+function obNext(){if(obStep<2)obGo(obStep+1);else obClose()}
+function obPrev(){if(obStep>0)obGo(obStep-1)}
+function obStartTimer(){clearInterval(obTimerInt);obTimerVal=15;obUpdateTimer();obTimerInt=setInterval(()=>{obTimerVal=obTimerVal>1?obTimerVal-1:15;obUpdateTimer()},900)}
+function obUpdateTimer(){const el=document.getElementById('ob-timer-n'),r=document.getElementById('ob-ring');if(!el)return;el.textContent=obTimerVal;r.style.strokeDashoffset=163.4*(1-obTimerVal/15);r.style.stroke=obTimerVal<=5?'#ff3b30':'#1d1d1f';el.style.color=obTimerVal<=5?'#ff3b30':'#1d1d1f'}
 
-// === ВВОД ===
-document.getElementById('writing-area').addEventListener('input', function() {
-    if (timerRunning) { resetTimer(); clearInterval(timerInterval); startTimer(); }
-    updateWordCount();
-    checkForAITrigger(this.value);
-});
-document.getElementById('writing-area').addEventListener('keydown', function(e) {
-    if (e.key.length === 1) playTypeSound();
-});
-
-// ПАТЧ 1: ОНБОРДИНГ
-let obStep = 0, obTimerInt = null, obTimerVal = 15;
-function obOpen() {
-    document.getElementById('ob-overlay').classList.add('active');
-    obGo(0); obStartTimer();
-}
-function obClose() {
-    document.getElementById('ob-overlay').classList.remove('active');
-    localStorage.setItem('ob_seen', '1');
-    clearInterval(obTimerInt);
-}
-function obGo(n) {
-    obStep = n;
-    [0,1,2].forEach(i => {
-        document.getElementById('ob-t' + i).style.display = i === n ? 'block' : 'none';
-        document.getElementById('ob-s' + i).style.display = i === n ? 'flex' : 'none';
-    });
-    document.querySelectorAll('.ob-dot').forEach((d, i) => d.classList.toggle('active', i === n));
-    document.getElementById('ob-back').style.display = n > 0 ? 'inline-block' : 'none';
-    document.getElementById('ob-next').textContent = n === 2 ? 'Начать писать ✓' : 'Далее →';
-    document.getElementById('ob-step-num').textContent = (n + 1) + ' / 3';
-    if (n === 0) obStartTimer(); else clearInterval(obTimerInt);
-}
-function obNext() { if (obStep < 2) obGo(obStep + 1); else obClose(); }
-function obPrev() { if (obStep > 0) obGo(obStep - 1); }
-function obStartTimer() {
-    clearInterval(obTimerInt); obTimerVal = 15; obUpdateTimer();
-    obTimerInt = setInterval(() => { obTimerVal = obTimerVal > 1 ? obTimerVal - 1 : 15; obUpdateTimer(); }, 900);
-}
-function obUpdateTimer() {
-    const el = document.getElementById('ob-timer-n');
-    const r = document.getElementById('ob-ring');
-    if (!el) return;
-    el.textContent = obTimerVal;
-    r.style.strokeDashoffset = 163.4 * (1 - obTimerVal / 15);
-    r.style.stroke = obTimerVal <= 5 ? '#ff3b30' : '#1d1d1f';
-    el.style.color = obTimerVal <= 5 ? '#ff3b30' : '#1d1d1f';
-}
-
-// === ИНИЦИАЛИЗАЦИЯ ===
-(function init() {
-    const user = getCurrentUser();
-    if (user) { updateNavForUser(user); loadUserData(user.email); }
-    setSeasonalBackground();
-    // ПАТЧ 1: онбординг при первом визите
-    if (!localStorage.getItem('ob_seen')) obOpen();
-    // ПАТЧ 6: показать дашборд если есть данные
-    if (user && chapters.length) updateHomeDashboard();
+// ── INIT ──
+(function init(){
+  const user=getCurrentUser();
+  if(user){updateNavForUser(user);loadUserData(user.email)}
+  setSeasonalBackground();
+  if(!localStorage.getItem('ob_seen'))obOpen();
+  if(user&&books.length)updateHomeDashboard();
 })();
 </script>
 </body>
