@@ -507,7 +507,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f5f5f5;color:#1d1d
         <div class="ai-ideas" id="ai-ideas">
           <div class="ai-ideas-header">
             <h4>✨ Писец думает, что дальше...</h4>
-            <button class="ai-ideas-close" onclick="document.getElementById('ai-ideas').style.display='none'">×</button>
+            <button class="ai-ideas-close" onclick="closeAIIdeas()">×</button>
           </div>
           <div id="ai-ideas-list"></div>
           <div class="ai-idea-use-hint">Нажмите на идею, чтобы добавить её в текст</div>
@@ -1037,6 +1037,8 @@ function closeModal(id){document.getElementById(id).classList.remove('active')}
 // ── AI IDEAS ──
 function showAIIdeas(){
   const wc=countWords(document.getElementById('writing-area').value);if(wc<400)return;
+  // пауза таймера пока ИИ открыт
+  clearInterval(timerInterval);
   const b=getActiveBook();
   const panel=document.getElementById('ai-ideas'),list=document.getElementById('ai-ideas-list');
   panel.style.display='block';
@@ -1055,8 +1057,9 @@ async function callAI(ctx,listEl){
     listEl.innerHTML=(parsed.ideas||[]).map(idea=>`<div class="ai-idea-item" onclick="useIdea(this)">${idea}</div>`).join('');
   }catch(e){listEl.innerHTML=`<div class="ai-idea-item" style="color:#ff3b30;cursor:default">Не удалось получить идеи. Попробуйте снова.</div>`}
 }
+function closeAIIdeas(){document.getElementById('ai-ideas').style.display='none';resetTimer();if(timerRunning)startTimer()}
 function checkForAITrigger(t){if(/писец,?\s*что\s*дальше\??/i.test(t))showAIIdeas()}
-function useIdea(el){const area=document.getElementById('writing-area');area.value=area.value.trimEnd()+'\n\n'+el.textContent+'\n\n';document.getElementById('ai-ideas').style.display='none';area.focus();resetTimer();if(timerRunning){clearInterval(timerInterval);startTimer()}updateWordCount()}
+function useIdea(el){const area=document.getElementById('writing-area');area.value=area.value.trimEnd()+'\n\n'+el.textContent+'\n\n';document.getElementById('ai-ideas').style.display='none';area.focus();resetTimer();if(timerRunning)startTimer();updateWordCount()}
 
 // ── CORRECTION ──
 async function runAICorrection(){
