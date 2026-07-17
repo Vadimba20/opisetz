@@ -215,6 +215,44 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f5f5f5;color:#1d1d
 .correction-start-btn:hover{background:#1d1d1f;color:#fff}
 .correction-start-btn:disabled{opacity:.5;cursor:not-allowed}
 
+/* WARMUP PROMPT */
+.warmup-prompt{position:absolute;bottom:80px;left:24px;right:24px;background:#fff;border:1.5px solid #0071e3;border-radius:14px;padding:1rem 1.25rem;display:flex;gap:.85rem;align-items:flex-start;box-shadow:0 4px 20px rgba(0,113,227,.12);animation:wuSlideUp .3s ease;z-index:10}
+@keyframes wuSlideUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.wu-icon{font-size:1.3rem;flex-shrink:0;margin-top:1px}
+.wu-body{flex:1}
+.wu-label{font-size:11px;font-weight:600;color:#0071e3;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.wu-text{font-size:14px;color:#1d1d1f;line-height:1.6}
+.wu-actions{display:flex;gap:.5rem;margin-top:.75rem;flex-wrap:wrap}
+.wu-use{padding:.4rem 1rem;border-radius:980px;border:1.5px solid #0071e3;background:#f0f7ff;color:#0071e3;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s}
+.wu-use:hover{background:#0071e3;color:#fff}
+.wu-next,.wu-dismiss{padding:.4rem .85rem;border-radius:980px;border:1.5px solid #e0e0e0;background:#fff;color:#86868b;font-size:12px;cursor:pointer;transition:all .2s}
+.wu-next:hover,.wu-dismiss:hover{border-color:#1d1d1f;color:#1d1d1f}
+
+/* FINALE */
+.finale-screen{background:#f5f5f5}
+.finale-wrap{min-height:calc(100vh - 60px);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:2rem}
+#confetti-canvas{position:absolute;inset:0;pointer-events:none;z-index:0}
+.finale-card{position:relative;z-index:1;background:#fff;border-radius:20px;box-shadow:0 10px 60px rgba(0,0,0,.12);max-width:500px;width:100%;padding:2.5rem 2.5rem 2rem;text-align:center}
+.finale-trophy{font-size:4rem;display:block;margin-bottom:.75rem;animation:finPop .5s cubic-bezier(.34,1.56,.64,1)}
+@keyframes finPop{from{transform:scale(0) rotate(-20deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
+.finale-title{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:#1d1d1f;margin-bottom:.5rem}
+.finale-sub{font-size:15px;color:#86868b;margin-bottom:1.75rem;line-height:1.7}
+.finale-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:1.75rem}
+.fin-stat{background:#f9f9f9;border-radius:12px;padding:.85rem .5rem}
+.fin-stat-num{font-size:1.3rem;font-weight:700;color:#1d1d1f}
+.fin-stat-lbl{font-size:11px;color:#86868b;margin-top:3px}
+.finale-actions{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.25rem}
+.finale-btn-primary{width:100%;padding:.85rem;border-radius:12px;border:none;background:#1d1d1f;color:#fff;font-size:1rem;font-weight:600;cursor:pointer;transition:background .2s}
+.finale-btn-primary:hover{background:#333}
+.finale-share-row{display:flex;gap:.5rem}
+.finale-share-btn{flex:1;padding:.65rem .5rem;border-radius:10px;border:1.5px solid #e0e0e0;background:#fff;color:#1d1d1f;font-size:.8rem;font-weight:500;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:.4rem}
+.finale-share-btn:hover{border-color:#1d1d1f;background:#f5f5f7}
+.finale-quote{font-size:13px;color:#86868b;font-style:italic;padding-top:1.25rem;border-top:1px solid #f0f0f0;line-height:1.7;margin-bottom:.75rem}
+.finale-restart{font-size:12px;color:#ccc;background:none;border:none;cursor:pointer;text-decoration:underline;text-underline-offset:3px;transition:color .2s}
+.finale-restart:hover{color:#86868b}
+.fin-copy-toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:#1d1d1f;color:#fff;border-radius:980px;padding:.5rem 1.5rem;font-size:13px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:999}
+.fin-copy-toast.show{opacity:1}
+
 /* COVER */
 .cover-screen{background:#f5f5f5}
 .cover-container{max-width:900px;margin:0 auto;padding:80px 40px 60px;text-align:center}
@@ -534,6 +572,43 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f5f5f5;color:#1d1d
     </div>
   </div>
 </div>
+
+<!-- FINALE -->
+<div id="finale-screen" class="screen finale-screen">
+  <div class="finale-wrap">
+    <canvas id="confetti-canvas"></canvas>
+    <div class="finale-card">
+      <span class="finale-trophy">🏆</span>
+      <div class="finale-title">Книга написана!</div>
+      <div class="finale-sub">Ты сделал то, о чём большинство только мечтает.<br>Настоящая рукопись. Твоя история.</div>
+      <div class="finale-stats">
+        <div class="fin-stat"><div class="fin-stat-num" id="fin-words">0</div><div class="fin-stat-lbl">слов написано</div></div>
+        <div class="fin-stat"><div class="fin-stat-num" id="fin-days">0</div><div class="fin-stat-lbl">дней работы</div></div>
+        <div class="fin-stat"><div class="fin-stat-num" id="fin-chapters">0</div><div class="fin-stat-lbl">глав в книге</div></div>
+      </div>
+      <div class="finale-actions">
+        <button class="finale-btn-primary" onclick="startCorrection()">✍️ Перейти к корректуре →</button>
+        <div class="finale-share-row">
+          <button class="finale-share-btn" onclick="finShareVK()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14C20.67 22 22 20.67 22 15.07V8.93C22 3.33 20.67 2 15.07 2zm3.08 13.5h-1.55c-.59 0-.77-.47-1.82-1.54-1-.93-1.43-.93-1.67 0 0 1.04-.27 1.54-1.65 1.54-2.35 0-4.72-1.46-6.45-4.21C4.07 9.17 3.5 7.5 3.5 7.5s-.07-.22.15-.22h1.56c.44 0 .61.2.78.67.86 2.48 2.3 4.65 2.89 4.65.22 0 .33-.1.33-.65V9.74c-.07-1.17-.68-1.27-.68-1.68 0-.2.16-.4.42-.4h2.45c.37 0 .5.2.5.63v3.37c0 .37.16.5.27.5.22 0 .4-.13.8-.53 1.24-1.39 2.13-3.52 2.13-3.52.12-.25.33-.48.77-.48h1.55c.47 0 .57.24.47.57-.2.92-2.1 3.6-2.1 3.6-.17.28-.23.4 0 .71.17.24.73.74 1.1 1.19.68.78 1.2 1.44 1.34 1.9.13.45-.1.68-.55.68z"/></svg>
+            ВКонтакте
+          </button>
+          <button class="finale-share-btn" onclick="finShareTG()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.7 8c-.12.55-.45.69-.9.43l-2.5-1.84-1.2 1.16c-.13.13-.25.25-.51.25l.18-2.55 4.6-4.15c.2-.18-.04-.28-.31-.1L7.5 15.15l-2.45-.77c-.53-.17-.54-.53.12-.78l9.56-3.68c.44-.16.83.1.91.08z"/></svg>
+            Telegram
+          </button>
+          <button class="finale-share-btn" onclick="finCopyLink()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+            Скопировать
+          </button>
+        </div>
+      </div>
+      <div class="finale-quote">«Рукопись всегда можно улучшить.<br>Нельзя улучшить книгу, которой не существует.»</div>
+      <button class="finale-restart" onclick="showNewBookDialog()">Начать новую книгу</button>
+    </div>
+  </div>
+</div>
+<div class="fin-copy-toast" id="fin-copy-toast">Ссылка скопирована!</div>
 
 <!-- COVER -->
 <div id="cover-screen" class="screen cover-screen">
@@ -1025,7 +1100,7 @@ function confirmSaveChapter(){
   document.getElementById('save-dialog').classList.remove('active');
   stopTimer();renderBooksList();renderChaptersList();updateTotalWords();updateHomeDashboard();
   const total=b.chapters.reduce((s,c)=>s+c.words,0);
-  if(total>=50000){alert('🎉 Поздравляем! Вы написали 50 000 слов! Время корректуры!');startCorrection()}
+  if(total>=50000)showFinale()
 }
 
 // ── VIEW / EDIT ──
@@ -1085,6 +1160,49 @@ async function runAICorrection(){
   progress.classList.remove('active');btn.style.display='none';
 }
 function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+
+// ── FINALE ──
+let confettiRAF=null,confettiParticles=[];
+const FIN_COLORS=['#1d1d1f','#0071e3','#34c759','#ff9500','#ff3b30','#af52de','#5ac8fa'];
+function showFinale(){
+  const b=getActiveBook();
+  const total=b?b.chapters.reduce((s,c)=>s+c.words,0):0;
+  document.getElementById('fin-words').textContent=total.toLocaleString('ru');
+  document.getElementById('fin-days').textContent=b?b.chapters.length:0;
+  document.getElementById('fin-chapters').textContent=b?b.chapters.length:0;
+  showScreen('finale');
+  startConfetti();
+}
+function startConfetti(){
+  const canvas=document.getElementById('confetti-canvas');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  function resize(){canvas.width=canvas.offsetWidth;canvas.height=canvas.offsetHeight}
+  resize();
+  confettiParticles=[];
+  let bursts=0;
+  function mkParticle(){return{x:Math.random()*canvas.width,y:-10,r:Math.random()*5+3,color:FIN_COLORS[Math.floor(Math.random()*FIN_COLORS.length)],vx:(Math.random()-.5)*3,vy:Math.random()*3+2,alpha:1,shape:Math.random()<.5?'rect':'circle',rot:Math.random()*360,rotV:(Math.random()-.5)*6}}
+  const bi=setInterval(()=>{for(let i=0;i<8;i++)confettiParticles.push(mkParticle());if(++bursts>30)clearInterval(bi)},120);
+  cancelAnimationFrame(confettiRAF);
+  function loop(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    confettiParticles=confettiParticles.filter(p=>p.alpha>0.01);
+    confettiParticles.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;p.vy+=.05;p.rot+=p.rotV;
+      if(p.y>canvas.height*1.1)p.alpha=0;
+      ctx.save();ctx.globalAlpha=p.alpha;ctx.fillStyle=p.color;
+      ctx.translate(p.x,p.y);ctx.rotate(p.rot*Math.PI/180);
+      if(p.shape==='rect')ctx.fillRect(-p.r,-p.r/2,p.r*2,p.r);
+      else{ctx.beginPath();ctx.arc(0,0,p.r,0,Math.PI*2);ctx.fill()}
+      ctx.restore();p.alpha-=.005;
+    });
+    confettiRAF=requestAnimationFrame(loop);
+  }
+  loop();
+}
+function finShareVK(){const b=getActiveBook();const t=`Я написал книгу «${b?b.title:'Моя книга'}» за 60 дней на opisetz.vercel.app! ${b?b.chapters.reduce((s,c)=>s+c.words,0).toLocaleString('ru'):50000} слов. Теперь твоя очередь ✍️`;window.open('https://vk.com/share.php?url='+encodeURIComponent('https://opisetz.vercel.app')+'&title='+encodeURIComponent(t),'_blank')}
+function finShareTG(){const b=getActiveBook();const t=`Я написал книгу «${b?b.title:'Моя книга'}» за 60 дней! ${b?b.chapters.reduce((s,c)=>s+c.words,0).toLocaleString('ru'):50000} слов. Попробуй и ты → opisetz.vercel.app ✍️`;window.open('https://t.me/share/url?url='+encodeURIComponent('https://opisetz.vercel.app')+'&text='+encodeURIComponent(t),'_blank')}
+function finCopyLink(){const b=getActiveBook();const t=`Я написал книгу «${b?b.title:'Моя книга'}» за 60 дней на opisetz.vercel.app — ${b?b.chapters.reduce((s,c)=>s+c.words,0).toLocaleString('ru'):50000} слов! ✍️`;navigator.clipboard.writeText(t).catch(()=>{});const el=document.getElementById('fin-copy-toast');el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2200)}
 function startCorrection(){showScreen('correction');document.getElementById('correction-start-btn').style.display='block';document.getElementById('correction-start-btn').disabled=false;document.getElementById('correction-start-btn').textContent='🤖 Запустить ИИ-корректуру';document.getElementById('correction-progress').classList.remove('active');document.getElementById('correction-results').innerHTML='';document.getElementById('correction-footer').style.display='none';document.getElementById('correction-progress-fill').style.width='0%'}
 
 // ── COVER ──
