@@ -236,6 +236,35 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .wu-next,.wu-dismiss{padding:.4rem .85rem;border-radius:980px;border:1.5px solid var(--border);background:transparent;color:var(--text-muted);font-family:'Lora',serif;font-size:12px;cursor:pointer;transition:all .2s}
 .wu-next:hover,.wu-dismiss:hover{border-color:var(--brown-mid);color:var(--brown-mid)}
 
+/* ── FEATURES ── */
+.features-section{max-width:880px;margin:0 auto;padding:0 60px 70px;text-align:center}
+.features-eyebrow{font-family:'Lora',serif;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--terra);margin-bottom:14px}
+.features-heading{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--brown-deep);line-height:1.2;margin-bottom:40px;max-width:600px;margin-left:auto;margin-right:auto}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:left}
+.feature-card{background:var(--cream-card);border:1px solid var(--border);border-radius:16px;padding:24px 22px;transition:transform .2s,box-shadow .2s}
+.feature-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px var(--shadow)}
+.feature-icon{font-size:1.6rem;margin-bottom:12px}
+.feature-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--brown-deep);margin-bottom:8px}
+.feature-desc{font-family:'Lora',serif;font-size:13px;color:var(--brown-mid);line-height:1.7}
+
+/* ── VS SECTION ── */
+.vs-section{max-width:880px;margin:0 auto;padding:0 60px 70px;text-align:center}
+.vs-wrap{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:start;margin-bottom:36px}
+.vs-col{display:flex;flex-direction:column;gap:8px;text-align:left}
+.vs-col-head{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;padding:10px 14px;border-radius:10px;margin-bottom:4px}
+.vs-before{background:#f5ede8;color:var(--terra)}
+.vs-after{background:#eaf3e4;color:#3a7a2a}
+.vs-item{font-family:'Lora',serif;font-size:14px;padding:10px 14px;border-radius:10px;display:flex;align-items:center;gap:10px;line-height:1.4}
+.vs-bad{background:var(--cream-card);border:1px solid #e8d4cc;color:var(--brown-mid)}
+.vs-good{background:var(--cream-card);border:1px solid #c8e0c0;color:var(--brown-mid)}
+.vs-icon{font-size:13px;font-weight:700;flex-shrink:0;width:18px;text-align:center}
+.vs-bad .vs-icon{color:var(--terra)}
+.vs-good .vs-icon{color:#3a7a2a}
+.vs-divider{display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:52px;gap:8px}
+.vs-divider-line{width:1px;flex:1;background:var(--border)}
+.vs-divider-arrow{font-size:1.2rem;color:var(--brown-light);font-weight:300}
+.vs-cta-wrap{text-align:center}
+
 /* ── DEMO ── */
 .demo-section{max-width:720px;margin:0 auto;padding:0 60px 60px}
 .demo-eyebrow{text-align:center;font-family:'Lora',serif;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--terra);margin-bottom:12px}
@@ -655,6 +684,78 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
         <button class="demo-finish-cta" onclick="openAuth('register')">Начать свою книгу бесплатно →</button>
         <button class="demo-retry" onclick="demoRetry()">Попробовать ещё раз</button>
       </div>
+    </div>
+  </div>
+
+  <!-- КАРТОЧКИ ВОЗМОЖНОСТЕЙ -->
+  <div class="features-section">
+    <div class="features-eyebrow">Всё что нужно для книги</div>
+    <h2 class="features-heading">Один инструмент — полный путь от первой строчки до готовой рукописи</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">⏱</div>
+        <div class="feature-title">Таймер-удалитель</div>
+        <div class="feature-desc">15 секунд паузы — и текст дня исчезает. Это не наказание, это тренировка: писатель пишет, редактор редактирует — не одновременно.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">✨</div>
+        <div class="feature-title">ИИ-помощник</div>
+        <div class="feature-desc">Написал 400 слов и застрял? ИИ прочитает все твои главы и предложит три конкретные идеи для продолжения — на основе твоей истории.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📚</div>
+        <div class="feature-title">Несколько книг</div>
+        <div class="feature-desc">Веди параллельно несколько проектов. Роман, мемуары, детектив — каждая книга живёт отдельно со своими главами и прогрессом.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🧠</div>
+        <div class="feature-title">ИИ-корректура</div>
+        <div class="feature-desc">После 50 000 слов ИИ проверит орфографию, логику сюжета и стиль всей рукописи. Структурированный отчёт с конкретными правками.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎨</div>
+        <div class="feature-title">Создание обложки</div>
+        <div class="feature-desc">Загрузи своё фото, введи имя и название — получи готовую обложку. Четыре стиля оформления на выбор.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏆</div>
+        <div class="feature-title">Экран финала</div>
+        <div class="feature-desc">50 000 слов — конфетти, твоя статистика за 60 дней и кнопка поделиться в ВКонтакте и Telegram. Ты это заслужил.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- БЫЛО / СТАЛО -->
+  <div class="vs-section">
+    <div class="features-eyebrow">Два способа писать книгу</div>
+    <h2 class="features-heading">Что меняется когда начинаешь писать каждый день</h2>
+    <div class="vs-wrap">
+      <div class="vs-col">
+        <div class="vs-col-head vs-before">Без «О, Писец!»</div>
+        <div class="vs-item vs-bad"><span class="vs-icon">✕</span>Пишу «когда вдохновит»</div>
+        <div class="vs-item vs-bad"><span class="vs-icon">✕</span>Редактирую каждое предложение</div>
+        <div class="vs-item vs-bad"><span class="vs-icon">✕</span>Бросаю на третьей главе</div>
+        <div class="vs-item vs-bad"><span class="vs-icon">✕</span>Книга живёт только в голове</div>
+        <div class="vs-item vs-bad"><span class="vs-icon">✕</span>Жду идеального момента</div>
+        <div class="vs-item vs-bad"><span class="vs-icon">✕</span>«Начну с понедельника»</div>
+      </div>
+      <div class="vs-divider">
+        <div class="vs-divider-line"></div>
+        <div class="vs-divider-arrow">→</div>
+        <div class="vs-divider-line"></div>
+      </div>
+      <div class="vs-col">
+        <div class="vs-col-head vs-after">С «О, Писец!»</div>
+        <div class="vs-item vs-good"><span class="vs-icon">✓</span>800 слов каждый день</div>
+        <div class="vs-item vs-good"><span class="vs-icon">✓</span>Сначала пишу, потом правлю</div>
+        <div class="vs-item vs-good"><span class="vs-icon">✓</span>ИИ помогает продолжить</div>
+        <div class="vs-item vs-good"><span class="vs-icon">✓</span>50 000 слов в файле через 60 дней</div>
+        <div class="vs-item vs-good"><span class="vs-icon">✓</span>Таймер создаёт момент сам</div>
+        <div class="vs-item vs-good"><span class="vs-icon">✓</span>Начинаешь прямо сейчас</div>
+      </div>
+    </div>
+    <div class="vs-cta-wrap">
+      <a class="hero-btn" onclick="handleWriteClick()">Начать писать сегодня</a>
     </div>
   </div>
 
