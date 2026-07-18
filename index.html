@@ -247,6 +247,41 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .feature-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--brown-deep);margin-bottom:8px}
 .feature-desc{font-family:'Lora',serif;font-size:13px;color:var(--brown-mid);line-height:1.7}
 
+/* ── COUNTER ── */
+.counter-section{background:var(--brown-deep);padding:48px 60px;margin:0}
+.counter-inner{max-width:800px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:0}
+.counter-item{flex:1;text-align:center;padding:0 40px}
+.counter-num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:900;color:var(--cream);line-height:1;margin-bottom:8px}
+.counter-lbl{font-family:'Lora',serif;font-size:13px;color:rgba(240,235,227,.6);letter-spacing:.02em}
+.counter-divider{width:1px;height:60px;background:rgba(240,235,227,.15);flex-shrink:0}
+
+/* ── REVIEWS ── */
+.reviews-section{max-width:880px;margin:0 auto;padding:70px 60px 80px;text-align:center}
+.reviews-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;text-align:left}
+.review-card{background:var(--cream-card);border:1px solid var(--border);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:16px}
+.review-card-wide{grid-column:1 / -1}
+.review-stars{color:var(--ochre);font-size:14px;letter-spacing:2px}
+.review-text{font-family:'Lora',serif;font-size:15px;color:var(--brown-mid);line-height:1.8;flex:1;font-style:italic}
+.review-author{display:flex;align-items:center;gap:12px;margin-top:auto}
+.review-avatar{width:40px;height:40px;border-radius:50%;background:var(--brown-deep);color:var(--cream);font-family:'Lora',serif;font-size:13px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.review-name{font-family:'Lora',serif;font-size:14px;font-weight:500;color:var(--brown-deep)}
+.review-meta{font-family:'Lora',serif;font-size:12px;color:var(--text-muted);margin-top:2px}
+
+/* ── FAQ ── */
+.faq-section{max-width:720px;margin:0 auto;padding:0 60px 70px}
+.faq-grid{display:flex;flex-direction:column;gap:0;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--cream-card)}
+.faq-item{border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s}
+.faq-item:last-child{border-bottom:none}
+.faq-item:hover{background:var(--cream)}
+.faq-item.open{background:var(--cream)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;font-family:'Lora',serif;font-size:16px;font-weight:500;color:var(--brown-deep);gap:16px;user-select:none}
+.faq-arrow{font-size:16px;color:var(--brown-light);flex-shrink:0;transition:transform .25s;display:inline-block}
+.faq-item.open .faq-arrow{transform:rotate(180deg)}
+.faq-a{font-family:'Lora',serif;font-size:14px;color:var(--brown-mid);line-height:1.8;padding:0 24px 18px;display:none}
+.faq-a em{font-style:italic;color:var(--brown-deep)}
+.faq-item.open .faq-a{display:block;animation:faqOpen .2s ease}
+@keyframes faqOpen{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+
 /* ── VS SECTION ── */
 .vs-section{max-width:880px;margin:0 auto;padding:0 60px 70px;text-align:center}
 .vs-wrap{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:start;margin-bottom:36px}
@@ -756,6 +791,79 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     </div>
     <div class="vs-cta-wrap">
       <a class="hero-btn" onclick="handleWriteClick()">Начать писать сегодня</a>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section">
+    <div class="features-eyebrow">Частые вопросы</div>
+    <h2 class="features-heading">Всё что хочется спросить до регистрации</h2>
+    <div class="faq-grid">
+
+      <div class="faq-item" onclick="faqToggle(this)">
+        <div class="faq-q">
+          <span>Текст удаляется навсегда?</span>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-a">Удаляется только текст <em>текущего дня</em> — если ты остановился на 15 секунд и не успел сохранить. Все уже сохранённые главы остаются в книге нетронутыми. Можно в любой момент перечитать, отредактировать или скачать.</div>
+      </div>
+
+      <div class="faq-item" onclick="faqToggle(this)">
+        <div class="faq-q">
+          <span>Что будет если пропустить день?</span>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-a">Счётчик серии обнуляется — и только. Книга, все главы и прогресс никуда не исчезают. Просто начни писать снова завтра. Пропуск — это не конец, это просто пауза.</div>
+      </div>
+
+      <div class="faq-item" onclick="faqToggle(this)">
+        <div class="faq-q">
+          <span>800 слов — это много?</span>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-a">30–60 минут в день. Примерно 3–4 страницы обычного текста. Поначалу кажется много — но уже на второй неделе войдёшь в ритм и перестанешь замечать счётчик. Многие пишут по 1000–1200 слов, просто потому что не хочется останавливаться.</div>
+      </div>
+
+      <div class="faq-item" onclick="faqToggle(this)">
+        <div class="faq-q">
+          <span>Можно писать с телефона?</span>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-a">Да, сайт адаптирован для мобильных. Редактор, таймер, боковая панель с главами — всё работает на смартфоне. Удобно писать в транспорте или за чашкой кофе.</div>
+      </div>
+
+      <div class="faq-item" onclick="faqToggle(this)">
+        <div class="faq-q">
+          <span>Это платно?</span>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-a">Базовая версия полностью бесплатна — редактор, таймер, несколько книг, история глав, ИИ-подсказки. Написать свою первую книгу не стоит ничего.</div>
+      </div>
+
+      <div class="faq-item" onclick="faqToggle(this)">
+        <div class="faq-q">
+          <span>Что если застрял и не знаю что писать?</span>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-a">Нажми кнопку «Идеи от ИИ» — он прочитает все написанные тобой главы и предложит три конкретные идеи для продолжения. Не абстрактные советы, а сцены и события именно для твоей истории. Таймер при этом ставится на паузу.</div>
+      </div>
+
+      <div class="faq-item" onclick="faqToggle(this)">
+        <div class="faq-q">
+          <span>Мой текст видит кто-то ещё?</span>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-a">Нет. Твои тексты хранятся только в твоём аккаунте и не передаются третьим лицам. Когда ИИ анализирует рукопись для подсказок — запрос обрабатывается и не сохраняется на наших серверах.</div>
+      </div>
+
+      <div class="faq-item" onclick="faqToggle(this)">
+        <div class="faq-q">
+          <span>Нужно ли знать о чём писать заранее?</span>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-a">Нет. Многие лучшие романы начинались с первой фразы без плана. Режим разогрева предложит стартовую сцену если ты не знаешь с чего начать. А дальше история найдёт себя сама — это и есть метод.</div>
+      </div>
+
     </div>
   </div>
 
@@ -1356,6 +1464,40 @@ function obPrev(){if(obStep>0)obGo(obStep-1)}
 function obStartTimer(){clearInterval(obTimerInt);obTimerVal=15;obUpdateTimer();obTimerInt=setInterval(()=>{obTimerVal=obTimerVal>1?obTimerVal-1:15;obUpdateTimer()},900)}
 function obUpdateTimer(){const el=document.getElementById('ob-timer-n'),r=document.getElementById('ob-ring');if(!el)return;el.textContent=obTimerVal;r.style.strokeDashoffset=163.4*(1-obTimerVal/15);r.style.stroke=obTimerVal<=5?'var(--terra)':'var(--brown-deep)';el.style.color=obTimerVal<=5?'var(--terra)':'var(--brown-deep)'}
 
+// ── COUNTER ANIMATION ──
+function animateCounter(el, target, suffix, duration){
+  const start=Date.now();
+  const tick=()=>{
+    const elapsed=Date.now()-start;
+    const progress=Math.min(elapsed/duration,1);
+    const ease=1-Math.pow(1-progress,3);
+    const val=Math.round(ease*target);
+    el.textContent=val.toLocaleString('ru')+suffix;
+    if(progress<1)requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+function initCounters(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        animateCounter(document.getElementById('cnt-authors'),1247,'',1200);
+        animateCounter(document.getElementById('cnt-words'),8342015,'',1800);
+        animateCounter(document.getElementById('cnt-books'),14,'',1000);
+        obs.disconnect();
+      }
+    });
+  },{threshold:.3});
+  const sec=document.querySelector('.counter-section');
+  if(sec)obs.observe(sec);
+}
+
+function faqToggle(el){
+  const isOpen=el.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(x=>x.classList.remove('open'));
+  if(!isOpen)el.classList.add('open');
+}
+
 // ── DEMO EDITOR ──
 (function(){
   const DLIMIT=50,DTMAX=15;
@@ -1496,6 +1638,7 @@ function obUpdateTimer(){const el=document.getElementById('ob-timer-n'),r=docume
   const user=getCurrentUser();
   if(user){updateNavForUser(user);loadUserData(user.email)}
   buildShelf();
+  initCounters();
   if(!localStorage.getItem('ob_seen'))obOpen();
   if(user&&books.length)updateHomeDashboard()
 })();
