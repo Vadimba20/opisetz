@@ -537,7 +537,21 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f5f5f5;color:#1d1d
             <button class="timer-btn stop-btn" id="stop-btn" style="display:none" onclick="showGiveUp()">⏹ Сдаться</button>
           </div>
         </div>
-        <textarea class="writing-area" id="writing-area" placeholder="Начните писать свою историю..." disabled></textarea>
+        <div style="position:relative;flex:1;display:flex;flex-direction:column">
+          <textarea class="writing-area" id="writing-area" placeholder="Начните писать свою историю..." disabled style="flex:1"></textarea>
+          <div class="warmup-prompt" id="warmup-prompt" style="display:none">
+            <div class="wu-icon" id="wu-icon">✍️</div>
+            <div class="wu-body">
+              <div class="wu-label" id="wu-label">Подсказка</div>
+              <div class="wu-text" id="wu-text"></div>
+              <div class="wu-actions">
+                <button class="wu-use" onclick="wuUse()">Использовать идею</button>
+                <button class="wu-next" onclick="wuNext()">Другая →</button>
+                <button class="wu-dismiss" onclick="wuDismiss()">Я уже пишу</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="ai-trigger-wrap">
           <button class="ai-trigger-btn" id="ai-trigger-btn" onclick="showAIIdeas()" disabled>✨ Идеи от ИИ</button>
           <span class="ai-trigger-hint" id="ai-trigger-hint">Напиши 400 слов — и ИИ предложит идеи</span>
@@ -986,6 +1000,53 @@ function confirmDelete(){
   closeDel();
 }
 
+// ── WARMUP PROMPTS ──
+const WU_PROMPTS={
+  empty:[
+    {icon:'✍️',label:'С чего начать',text:'Опиши комнату, в которой сейчас находится твой главный герой. Что он видит, слышит, чувствует?'},
+    {icon:'🌅',label:'Первая строчка',text:'Напиши первое предложение, которое придёт в голову. Любое. Его можно будет переписать — сейчас важно начать.'},
+    {icon:'🎭',label:'Представь героя',text:'Как зовут твоего главного героя? Сколько ему лет? Что он хочет прямо сейчас больше всего на свете?'},
+    {icon:'🚪',label:'Открой сцену',text:'Дверь открылась. Кто вошёл — и что это меняет для твоего героя?'},
+  ],
+  writing:[
+    {icon:'🔀',label:'Разворот',text:'Что если прямо сейчас кто-то постучит в дверь — и это окажется человек из прошлого героя?'},
+    {icon:'💬',label:'Диалог',text:'Позволь двум персонажам поговорить. Пусть один скажет что-то, что удивит другого.'},
+    {icon:'⏩',label:'Прыжок вперёд',text:'Перемотай на три часа вперёд. Где находится герой и что он делает?'},
+    {icon:'🧠',label:'Мысли героя',text:'О чём думает твой герой прямо сейчас? Напиши поток его мыслей — без цензуры, как есть.'},
+    {icon:'🌧️',label:'Атмосфера',text:'Опиши погоду за окном. Как она влияет на настроение сцены?'},
+    {icon:'📦',label:'Деталь',text:'Найди один предмет в сцене и опиши его так подробно, чтобы читатель мог его потрогать.'},
+  ]
+};
+let wuTimeout=null,wuCurrentPrompt=null,wuCurrentSet=[];
+
+function wuStart(){
+  wuStop();
+  wuTimeout=setTimeout(()=>{
+    const area=document.getElementById('writing-area');
+    if(!area||area.disabled)return;
+    const hasText=countWords(area.value)>0;
+    wuCurrentSet=[...(hasText?WU_PROMPTS.writing:WU_PROMPTS.empty)];
+    wuShow();
+  },60000);
+}
+function wuStop(){clearTimeout(wuTimeout);wuTimeout=null;document.getElementById('warmup-prompt').style.display='none';}
+function wuShow(){
+  if(!wuCurrentSet.length)wuCurrentSet=[...(countWords(document.getElementById('writing-area').value)>0?WU_PROMPTS.writing:WU_PROMPTS.empty)];
+  const idx=Math.floor(Math.random()*wuCurrentSet.length);
+  wuCurrentPrompt=wuCurrentSet.splice(idx,1)[0];
+  document.getElementById('wu-icon').textContent=wuCurrentPrompt.icon;
+  document.getElementById('wu-label').textContent=wuCurrentPrompt.label;
+  document.getElementById('wu-text').textContent=wuCurrentPrompt.text;
+  document.getElementById('warmup-prompt').style.display='flex';
+}
+function wuUse(){
+  const area=document.getElementById('writing-area');
+  if(wuCurrentPrompt){area.value+=(area.value?'\n\n':'')+wuCurrentPrompt.text+'\n\n';updateWordCount();}
+  wuStop();area.focus();resetTimer();if(timerRunning){clearInterval(timerInterval);startTimer();}
+}
+function wuNext(){document.getElementById('warmup-prompt').style.display='none';setTimeout(wuShow,200);}
+function wuDismiss(){wuStop();wuStart();}
+
 // ── AUDIO ──
 const AudioCtx=window.AudioContext||window.webkitAudioContext;
 const audioCtx=new AudioCtx();
@@ -1011,6 +1072,7 @@ function startWriting(){
   document.getElementById('start-btn').style.display='none';
   document.getElementById('stop-btn').style.display='inline-block';
   document.getElementById('giveup-btn').style.display='inline-block';
+  wuStart();
   startTimer();
 }
 function startTimer(){
@@ -1022,7 +1084,7 @@ function startTimer(){
   },1000)
 }
 function resetTimer(){timeLeft=15;updateTimerDisplay();document.getElementById('timer-display').classList.remove('warning');document.getElementById('timer-sub-label').classList.remove('urgent')}
-function stopTimer(){clearInterval(timerInterval);timerRunning=false;resetTimerUI()}
+function stopTimer(){clearInterval(timerInterval);timerRunning=false;wuStop();resetTimerUI()}
 function resetTimerUI(){document.getElementById('start-btn').style.display='inline-block';document.getElementById('stop-btn').style.display='none';document.getElementById('giveup-btn').style.display='none';document.getElementById('timer-display').classList.remove('warning');document.getElementById('timer-sub-label').classList.remove('urgent');timeLeft=15;updateTimerDisplay()}
 function updateTimerDisplay(){const m=String(Math.floor(timeLeft/60)).padStart(2,'0'),s=String(timeLeft%60).padStart(2,'0');document.getElementById('timer-display').textContent=m+':'+s}
 
@@ -1249,7 +1311,7 @@ function updateHomeDashboard(){
 function setSeasonalBackground(){const m=new Date().getMonth()+1;let bg;if(m>=11||m<=2)bg='winter-bg.jpg';else if(m>=3&&m<=5)bg='spring-bg.jpg';else if(m>=6&&m<=8)bg='summer-bg.jpg';else bg='autumn-bg.jpg';const cs=document.getElementById('cabinet-screen');cs.style.backgroundImage=`url(${bg})`;cs.style.backgroundSize='cover';cs.style.backgroundPosition='center'}
 
 // ── INPUT ──
-document.getElementById('writing-area').addEventListener('input',function(){if(timerRunning){resetTimer();clearInterval(timerInterval);startTimer()}updateWordCount();checkForAITrigger(this.value)})
+document.getElementById('writing-area').addEventListener('input',function(){if(timerRunning){resetTimer();clearInterval(timerInterval);startTimer()}wuStop();wuStart();updateWordCount();checkForAITrigger(this.value)})
 document.getElementById('writing-area').addEventListener('keydown',function(e){if(e.key.length===1)playTypeSound()})
 document.getElementById('chapter-name-input').addEventListener('keydown',e=>{if(e.key==='Enter')confirmSaveChapter()})
 document.getElementById('new-book-input').addEventListener('keydown',e=>{if(e.key==='Enter')confirmNewBook()})
