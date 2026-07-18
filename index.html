@@ -1458,14 +1458,14 @@ function obStartTimer(){clearInterval(obTimerInt);obTimerVal=15;obUpdateTimer();
 function obUpdateTimer(){const el=document.getElementById('ob-timer-n'),r=document.getElementById('ob-ring');if(!el)return;el.textContent=obTimerVal;r.style.strokeDashoffset=163.4*(1-obTimerVal/15);r.style.stroke=obTimerVal<=5?'var(--terra)':'var(--brown-deep)';el.style.color=obTimerVal<=5?'var(--terra)':'var(--brown-deep)'}
 
 // ── COUNTER ANIMATION ──
-function animateCounter(el,target,duration){
+function animateCounter(el, target, suffix, duration){
   const start=Date.now();
   const tick=()=>{
     const elapsed=Date.now()-start;
     const progress=Math.min(elapsed/duration,1);
     const ease=1-Math.pow(1-progress,3);
     const val=Math.round(ease*target);
-    el.textContent=val.toLocaleString('ru');
+    el.textContent=val.toLocaleString('ru')+suffix;
     if(progress<1)requestAnimationFrame(tick);
   };
   requestAnimationFrame(tick);
@@ -1474,9 +1474,9 @@ function initCounters(){
   const obs=new IntersectionObserver(entries=>{
     entries.forEach(e=>{
       if(e.isIntersecting){
-        animateCounter(document.getElementById('cnt-authors'),1247,1200);
-        animateCounter(document.getElementById('cnt-words'),8342015,1800);
-        animateCounter(document.getElementById('cnt-books'),14,1000);
+        animateCounter(document.getElementById('cnt-authors'),1247,'',1200);
+        animateCounter(document.getElementById('cnt-words'),8342015,'',1800);
+        animateCounter(document.getElementById('cnt-books'),14,'',1000);
         obs.disconnect();
       }
     });
