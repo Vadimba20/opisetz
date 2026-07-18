@@ -236,6 +236,72 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .wu-next,.wu-dismiss{padding:.4rem .85rem;border-radius:980px;border:1.5px solid var(--border);background:transparent;color:var(--text-muted);font-family:'Lora',serif;font-size:12px;cursor:pointer;transition:all .2s}
 .wu-next:hover,.wu-dismiss:hover{border-color:var(--brown-mid);color:var(--brown-mid)}
 
+/* ── DEMO ── */
+.demo-section{max-width:720px;margin:0 auto;padding:0 60px 60px}
+.demo-eyebrow{text-align:center;font-family:'Lora',serif;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--terra);margin-bottom:12px}
+.demo-heading{text-align:center;font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--brown-deep);margin-bottom:8px;line-height:1.2}
+.demo-sub{text-align:center;font-family:'Lora',serif;font-size:15px;color:var(--brown-mid);margin-bottom:28px;line-height:1.7}
+.demo-editor{background:var(--cream-card);border-radius:16px;border:1px solid var(--border);box-shadow:0 4px 24px var(--shadow);overflow:hidden}
+.demo-header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid var(--border);background:var(--cream)}
+.demo-timer-wrap{display:flex;align-items:center;gap:10px}
+.demo-timer-ring{position:relative;width:48px;height:48px;flex-shrink:0}
+.demo-timer-ring svg{width:100%;height:100%}
+.demo-timer-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--brown-deep)}
+.demo-timer-num.danger{color:var(--terra)}
+.demo-timer-lbl{font-family:'Lora',serif;font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;line-height:1.5}
+.demo-timer-lbl strong{display:block;font-size:13px;color:var(--brown-deep);font-weight:600;text-transform:none;letter-spacing:0}
+.demo-word-badge{display:flex;flex-direction:column;align-items:center}
+.demo-word-num{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--brown-deep);line-height:1}
+.demo-word-lbl{font-family:'Lora',serif;font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
+.demo-progress{padding:10px 20px 0;background:var(--cream)}
+.demo-bar-track{height:5px;background:var(--cream-dark);border-radius:3px;overflow:hidden}
+.demo-bar-fill{height:100%;background:linear-gradient(90deg,var(--terra),var(--ochre));border-radius:3px;transition:width .3s ease;width:0%}
+.demo-bar-labels{display:flex;justify-content:space-between;font-family:'Lora',serif;font-size:11px;color:var(--text-muted);margin-top:4px;padding-bottom:10px}
+.demo-textarea-wrap{padding:20px 20px 8px}
+.demo-textarea{width:100%;min-height:130px;border:none;outline:none;resize:none;font-family:'Lora',serif;font-size:16px;line-height:1.9;color:var(--brown-deep);background:transparent}
+.demo-textarea::placeholder{color:var(--cream-dark)}
+.demo-ai-panel{display:none;margin:0 20px 12px;background:#fdf8f0;border:1.5px solid var(--ochre);border-radius:12px;overflow:hidden;animation:wuSlideUp .25s ease}
+.demo-ai-head{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--border)}
+.demo-ai-title{font-family:'Lora',serif;font-size:13px;font-weight:500;color:var(--brown-mid)}
+.demo-ai-badge{font-family:'Lora',serif;font-size:11px;color:var(--text-muted);background:var(--cream);padding:2px 8px;border-radius:980px;border:1px solid var(--border)}
+.demo-ai-close{background:none;border:none;color:var(--text-muted);font-size:18px;cursor:pointer;line-height:1;padding:0 2px}
+.demo-ai-close:hover{color:var(--brown-deep)}
+.demo-ai-ideas-list{padding:10px 14px 12px;display:flex;flex-direction:column;gap:7px}
+.demo-ai-idea{background:var(--cream-card);border:1px solid var(--border);border-radius:8px;padding:9px 12px;font-family:'Lora',serif;font-size:13px;color:var(--brown-mid);line-height:1.55;cursor:pointer;transition:all .15s}
+.demo-ai-idea:hover{border-color:var(--terra);color:var(--brown-deep)}
+.demo-ai-idea-num{font-size:10px;color:var(--text-muted);font-family:'Lora',serif;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
+.demo-ai-loading{display:flex;align-items:center;gap:10px;padding:14px;font-family:'Lora',serif;font-size:13px;color:var(--text-muted)}
+.demo-ai-dots{display:flex;gap:4px}
+.demo-ai-dots span{width:6px;height:6px;border-radius:50%;background:var(--ochre);animation:dotPulse 1.2s infinite}
+.demo-ai-dots span:nth-child(2){animation-delay:.2s}
+.demo-ai-dots span:nth-child(3){animation-delay:.4s}
+.demo-ai-hint{font-family:'Lora',serif;font-size:11px;color:var(--text-muted);font-style:italic;padding:0 14px 10px;text-align:center}
+.demo-ai-used{display:none;margin:0 20px 12px;background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:12px 16px;text-align:center}
+.demo-ai-used-text{font-family:'Lora',serif;font-size:13px;color:var(--brown-mid);line-height:1.5;margin-bottom:10px}
+.demo-footer{padding:12px 20px;border-top:1px solid var(--border);background:var(--cream);display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.demo-footer-left{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.demo-hint{font-family:'Lora',serif;font-size:12px;color:var(--text-muted);font-style:italic}
+.demo-ai-btn{padding:7px 16px;border:1.5px solid var(--ochre);background:rgba(212,168,71,.08);color:var(--brown-mid);font-family:'Lora',serif;font-size:12px;font-weight:500;border-radius:980px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:5px}
+.demo-ai-btn:hover{background:var(--ochre);color:var(--brown-deep)}
+.demo-ai-counter{font-size:10px;background:var(--cream);border-radius:980px;padding:1px 6px;color:var(--text-muted)}
+.demo-reg-btn{padding:8px 20px;background:var(--brown-deep);color:var(--cream);border:none;border-radius:980px;font-family:'Lora',serif;font-size:13px;cursor:pointer;transition:all .2s;white-space:nowrap}
+.demo-reg-btn:hover{background:var(--terra)}
+.demo-finish{display:none;padding:28px 24px;text-align:center}
+.demo-finish-emoji{font-size:2.5rem;margin-bottom:12px;display:block}
+.demo-finish-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--brown-deep);margin-bottom:8px}
+.demo-finish-sub{font-family:'Lora',serif;font-size:14px;color:var(--brown-mid);line-height:1.6;margin-bottom:20px}
+.demo-features{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px;text-align:left}
+.demo-feature{background:var(--cream);border-radius:10px;padding:10px 12px;display:flex;align-items:flex-start;gap:8px}
+.demo-feat-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.demo-feat-text{font-family:'Lora',serif;font-size:12px;color:var(--brown-mid);line-height:1.4}
+.demo-feat-text strong{display:block;font-size:13px;color:var(--brown-deep);margin-bottom:1px;font-family:'Playfair Display',serif}
+.demo-finish-cta{width:100%;padding:13px;background:var(--brown-deep);color:var(--cream);border:none;border-radius:10px;font-family:'Lora',serif;font-size:15px;font-weight:500;cursor:pointer;transition:all .25s;margin-bottom:8px}
+.demo-finish-cta:hover{background:var(--terra);transform:translateY(-1px)}
+.demo-retry{font-family:'Lora',serif;font-size:12px;color:var(--text-muted);background:none;border:none;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.demo-retry:hover{color:var(--brown-mid)}
+@keyframes demoPulse{0%,100%{opacity:1}50%{opacity:.4}}
+.demo-timer-pulse{animation:demoPulse .5s infinite}
+
 /* CORRECTION */
 .correction-screen{background:var(--cream)}
 .correction-container{max-width:820px;margin:0 auto;padding:80px 40px 60px}
@@ -513,6 +579,83 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     </div>
     <div class="db-msg" id="db-msg">Начни первый день — первая строчка самая важная.</div>
     <div class="db-cta"><a class="hero-btn" onclick="handleWriteClick()">Писать сегодня</a></div>
+  </div>
+
+  <!-- ДЕМО-РЕДАКТОР -->
+  <div class="demo-section" id="demo-section">
+    <div class="demo-eyebrow">Попробуй прямо сейчас — без регистрации</div>
+    <h2 class="demo-heading">Почувствуй как это работает</h2>
+    <p class="demo-sub">Напиши 50 слов. Застрял — попроси у ИИ идею.<br>Остановись на 15 секунд — и текст исчезнет.</p>
+    <div class="demo-editor" id="demo-editor">
+      <div class="demo-header" id="demo-header">
+        <div class="demo-timer-wrap">
+          <div class="demo-timer-ring">
+            <svg viewBox="0 0 48 48">
+              <circle cx="24" cy="24" r="19" fill="none" stroke="#e8ddd0" stroke-width="4"/>
+              <circle cx="24" cy="24" r="19" fill="none" stroke="#6b4c35" stroke-width="4"
+                stroke-dasharray="119.4" id="demo-timer-ring" stroke-dashoffset="0"
+                stroke-linecap="round" transform="rotate(-90 24 24)"
+                style="transition:stroke-dashoffset .9s linear,stroke .3s"/>
+            </svg>
+            <div class="demo-timer-num" id="demo-timer-num">15</div>
+          </div>
+          <div class="demo-timer-lbl">
+            <strong id="demo-timer-label">Нажми и пиши</strong>
+            до удаления текста
+          </div>
+        </div>
+        <div class="demo-word-badge">
+          <div class="demo-word-num" id="demo-word-num">0</div>
+          <div class="demo-word-lbl">из 50 слов</div>
+        </div>
+      </div>
+      <div class="demo-progress" id="demo-progress">
+        <div class="demo-bar-track"><div class="demo-bar-fill" id="demo-bar-fill"></div></div>
+        <div class="demo-bar-labels"><span>0</span><span>25</span><span>50 ✓</span></div>
+      </div>
+      <div class="demo-textarea-wrap" id="demo-textarea-wrap">
+        <textarea class="demo-textarea" id="demo-ta"
+          placeholder="Начни писать здесь… Любая мысль, любая история. Главное — не останавливайся.&#10;&#10;Если застрял — нажми «✨ Идеи от ИИ» внизу."></textarea>
+      </div>
+      <div class="demo-ai-panel" id="demo-ai-panel">
+        <div class="demo-ai-head">
+          <span class="demo-ai-title">✨ Идеи для продолжения</span>
+          <div style="display:flex;align-items:center;gap:8px">
+            <span class="demo-ai-badge">1 запрос в демо</span>
+            <button class="demo-ai-close" onclick="demoCloseAI()">×</button>
+          </div>
+        </div>
+        <div id="demo-ai-body">
+          <div class="demo-ai-loading"><div class="demo-ai-dots"><span></span><span></span><span></span></div>Читаю твой текст и придумываю идеи…</div>
+        </div>
+      </div>
+      <div class="demo-ai-used" id="demo-ai-used">
+        <div class="demo-ai-used-text">В демо доступен <strong>1 запрос к ИИ</strong>.<br>Зарегистрируйся — и получи неограниченные идеи на основе всей твоей книги.</div>
+        <button class="demo-reg-btn" onclick="openAuth('register')">Зарегистрироваться бесплатно →</button>
+      </div>
+      <div class="demo-footer" id="demo-footer">
+        <div class="demo-footer-left">
+          <div class="demo-hint" id="demo-hint">⌨️ Печатай — таймер сбросится</div>
+          <button class="demo-ai-btn" id="demo-ai-btn" onclick="demoTriggerAI()">
+            ✨ Идеи от ИИ <span class="demo-ai-counter" id="demo-ai-counter">1</span>
+          </button>
+        </div>
+        <button class="demo-reg-btn" onclick="openAuth('register')">Регистрация →</button>
+      </div>
+      <div class="demo-finish" id="demo-finish">
+        <span class="demo-finish-emoji">🎉</span>
+        <div class="demo-finish-title">50 слов написано — ты почувствовал ритм!</div>
+        <div class="demo-finish-sub">В полной версии — 800 слов в день, 60 глав, готовая книга и безлимитный ИИ-помощник.</div>
+        <div class="demo-features">
+          <div class="demo-feature"><span class="demo-feat-icon">📚</span><div class="demo-feat-text"><strong>Несколько книг</strong>Веди параллельно несколько проектов</div></div>
+          <div class="demo-feature"><span class="demo-feat-icon">✨</span><div class="demo-feat-text"><strong>Безлимитный ИИ</strong>Идеи на основе всей рукописи</div></div>
+          <div class="demo-feature"><span class="demo-feat-icon">🧠</span><div class="demo-feat-text"><strong>ИИ-корректура</strong>Орфография, логика, стиль</div></div>
+          <div class="demo-feature"><span class="demo-feat-icon">🏆</span><div class="demo-feat-text"><strong>Экран финала</strong>Конфетти и шеринг в соцсети</div></div>
+        </div>
+        <button class="demo-finish-cta" onclick="openAuth('register')">Начать свою книгу бесплатно →</button>
+        <button class="demo-retry" onclick="demoRetry()">Попробовать ещё раз</button>
+      </div>
+    </div>
   </div>
 
   <!-- ИНФОГРАФИКА -->
@@ -1111,6 +1254,141 @@ function obNext(){if(obStep<2)obGo(obStep+1);else obClose()}
 function obPrev(){if(obStep>0)obGo(obStep-1)}
 function obStartTimer(){clearInterval(obTimerInt);obTimerVal=15;obUpdateTimer();obTimerInt=setInterval(()=>{obTimerVal=obTimerVal>1?obTimerVal-1:15;obUpdateTimer()},900)}
 function obUpdateTimer(){const el=document.getElementById('ob-timer-n'),r=document.getElementById('ob-ring');if(!el)return;el.textContent=obTimerVal;r.style.strokeDashoffset=163.4*(1-obTimerVal/15);r.style.stroke=obTimerVal<=5?'var(--terra)':'var(--brown-deep)';el.style.color=obTimerVal<=5?'var(--terra)':'var(--brown-deep)'}
+
+// ── DEMO EDITOR ──
+(function(){
+  const DLIMIT=50,DTMAX=15;
+  let dtv=DTMAX,dtInt=null,dRunning=false,dWiped=false,dAiUsed=false,dAiOpen=false;
+
+  function dCW(t){return t.trim()===''?0:t.trim().split(/\s+/).length}
+
+  function dPlayKey(){try{const c=audioCtx||new(window.AudioContext||window.webkitAudioContext)();const b=c.createBuffer(1,c.sampleRate*.07,c.sampleRate),d=b.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*Math.exp(-i/c.sampleRate*65);const s=c.createBufferSource(),g=c.createGain();s.buffer=b;g.gain.value=.18;s.connect(g);g.connect(c.destination);s.start()}catch(e){}}
+  function dPlayTick(){try{const c=audioCtx||new(window.AudioContext||window.webkitAudioContext)();const o=c.createOscillator(),g=c.createGain();o.type='square';o.frequency.setValueAtTime(1100,c.currentTime);o.frequency.exponentialRampToValueAtTime(500,c.currentTime+.06);g.gain.setValueAtTime(.4,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.1);o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+.1)}catch(e){}}
+
+  function dUpdateTUI(){
+    const pct=dtv/DTMAX,danger=dtv<=5;
+    const ring=document.getElementById('demo-timer-ring');
+    const num=document.getElementById('demo-timer-num');
+    const lbl=document.getElementById('demo-timer-label');
+    if(!ring)return;
+    ring.style.strokeDashoffset=119.4*(1-pct);
+    ring.style.stroke=danger?'var(--terra)':'var(--brown-mid)';
+    num.textContent=dtv;
+    num.className='demo-timer-num'+(danger?' danger demo-timer-pulse':'');
+    if(!dRunning||dAiOpen)lbl.textContent=dAiOpen?'⏸ Пауза (ИИ)':'Нажми и пиши';
+    else if(danger)lbl.textContent='Не останавливайся!';
+    else lbl.textContent='Пишешь!';
+  }
+
+  function dStartTimer(){
+    if(dWiped||dAiOpen)return;
+    dRunning=true;dtv=DTMAX;dUpdateTUI();
+    clearInterval(dtInt);
+    dtInt=setInterval(()=>{
+      if(dAiOpen){dtv=DTMAX;dUpdateTUI();return;}
+      dtv--;dUpdateTUI();
+      if(dtv<=5&&dtv>0)dPlayTick();
+      if(dtv<=0){clearInterval(dtInt);dRunning=false;dWipe();}
+    },1000);
+  }
+  function dResetTimer(){dtv=DTMAX;dUpdateTUI();}
+
+  function dWipe(){
+    dWiped=true;
+    const ta=document.getElementById('demo-ta');
+    ta.value='';dSetWords(0);
+    document.getElementById('demo-hint').textContent='💥 Текст удалён! Начни заново.';
+    document.getElementById('demo-timer-label').textContent='Время вышло';
+    setTimeout(()=>{dWiped=false;document.getElementById('demo-hint').textContent='⌨️ Печатай — таймер сбросится';},2500);
+  }
+
+  function dSetWords(n){
+    document.getElementById('demo-word-num').textContent=n;
+    document.getElementById('demo-bar-fill').style.width=Math.min(n/DLIMIT*100,100)+'%';
+    if(n>=DLIMIT)dShowFinish();
+  }
+
+  function dShowFinish(){
+    clearInterval(dtInt);dRunning=false;dAiOpen=false;
+    ['demo-textarea-wrap','demo-footer','demo-progress','demo-header','demo-ai-panel','demo-ai-used']
+      .forEach(id=>{const el=document.getElementById(id);if(el)el.style.display='none'});
+    document.getElementById('demo-finish').style.display='block';
+  }
+
+  window.demoRetry=function(){
+    const ta=document.getElementById('demo-ta');
+    ta.value='';
+    document.getElementById('demo-textarea-wrap').style.display='block';
+    document.getElementById('demo-footer').style.display='flex';
+    document.getElementById('demo-progress').style.display='block';
+    document.getElementById('demo-header').style.display='flex';
+    document.getElementById('demo-finish').style.display='none';
+    document.getElementById('demo-ai-panel').style.display='none';
+    document.getElementById('demo-ai-used').style.display='none';
+    dSetWords(0);dtv=DTMAX;dRunning=false;dWiped=false;dAiOpen=false;
+    dUpdateTUI();
+    document.getElementById('demo-hint').textContent='⌨️ Печатай — таймер сбросится';
+  };
+
+  window.demoTriggerAI=async function(){
+    if(dAiUsed){
+      document.getElementById('demo-ai-used').style.display='block';
+      return;
+    }
+    dAiOpen=true;
+    clearInterval(dtInt);
+    document.getElementById('demo-timer-label').textContent='⏸ Пауза (ИИ)';
+    const panel=document.getElementById('demo-ai-panel');
+    panel.style.display='block';
+    document.getElementById('demo-ai-body').innerHTML=
+      '<div class="demo-ai-loading"><div class="demo-ai-dots"><span></span><span></span><span></span></div>Читаю твой текст…</div>';
+    const text=document.getElementById('demo-ta').value.trim();
+    const prompt=`Ты творческий помощник писателя. Вот начало текста:\n\n"${text||'(пусто — автор только начинает)'}"\n\nПредложи ровно 3 конкретные идеи для продолжения. Каждая — 1-2 предложения, интригующие. JSON: {"ideas":["идея 1","идея 2","идея 3"]}. Только JSON.`;
+    const fallback=['За окном внезапно погас свет — и в темноте кто-то произнёс имя героя.','Незнакомец протянул конверт: «Это нашли при твоём отце. Двадцать лет назад».','Телефон завибрировал — номер того, кто, по всем данным, умер три года назад.'];
+    let ideas=fallback;
+    try{
+      const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:600,messages:[{role:'user',content:prompt}]})});
+      const d=await r.json();
+      const raw=d.content?.map(b=>b.text||'').join('')||'';
+      const parsed=JSON.parse(raw.replace(/```json|```/g,'').trim());
+      if(parsed.ideas&&parsed.ideas.length)ideas=parsed.ideas;
+    }catch(e){}
+    document.getElementById('demo-ai-body').innerHTML=
+      `<div class="demo-ai-ideas-list">${ideas.map((idea,i)=>`<div class="demo-ai-idea" onclick="demoUseIdea('${idea.replace(/'/g,"\\'").replace(/\n/g,' ')}')" ><div class="demo-ai-idea-num">Идея ${i+1}</div>${idea}</div>`).join('')}</div><div class="demo-ai-hint">Нажми на идею — она добавится в текст</div>`;
+    dAiUsed=true;
+    document.getElementById('demo-ai-counter').textContent='✓';
+    document.getElementById('demo-ai-btn').style.opacity='.5';
+  };
+
+  window.demoUseIdea=function(text){
+    const ta=document.getElementById('demo-ta');
+    ta.value=ta.value.trimEnd()+(ta.value?'\n\n':'')+text+' ';
+    window.demoCloseAI();
+    ta.focus();ta.selectionStart=ta.selectionEnd=ta.value.length;
+    dSetWords(dCW(ta.value));
+    dRunning=false;dStartTimer();
+  };
+
+  window.demoCloseAI=function(){
+    dAiOpen=false;
+    document.getElementById('demo-ai-panel').style.display='none';
+    if(dRunning){clearInterval(dtInt);dStartTimer();}
+    else{dtv=DTMAX;dUpdateTUI();}
+  };
+
+  const dTa=document.getElementById('demo-ta');
+  if(dTa){
+    dTa.addEventListener('input',function(){
+      if(dWiped)return;
+      dPlayKey();
+      if(!dRunning)dStartTimer();
+      else{clearInterval(dtInt);dResetTimer();dStartTimer();}
+      const n=dCW(this.value);
+      dSetWords(n>=DLIMIT?DLIMIT:n);
+    });
+  }
+  dUpdateTUI();
+})();
 
 // ── INIT ──
 (function init(){
