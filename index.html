@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>О, Писец! — ни дня без строчки</title>
 <link rel="icon" type="image/png" href="favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
@@ -40,7 +40,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 /* ── NAV ── */
 .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 60px;height:68px;background:transparent;transition:background .3s,box-shadow .3s,border-color .3s;border-bottom:1px solid transparent}
 .navbar.scrolled{background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid rgba(219,231,234,.7);box-shadow:0 4px 24px rgba(20,50,62,.06)}
-.nav-logo{display:flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:20px;color:#fff;cursor:pointer;text-decoration:none;transition:color .3s;white-space:nowrap}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:20px;color:#fff;cursor:pointer;text-decoration:none;transition:color .3s;white-space:nowrap}
 .navbar.scrolled .nav-logo{color:var(--brown-deep)}
 .nav-logo img{width:34px;height:34px;border-radius:50%}
 .nav-links{display:flex;gap:38px;align-items:center}
@@ -60,7 +60,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .nav-links a.active::after{transform:scaleX(1)}
 .nav-links a.active{color:#fff}
 .navbar.scrolled .nav-links a.active{color:var(--terra)}
-.nav-avatar{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.5);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:600;font-size:14px;flex-shrink:0}
+.nav-avatar{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.5);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:600;font-size:14px;flex-shrink:0}
 .navbar.scrolled .nav-avatar{background:var(--terra);border-color:var(--terra)}
 .nav-links a.warm-link{padding:9px 22px;border-radius:980px;border:1.5px solid rgba(255,255,255,.6);color:#fff}
 .nav-links a.warm-link::after{display:none}
@@ -88,13 +88,13 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .hero-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;position:relative;z-index:2}
 .hero-copy{text-align:left}
 .hero-eyebrow{display:inline-block;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:#fff;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);padding:6px 16px;border-radius:980px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:22px}
-.hero-title{font-family:'Poppins',sans-serif;font-size:72px;font-weight:800;color:#fff;line-height:1.06;margin-bottom:20px;letter-spacing:-.01em;transition:opacity .35s;min-height:130px;display:flex;flex-direction:column;justify-content:center}
+.hero-title{font-family:'Montserrat',sans-serif;font-size:72px;font-weight:800;color:#fff;line-height:1.06;margin-bottom:20px;letter-spacing:-.01em;transition:opacity .35s;min-height:130px;display:flex;flex-direction:column;justify-content:center}
 .hero-title em{font-style:normal;color:#fff8e6}
 .hero-subtitle{font-family:'Inter',sans-serif;font-size:18px;color:rgba(255,255,255,.92);font-weight:400;line-height:1.65;margin-bottom:34px;max-width:480px;min-height:60px;transition:opacity .35s}
 .hero-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-.hero-btn{display:inline-block;padding:15px 40px;background:#fff;color:var(--terra);font-family:'Poppins',sans-serif;font-size:15px;font-weight:600;letter-spacing:.01em;border-radius:980px;cursor:pointer;transition:all .25s;border:none;text-decoration:none;box-shadow:0 10px 30px rgba(20,50,62,.18)}
+.hero-btn{display:inline-block;padding:15px 40px;background:#fff;color:var(--terra);font-family:'Montserrat',sans-serif;font-size:15px;font-weight:600;letter-spacing:.01em;border-radius:980px;cursor:pointer;transition:all .25s;border:none;text-decoration:none;box-shadow:0 10px 30px rgba(20,50,62,.18)}
 .hero-btn:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(20,50,62,.28)}
-.hero-btn-ghost{display:inline-block;padding:14px 34px;background:transparent;color:#fff;font-family:'Poppins',sans-serif;font-size:15px;font-weight:600;border-radius:980px;cursor:pointer;transition:all .25s;border:1.5px solid rgba(255,255,255,.55);text-decoration:none}
+.hero-btn-ghost{display:inline-block;padding:14px 34px;background:transparent;color:#fff;font-family:'Montserrat',sans-serif;font-size:15px;font-weight:600;border-radius:980px;cursor:pointer;transition:all .25s;border:1.5px solid rgba(255,255,255,.55);text-decoration:none}
 .hero-btn-ghost:hover{background:rgba(255,255,255,.14);border-color:#fff}
 /* sections reuse a solid primary button */
 .btn-primary,.dashboard .hero-btn,.features-section .hero-btn,.vs-section .hero-btn,.faq-section .hero-btn,.db-cta .hero-btn,.demo-finish-cta{background:var(--terra);color:#fff;box-shadow:0 8px 24px rgba(16,174,194,.28)}
@@ -117,7 +117,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 /* BOOKSHELF */
 .bookshelf-section{padding:48px 0 60px;position:relative}
 .shelf-heading{text-align:center;max-width:640px;margin:0 auto 34px;padding:0 24px}
-.shelf-heading h2{font-family:'Poppins',sans-serif;font-size:38px;font-weight:700;color:var(--brown-deep);margin-bottom:10px}
+.shelf-heading h2{font-family:'Montserrat',sans-serif;font-size:38px;font-weight:700;color:var(--brown-deep);margin-bottom:10px}
 .shelf-heading p{font-family:'Inter',sans-serif;font-size:15px;line-height:1.7;color:var(--text-mid)}
 .shelf-wrap{max-width:900px;margin:0 auto;padding:0 40px}
 .shelf-row{position:relative;margin-bottom:8px}
@@ -137,10 +137,10 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .db-ring-wrap{position:relative;width:96px;height:96px;flex-shrink:0}
 .db-ring-wrap svg{width:100%;height:100%}
 .db-ring-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.db-ring-pct{font-family:'Poppins',sans-serif;font-size:1.4rem;font-weight:700;color:var(--brown-deep)}
+.db-ring-pct{font-family:'Montserrat',sans-serif;font-size:1.4rem;font-weight:700;color:var(--brown-deep)}
 .db-ring-lbl{font-size:10px;color:var(--text-muted);letter-spacing:.05em}
 .db-progress-info{flex:1}
-.db-progress-words{font-family:'Poppins',sans-serif;font-size:1.6rem;font-weight:700;color:var(--brown-deep)}
+.db-progress-words{font-family:'Montserrat',sans-serif;font-size:1.6rem;font-weight:700;color:var(--brown-deep)}
 .db-progress-sub{font-family:'Inter',sans-serif;font-size:13px;color:var(--text-mid);margin:4px 0 14px}
 .db-bar{height:4px;background:var(--cream-dark);border-radius:2px;overflow:hidden;margin-bottom:6px}
 .db-bar-fill{height:100%;background:linear-gradient(90deg,var(--terra),var(--ochre));border-radius:2px;transition:width .5s}
@@ -148,7 +148,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .db-stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 .db-stat-card{background:var(--cream-card);border-radius:14px;border:1px solid var(--border);padding:18px 16px;box-shadow:0 2px 8px var(--shadow)}
 .db-stat-icon{font-size:1rem;margin-bottom:6px}
-.db-stat-num{font-family:'Poppins',sans-serif;font-size:1.5rem;font-weight:700;color:var(--brown-deep)}
+.db-stat-num{font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:700;color:var(--brown-deep)}
 .db-stat-lbl{font-size:11px;color:var(--text-muted);margin-top:3px}
 .db-msg{font-family:'Inter',sans-serif;font-size:14px;color:var(--brown-mid);background:var(--cream-card);border-left:3px solid var(--terra);border-radius:0 10px 10px 0;padding:14px 18px;line-height:1.7;border:1px solid var(--border);border-left:3px solid var(--terra)}
 .db-cta{display:flex;gap:12px}
@@ -159,16 +159,16 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 /* ABOUT */
 .about-screen{background:var(--cream)}
 .about-container{max-width:720px;margin:0 auto;padding:80px 40px 60px}
-.about-main-title{font-family:'Poppins',sans-serif;font-size:58px;font-weight:900;text-align:center;margin-bottom:60px;color:var(--brown-deep)}
+.about-main-title{font-family:'Montserrat',sans-serif;font-size:58px;font-weight:900;text-align:center;margin-bottom:60px;color:var(--brown-deep)}
 .about-block{margin-bottom:50px}
-.about-block-title{font-family:'Poppins',sans-serif;font-size:26px;font-weight:700;color:var(--brown-deep);margin-bottom:18px;line-height:1.3}
+.about-block-title{font-family:'Montserrat',sans-serif;font-size:26px;font-weight:700;color:var(--brown-deep);margin-bottom:18px;line-height:1.3}
 .about-block p{font-family:'Inter',sans-serif;font-size:16px;line-height:1.9;color:var(--brown-mid);margin-bottom:14px;font-weight:400}
 .about-block .highlight{font-weight:500;color:var(--brown-deep)}
 .about-block .rule-list{list-style:none;padding:0;margin:16px 0}
 .about-block .rule-list li{font-family:'Inter',sans-serif;font-size:16px;line-height:1.9;color:var(--brown-mid);padding-left:20px;position:relative;margin-bottom:4px}
 .about-block .rule-list li::before{content:'—';position:absolute;left:0;color:var(--terra)}
 .about-finale{text-align:center;padding:40px 0 20px;border-top:1px solid var(--border);margin-top:60px}
-.about-finale p{font-family:'Poppins',sans-serif;font-size:22px;font-weight:700;color:var(--brown-deep);margin-bottom:8px}
+.about-finale p{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:700;color:var(--brown-deep);margin-bottom:8px}
 .about-finale .tagline{font-family:'Inter',sans-serif;font-size:14px;color:var(--text-muted);font-weight:400;letter-spacing:.1em;text-transform:uppercase;margin-bottom:36px;display:block}
 .about-cta-btn{display:inline-block;padding:14px 44px;background:var(--brown-deep);color:var(--cream);font-family:'Inter',sans-serif;font-size:15px;border-radius:4px;cursor:pointer;transition:all .25s;text-decoration:none;border:none}
 .about-cta-btn:hover{background:var(--terra)}
@@ -218,7 +218,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 /* TOOLBAR */
 .toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:10px}
 .toolbar-left{display:flex;align-items:center;gap:14px}
-.book-title-badge{font-family:'Poppins',sans-serif;font-size:17px;font-weight:700;color:var(--brown-deep)}
+.book-title-badge{font-family:'Montserrat',sans-serif;font-size:17px;font-weight:700;color:var(--brown-deep)}
 .word-counter{font-family:'Inter',sans-serif;font-size:13px;color:var(--text-muted)}
 .word-counter span{color:var(--brown-deep);font-weight:500;font-size:15px}
 .toolbar-actions{display:flex;gap:8px;align-items:center}
@@ -233,7 +233,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 /* TIMER */
 .timer-zone{display:flex;flex-direction:column;align-items:center;margin-bottom:20px}
-.timer-display{font-family:'Poppins',sans-serif;font-size:72px;font-weight:900;color:var(--brown-deep);letter-spacing:4px;line-height:1}
+.timer-display{font-family:'Montserrat',sans-serif;font-size:72px;font-weight:900;color:var(--brown-deep);letter-spacing:4px;line-height:1}
 .timer-display.warning{color:var(--flame);animation:pulse .5s infinite}
 .timer-sub-label{font-family:'Inter',sans-serif;font-size:12px;color:var(--text-muted);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;transition:color .3s}
 .timer-sub-label.urgent{color:var(--flame);font-weight:500}
@@ -245,12 +245,17 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .mode-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px var(--shadow)}
 .mode-card.flow{border-top:4px solid var(--teal)}
 .mode-card.burn{border-top:4px solid var(--flame)}
-.mode-card-icon{font-size:36px;margin-bottom:12px}
+.mode-card-icon{width:56px;height:56px;border-radius:15px;display:flex;align-items:center;justify-content:center;margin-bottom:0}
+.mode-card-icon svg{width:30px;height:30px;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.mode-card.flow .mode-card-icon{background:linear-gradient(135deg,rgba(16,174,194,.16),rgba(16,174,194,.05))}
+.mode-card.flow .mode-card-icon svg{stroke:var(--terra)}
+.mode-card.burn .mode-card-icon{background:linear-gradient(135deg,rgba(239,95,60,.16),rgba(239,95,60,.05))}
+.mode-card.burn .mode-card-icon svg{stroke:var(--flame)}
 .mode-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:2px}
 .mode-card-top .mode-card-icon{margin-bottom:0}
 .mode-badge{font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--teal);background:rgba(16,174,194,.12);border:1px solid rgba(16,174,194,.3);padding:4px 12px;border-radius:980px}
 .modes-switch-note{margin-top:22px;font-family:'Inter',sans-serif;font-size:14px;color:var(--text-muted)}
-.mode-card-title{font-family:'Poppins',sans-serif;font-size:24px;font-weight:700;color:var(--brown-deep);margin-bottom:6px}
+.mode-card-title{font-family:'Montserrat',sans-serif;font-size:24px;font-weight:700;color:var(--brown-deep);margin-bottom:6px}
 .mode-card.flow .mode-card-title{color:var(--teal)}
 .mode-card.burn .mode-card-title{color:var(--flame)}
 .mode-card-tag{font-family:'Inter',sans-serif;font-size:13px;color:var(--text-muted);letter-spacing:.04em;margin-bottom:16px}
@@ -311,7 +316,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 /* ── FEATURES ── */
 .features-section{max-width:880px;margin:0 auto;padding:0 60px 70px;text-align:center}
 .features-eyebrow{font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--terra);margin-bottom:14px}
-.features-heading{font-family:'Poppins',sans-serif;font-size:40px;font-weight:700;color:var(--brown-deep);line-height:1.2;margin-bottom:40px;max-width:600px;margin-left:auto;margin-right:auto}
+.features-heading{font-family:'Montserrat',sans-serif;font-size:40px;font-weight:700;color:var(--brown-deep);line-height:1.2;margin-bottom:40px;max-width:600px;margin-left:auto;margin-right:auto}
 .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:left}
 .feature-card{position:relative;background:var(--cream-card);border:1px solid var(--border);border-radius:16px;padding:26px 22px 24px;transition:transform .2s,box-shadow .2s;overflow:hidden}
 .feature-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--terra)}
@@ -322,15 +327,16 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .feature-card:nth-child(5)::before{background:#ef5f3c}
 .feature-card:nth-child(6)::before{background:#f0913a}
 .feature-card:hover{transform:translateY(-5px);box-shadow:0 14px 34px var(--shadow)}
-.feature-icon{font-size:1.6rem;margin-bottom:12px}
-.feature-title{font-family:'Poppins',sans-serif;font-size:17px;font-weight:700;color:var(--brown-deep);margin-bottom:8px}
+.feature-icon{width:54px;height:54px;border-radius:15px;background:linear-gradient(135deg,rgba(16,174,194,.14),rgba(47,134,201,.08));display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.feature-icon svg{width:28px;height:28px;stroke:var(--terra);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.feature-title{font-family:'Montserrat',sans-serif;font-size:17px;font-weight:700;color:var(--brown-deep);margin-bottom:8px}
 .feature-desc{font-family:'Inter',sans-serif;font-size:13px;color:var(--brown-mid);line-height:1.7}
 
 /* ── COUNTER ── */
 .counter-section{background:var(--navy);padding:48px 60px;margin:0}
 .counter-inner{max-width:800px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:0}
 .counter-item{flex:1;text-align:center;padding:0 40px}
-.counter-num{font-family:'Poppins',sans-serif;font-size:3.4rem;font-weight:900;color:#ffffff;line-height:1;margin-bottom:8px}
+.counter-num{font-family:'Montserrat',sans-serif;font-size:3.4rem;font-weight:900;color:#ffffff;line-height:1;margin-bottom:8px}
 .counter-lbl{font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.6);letter-spacing:.02em}
 .counter-divider{width:1px;height:60px;background:rgba(255,255,255,.15);flex-shrink:0}
 
@@ -364,18 +370,19 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .vs-section{max-width:880px;margin:0 auto;padding:0 60px 70px;text-align:center}
 .vs-wrap{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:start;margin-bottom:36px}
 .vs-col{display:flex;flex-direction:column;gap:8px;text-align:left}
-.vs-col-head{font-family:'Poppins',sans-serif;font-size:16px;font-weight:700;padding:10px 14px;border-radius:10px;margin-bottom:4px}
+.vs-col-head{font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700;padding:10px 14px;border-radius:10px;margin-bottom:4px}
 .vs-before{background:#f5ede8;color:var(--terra)}
 .vs-after{background:#eaf3e4;color:#3a7a2a}
 .vs-item{font-family:'Inter',sans-serif;font-size:14px;padding:10px 14px;border-radius:10px;display:flex;align-items:center;gap:10px;line-height:1.4}
 .vs-bad{background:var(--cream-card);border:1px solid #e6dcd9;color:var(--brown-mid)}
 .vs-good{background:var(--cream-card);border:1px solid #cfe8ec;color:var(--brown-mid)}
-.vs-icon{font-size:13px;font-weight:700;flex-shrink:0;width:18px;text-align:center}
+.vs-icon{flex-shrink:0;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center}
+.vs-icon svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .vs-bad .vs-icon{color:#c47a6e}
 .vs-good .vs-icon{color:var(--terra)}
 .vs-divider{display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:52px;gap:8px}
 .vs-divider-line{width:1px;flex:1;background:var(--border)}
-.vs-divider-arrow{font-size:1.2rem;color:var(--brown-light);font-weight:300}
+.vs-divider-arrow{color:var(--terra);display:flex;align-items:center;justify-content:center}
 .vs-cta-wrap{text-align:center}
 
 /* ── DEMO ── */
@@ -384,19 +391,19 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .demo-mode-pill{display:inline-flex;margin:0 auto 18px;font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;color:var(--flame);background:rgba(239,95,60,.1);border:1px solid rgba(239,95,60,.28);padding:6px 16px;border-radius:980px}
 .demo-section{text-align:center}
 .demo-section .demo-editor{text-align:left}
-.demo-heading{text-align:center;font-family:'Poppins',sans-serif;font-size:32px;font-weight:700;color:var(--brown-deep);margin-bottom:8px;line-height:1.2}
+.demo-heading{text-align:center;font-family:'Montserrat',sans-serif;font-size:32px;font-weight:700;color:var(--brown-deep);margin-bottom:8px;line-height:1.2}
 .demo-sub{text-align:center;font-family:'Inter',sans-serif;font-size:15px;color:var(--brown-mid);margin-bottom:28px;line-height:1.7}
 .demo-editor{background:var(--cream-card);border-radius:16px;border:1px solid var(--border);box-shadow:0 4px 24px var(--shadow);overflow:hidden}
 .demo-header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid var(--border);background:var(--cream)}
 .demo-timer-wrap{display:flex;align-items:center;gap:10px}
 .demo-timer-ring{position:relative;width:48px;height:48px;flex-shrink:0}
 .demo-timer-ring svg{width:100%;height:100%}
-.demo-timer-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-size:.95rem;font-weight:700;color:var(--brown-deep)}
+.demo-timer-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:.95rem;font-weight:700;color:var(--brown-deep)}
 .demo-timer-num.danger{color:var(--terra)}
 .demo-timer-lbl{font-family:'Inter',sans-serif;font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;line-height:1.5}
 .demo-timer-lbl strong{display:block;font-size:13px;color:var(--brown-deep);font-weight:600;text-transform:none;letter-spacing:0}
 .demo-word-badge{display:flex;flex-direction:column;align-items:center}
-.demo-word-num{font-family:'Poppins',sans-serif;font-size:1.4rem;font-weight:700;color:var(--brown-deep);line-height:1}
+.demo-word-num{font-family:'Montserrat',sans-serif;font-size:1.4rem;font-weight:700;color:var(--brown-deep);line-height:1}
 .demo-word-lbl{font-family:'Inter',sans-serif;font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
 .demo-progress{padding:10px 20px 0;background:var(--cream)}
 .demo-bar-track{height:5px;background:var(--cream-dark);border-radius:3px;overflow:hidden}
@@ -433,13 +440,13 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .demo-reg-btn:hover{background:var(--terra)}
 .demo-finish{display:none;padding:28px 24px;text-align:center}
 .demo-finish-emoji{font-size:2.5rem;margin-bottom:12px;display:block}
-.demo-finish-title{font-family:'Poppins',sans-serif;font-size:20px;font-weight:700;color:var(--brown-deep);margin-bottom:8px}
+.demo-finish-title{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;color:var(--brown-deep);margin-bottom:8px}
 .demo-finish-sub{font-family:'Inter',sans-serif;font-size:14px;color:var(--brown-mid);line-height:1.6;margin-bottom:20px}
 .demo-features{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px;text-align:left}
 .demo-feature{background:var(--cream);border-radius:10px;padding:10px 12px;display:flex;align-items:flex-start;gap:8px}
 .demo-feat-icon{font-size:16px;flex-shrink:0;margin-top:1px}
 .demo-feat-text{font-family:'Inter',sans-serif;font-size:12px;color:var(--brown-mid);line-height:1.4}
-.demo-feat-text strong{display:block;font-size:13px;color:var(--brown-deep);margin-bottom:1px;font-family:'Poppins',sans-serif}
+.demo-feat-text strong{display:block;font-size:13px;color:var(--brown-deep);margin-bottom:1px;font-family:'Montserrat',sans-serif}
 .demo-finish-cta{width:100%;padding:13px;background:var(--brown-deep);color:var(--cream);border:none;border-radius:10px;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;cursor:pointer;transition:all .25s;margin-bottom:8px}
 .demo-finish-cta:hover{background:var(--terra);transform:translateY(-1px)}
 .demo-retry{font-family:'Inter',sans-serif;font-size:12px;color:var(--text-muted);background:none;border:none;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
@@ -450,7 +457,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 /* CORRECTION */
 .correction-screen{background:var(--cream)}
 .correction-container{max-width:820px;margin:0 auto;padding:80px 40px 60px}
-.correction-title{font-family:'Poppins',sans-serif;font-size:44px;font-weight:900;text-align:center;margin-bottom:12px;color:var(--brown-deep)}
+.correction-title{font-family:'Montserrat',sans-serif;font-size:44px;font-weight:900;text-align:center;margin-bottom:12px;color:var(--brown-deep)}
 .correction-subtitle{text-align:center;font-family:'Inter',sans-serif;font-size:15px;color:var(--text-muted);margin-bottom:40px;line-height:1.6}
 .correction-progress-wrap{background:var(--cream-card);border-radius:16px;padding:28px;margin-bottom:28px;text-align:center;display:none;border:1px solid var(--border)}
 .correction-progress-wrap.active{display:block}
@@ -481,7 +488,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 /* COVER */
 .cover-screen{background:var(--cream)}
 .cover-container{max-width:860px;margin:0 auto;padding:80px 40px 60px;text-align:center}
-.cover-title{font-family:'Poppins',sans-serif;font-size:44px;font-weight:900;margin-bottom:40px;color:var(--brown-deep)}
+.cover-title{font-family:'Montserrat',sans-serif;font-size:44px;font-weight:900;margin-bottom:40px;color:var(--brown-deep)}
 .cover-preview{width:300px;height:420px;margin:0 auto 40px;background:var(--brown-deep);border-radius:3px 8px 8px 3px;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:-4px 4px 0 rgba(0,0,0,.08),0 12px 40px rgba(20,50,62,.35)}
 .cover-preview::before{content:'';position:absolute;left:0;top:0;bottom:0;width:18px;background:rgba(0,0,0,.2)}
 .cover-bg-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;display:none}
@@ -489,7 +496,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .cover-overlay{position:relative;z-index:1;text-align:center;background:rgba(0,0,0,.35);padding:24px;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .cover-preview:not(.has-image) .cover-overlay{background:none}
 .cover-author-el{font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:20px;opacity:.8}
-.cover-book-title{font-family:'Poppins',sans-serif;font-size:24px;font-weight:700;margin-bottom:20px;line-height:1.2}
+.cover-book-title{font-family:'Montserrat',sans-serif;font-size:24px;font-weight:700;margin-bottom:20px;line-height:1.2}
 .cover-year-el{font-size:11px;letter-spacing:.1em;opacity:.5}
 .cover-form{max-width:380px;margin:0 auto}
 .cover-form input{width:100%;padding:12px 16px;border:1.5px solid var(--border);border-radius:10px;font-size:15px;outline:none;font-family:'Inter',sans-serif;margin-bottom:12px;background:var(--cream-card);color:var(--brown-deep)}
@@ -502,7 +509,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .modal{background:var(--cream-card);border-radius:20px;padding:36px;max-width:680px;width:90%;max-height:80vh;overflow-y:auto;position:relative;border:1px solid var(--border);box-shadow:0 20px 60px rgba(20,50,62,.15)}
 .modal-close{position:absolute;top:16px;right:20px;background:none;border:none;font-size:24px;cursor:pointer;color:var(--text-muted)}
 .modal-close:hover{color:var(--brown-deep)}
-.modal h2{font-family:'Poppins',sans-serif;font-size:22px;font-weight:700;margin-bottom:18px;color:var(--brown-deep)}
+.modal h2{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:700;margin-bottom:18px;color:var(--brown-deep)}
 .modal textarea{width:100%;min-height:280px;border:1px solid var(--border);border-radius:12px;padding:16px;font-family:'Inter',sans-serif;font-size:15px;line-height:1.8;color:var(--brown-deep);outline:none;resize:vertical;background:var(--cream)}
 .modal textarea:focus{border-color:var(--terra)}
 .modal-actions{display:flex;gap:10px;margin-top:18px;justify-content:flex-end}
@@ -516,7 +523,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .save-dialog,.continue-dialog,.stop-warning,.new-book-dialog{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(20,50,62,.4);z-index:2000;align-items:center;justify-content:center;backdrop-filter:blur(3px)}
 .save-dialog.active,.continue-dialog.active,.stop-warning.active,.new-book-dialog.active{display:flex}
 .dialog-box{background:var(--cream-card);border-radius:20px;padding:36px;max-width:440px;width:90%;text-align:center;border:1px solid var(--border);box-shadow:0 20px 60px rgba(20,50,62,.15)}
-.dialog-box h3{font-family:'Poppins',sans-serif;font-size:22px;margin-bottom:14px;color:var(--brown-deep)}
+.dialog-box h3{font-family:'Montserrat',sans-serif;font-size:22px;margin-bottom:14px;color:var(--brown-deep)}
 .dialog-box input{width:100%;padding:12px 16px;border:1.5px solid var(--border);border-radius:10px;font-family:'Inter',sans-serif;font-size:15px;outline:none;margin-bottom:18px;background:var(--cream);color:var(--brown-deep)}
 .dialog-box input:focus{border-color:var(--terra)}
 .dialog-box p{font-family:'Inter',sans-serif;font-size:14px;color:var(--brown-mid);line-height:1.6;margin-bottom:14px}
@@ -524,16 +531,16 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 /* DAY SAVED */
 .day-saved-box{background:var(--cream-card);border-radius:20px;padding:32px 36px;max-width:460px;width:90%;text-align:center;border:1px solid var(--border);box-shadow:0 20px 60px rgba(20,50,62,.15)}
 .day-saved-emoji{font-size:2.2rem;display:block;margin-bottom:8px}
-.day-saved-title{font-family:'Poppins',sans-serif;font-size:22px;font-weight:700;margin-bottom:4px;color:var(--brown-deep)}
+.day-saved-title{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:700;margin-bottom:4px;color:var(--brown-deep)}
 .day-saved-chapter{font-family:'Inter',sans-serif;font-size:13px;color:var(--text-muted);margin-bottom:18px}
 .day-saved-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px}
 .ds-stat{background:var(--cream);border-radius:10px;padding:10px 6px;border:1px solid var(--border)}
-.ds-stat-num{font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:700;color:var(--brown-deep)}
+.ds-stat-num{font-family:'Montserrat',sans-serif;font-size:1.2rem;font-weight:700;color:var(--brown-deep)}
 .ds-stat-lbl{font-family:'Inter',sans-serif;font-size:10px;color:var(--text-muted);margin-top:3px}
 .day-saved-progress{background:var(--cream);border-radius:12px;padding:12px 14px;margin-bottom:12px;border:1px solid var(--border)}
 .dsp-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px}
 .dsp-title{font-family:'Inter',sans-serif;font-size:12px;color:var(--text-muted)}
-.dsp-pct{font-family:'Poppins',sans-serif;font-size:1.1rem;font-weight:700;color:var(--brown-deep)}
+.dsp-pct{font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:700;color:var(--brown-deep)}
 .dsp-bar{height:4px;background:var(--cream-dark);border-radius:2px;overflow:hidden;margin-bottom:5px}
 .dsp-fill{height:100%;background:linear-gradient(90deg,var(--terra),var(--ochre));border-radius:2px}
 .dsp-sub{display:flex;justify-content:space-between;font-family:'Inter',sans-serif;font-size:11px;color:var(--text-muted)}
@@ -547,7 +554,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 /* GIVEUP */
 .giveup-stats{display:flex;justify-content:center;gap:22px;margin:14px 0;background:var(--cream);border-radius:12px;padding:14px;border:1px solid var(--border)}
 .gu-stat{text-align:center}
-.gu-stat-num{font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:700;color:var(--brown-deep)}
+.gu-stat-num{font-family:'Montserrat',sans-serif;font-size:1.2rem;font-weight:700;color:var(--brown-deep)}
 .gu-stat-lbl{font-family:'Inter',sans-serif;font-size:10px;color:var(--text-muted);margin-top:3px}
 .gu-countdown{font-family:'Inter',sans-serif;font-size:12px;color:var(--border);text-align:center;min-height:18px;margin:8px 0}
 
@@ -555,7 +562,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .del-confirm-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(20,50,62,.4);z-index:2500;align-items:center;justify-content:center;backdrop-filter:blur(3px)}
 .del-confirm-overlay.active{display:flex}
 .del-confirm-box{background:var(--cream-card);border-radius:16px;padding:26px 30px;max-width:340px;width:90%;text-align:center;border:1px solid var(--border);box-shadow:0 16px 40px rgba(20,50,62,.15)}
-.del-confirm-box h3{font-family:'Poppins',sans-serif;font-size:18px;margin-bottom:10px;color:var(--terra)}
+.del-confirm-box h3{font-family:'Montserrat',sans-serif;font-size:18px;margin-bottom:10px;color:var(--terra)}
 .del-confirm-box p{font-family:'Inter',sans-serif;font-size:13px;color:var(--brown-mid);line-height:1.6;margin-bottom:18px}
 .del-confirm-btns{display:flex;gap:10px;justify-content:center}
 .del-cancel-btn{padding:9px 22px;border-radius:980px;border:1.5px solid var(--border);background:var(--cream-card);color:var(--brown-mid);font-family:'Inter',sans-serif;font-size:13px;cursor:pointer;transition:all .2s}
@@ -569,7 +576,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .ob-box{background:var(--cream-card);border-radius:24px;max-width:460px;width:90%;overflow:hidden;box-shadow:0 30px 80px rgba(20,50,62,.2);border:1px solid var(--border)}
 .ob-illo{height:140px;background:var(--cream);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--border)}
 .ob-body{padding:26px 34px 14px;text-align:center}
-.ob-step-title{font-family:'Poppins',sans-serif;font-size:22px;font-weight:700;color:var(--brown-deep);margin-bottom:10px}
+.ob-step-title{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:700;color:var(--brown-deep);margin-bottom:10px}
 .ob-step-text{font-family:'Inter',sans-serif;font-size:15px;color:var(--brown-mid);line-height:1.7;margin:0}
 .ob-rule-pill{display:inline-block;margin-top:12px;font-family:'Inter',sans-serif;font-size:12px;color:var(--text-muted);background:var(--cream);border-radius:980px;padding:5px 14px;border:1px solid var(--border)}
 .ob-dots{display:flex;gap:6px;justify-content:center;padding:14px 0 6px}
@@ -590,7 +597,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .auth-box{background:var(--cream-card);border-radius:24px;padding:46px 42px;max-width:400px;width:90%;position:relative;box-shadow:0 30px 80px rgba(20,50,62,.2);border:1px solid var(--border);animation:authIn .3s ease}
 @keyframes authIn{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
 .auth-logo-row{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:26px}
-.auth-logo-row span{font-family:'Poppins',sans-serif;font-weight:900;font-size:22px;color:var(--brown-deep)}
+.auth-logo-row span{font-family:'Montserrat',sans-serif;font-weight:900;font-size:22px;color:var(--brown-deep)}
 .auth-logo-row img{width:38px;height:38px;border-radius:50%}
 .auth-tabs{display:flex;border-bottom:1.5px solid var(--border);margin-bottom:26px}
 .auth-tab{flex:1;padding:10px;text-align:center;font-family:'Inter',sans-serif;font-size:13px;font-weight:400;letter-spacing:.04em;cursor:pointer;color:var(--text-muted);border-bottom:2px solid transparent;margin-bottom:-1.5px;transition:all .2s}
@@ -611,11 +618,11 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .legal-overlay.active{display:flex}
 .legal-box{background:#fff;border-radius:16px;max-width:720px;width:100%;max-height:86vh;display:flex;flex-direction:column;box-shadow:0 30px 80px rgba(20,50,62,.35);overflow:hidden}
 .legal-head{display:flex;align-items:center;justify-content:space-between;padding:20px 28px;border-bottom:1px solid var(--border);flex-shrink:0}
-.legal-head h2{font-family:'Poppins',sans-serif;font-size:18px;font-weight:700;color:var(--brown-deep)}
+.legal-head h2{font-family:'Montserrat',sans-serif;font-size:18px;font-weight:700;color:var(--brown-deep)}
 .legal-close{background:none;border:none;font-size:26px;line-height:1;color:var(--text-muted);cursor:pointer;padding:0 4px}
 .legal-close:hover{color:var(--brown-deep)}
 .legal-body{padding:22px 28px 28px;overflow-y:auto;font-family:'Inter',sans-serif;font-size:13.5px;line-height:1.7;color:var(--text-mid)}
-.legal-body h3{font-family:'Poppins',sans-serif;font-size:14.5px;font-weight:600;color:var(--brown-deep);margin:20px 0 8px}
+.legal-body h3{font-family:'Montserrat',sans-serif;font-size:14.5px;font-weight:600;color:var(--brown-deep);margin:20px 0 8px}
 .legal-body h3:first-of-type{margin-top:0}
 .legal-body p{margin-bottom:10px}
 .legal-body ul{margin:0 0 10px 20px}
@@ -637,11 +644,11 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .finale-card{position:relative;z-index:1;background:var(--cream-card);border-radius:20px;border:1px solid var(--border);box-shadow:0 12px 60px rgba(20,50,62,.15);max-width:500px;width:100%;padding:2.5rem;text-align:center}
 .finale-trophy{font-size:4rem;display:block;margin-bottom:.75rem;animation:finPop .5s cubic-bezier(.34,1.56,.64,1)}
 @keyframes finPop{from{transform:scale(0) rotate(-20deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
-.finale-title{font-family:'Poppins',sans-serif;font-size:2.6rem;font-weight:900;color:var(--brown-deep);margin-bottom:.5rem}
+.finale-title{font-family:'Montserrat',sans-serif;font-size:2.6rem;font-weight:900;color:var(--brown-deep);margin-bottom:.5rem}
 .finale-sub{font-family:'Inter',sans-serif;font-size:15px;color:var(--brown-mid);margin-bottom:1.75rem;line-height:1.7}
 .finale-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:1.75rem}
 .fin-stat{background:var(--cream);border-radius:12px;padding:.85rem .5rem;border:1px solid var(--border)}
-.fin-stat-num{font-family:'Poppins',sans-serif;font-size:1.3rem;font-weight:700;color:var(--brown-deep)}
+.fin-stat-num{font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:700;color:var(--brown-deep)}
 .fin-stat-lbl{font-family:'Inter',sans-serif;font-size:11px;color:var(--text-muted);margin-top:3px}
 .finale-actions{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.25rem}
 .finale-btn-primary{width:100%;padding:.85rem;border-radius:10px;border:none;background:var(--brown-deep);color:var(--cream);font-family:'Inter',sans-serif;font-size:.95rem;font-weight:500;cursor:pointer;transition:all .25s}
@@ -658,14 +665,14 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 /* ── SITE FOOTER ── */
 .site-footer{background:var(--navy);color:rgba(255,255,255,.72);padding:64px 60px 32px;margin-top:80px}
 .footer-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1.4fr;gap:44px}
-.footer-brand-logo{display:flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:20px;color:#fff;margin-bottom:14px}
+.footer-brand-logo{display:flex;align-items:center;gap:10px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:20px;color:#fff;margin-bottom:14px}
 .footer-brand-logo img{width:32px;height:32px;border-radius:50%}
 .footer-brand-text{font-family:'Inter',sans-serif;font-size:14px;line-height:1.7;max-width:300px}
 .footer-stat-row{margin-top:22px;display:flex;gap:28px}
 .footer-stat{display:flex;flex-direction:column;gap:2px}
-.footer-stat-num{font-family:'Poppins',sans-serif;font-size:28px;font-weight:800;color:var(--terra);line-height:1}
+.footer-stat-num{font-family:'Montserrat',sans-serif;font-size:28px;font-weight:800;color:var(--terra);line-height:1}
 .footer-stat-lbl{font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,.55);letter-spacing:.02em}
-.footer-col h4{font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;color:#fff;margin-bottom:16px;letter-spacing:.02em}
+.footer-col h4{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:600;color:#fff;margin-bottom:16px;letter-spacing:.02em}
 .footer-col a{display:block;font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,.68);text-decoration:none;margin-bottom:11px;cursor:pointer;transition:color .2s}
 .footer-col a:hover{color:var(--terra)}
 .footer-news p{font-family:'Inter',sans-serif;font-size:14px;line-height:1.6;color:rgba(255,255,255,.68);margin-bottom:14px}
@@ -673,7 +680,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .footer-news-form input{flex:1;min-width:150px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:980px;padding:11px 18px;color:#fff;font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color .2s}
 .footer-news-form input::placeholder{color:rgba(255,255,255,.45)}
 .footer-news-form input:focus{border-color:var(--terra)}
-.footer-news-form button{background:var(--terra);color:#fff;border:none;border-radius:980px;padding:11px 24px;font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:background .2s}
+.footer-news-form button{background:var(--terra);color:#fff;border:none;border-radius:980px;padding:11px 24px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:background .2s}
 .footer-news-form button:hover{background:var(--terra-deep)}
 .footer-news-note{font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,.4);margin-top:10px}
 .footer-bottom{max-width:1160px;margin:44px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
@@ -681,6 +688,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .footer-social{display:flex;gap:10px}
 .footer-social span{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;transition:background .2s}
 .footer-social span:hover{background:var(--terra)}
+.footer-social span svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 
 @media(max-width:820px){
   .nav-burger{display:flex}
@@ -713,7 +721,9 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   .nav-links{gap:20px}
   .nav-links a{font-size:13px}
   .hero-section{padding:104px 22px 70px}
-  .hero-title{font-size:36px;min-height:auto}
+  .hero-title{font-size:44px;min-height:auto}
+  .features-heading{font-size:30px}
+  .about-main-title{font-size:38px}
   .modes-section{padding:20px 22px 30px}
   .modes-grid{gap:16px}
   .mode-card{min-width:0}
@@ -790,52 +800,88 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
         <div class="hero-arrow left" onclick="heroPrev()">‹</div>
         <svg class="hero-illustration" viewBox="0 0 480 400" xmlns="http://www.w3.org/2000/svg" aria-label="Иллюстрация книг">
           <defs>
-            <linearGradient id="pgO" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".18"/><stop offset="1" stop-color="#000" stop-opacity=".08"/></linearGradient>
+            <linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e9eef1"/></linearGradient>
           </defs>
-          <ellipse cx="240" cy="368" rx="200" ry="20" fill="#000" opacity=".08"/>
-          <!-- back books standing -->
+
+          <!-- ground shadow -->
+          <ellipse cx="242" cy="356" rx="198" ry="20" fill="#08333d" opacity=".16"/>
+
+          <!-- flat stacked books (right) -->
           <g>
-            <rect x="118" y="120" width="34" height="210" rx="4" fill="#2b3a67"/>
-            <rect x="118" y="120" width="8" height="210" rx="4" fill="#000" opacity=".12"/>
-            <rect x="126" y="150" width="18" height="4" rx="2" fill="#fff" opacity=".5"/>
-            <rect x="126" y="162" width="18" height="4" rx="2" fill="#fff" opacity=".3"/>
-
-            <rect x="156" y="96" width="36" height="234" rx="4" fill="#ef5f3c"/>
-            <rect x="156" y="96" width="8" height="234" rx="4" fill="#000" opacity=".12"/>
-            <circle cx="174" cy="140" r="9" fill="#fff" opacity=".55"/>
-
-            <rect x="196" y="112" width="30" height="218" rx="4" fill="#f5c451"/>
-            <rect x="196" y="112" width="7" height="218" rx="4" fill="#000" opacity=".1"/>
-            <rect x="203" y="150" width="16" height="4" rx="2" fill="#7a5a10" opacity=".5"/>
-            <rect x="203" y="162" width="16" height="4" rx="2" fill="#7a5a10" opacity=".35"/>
-
-            <rect x="230" y="88" width="40" height="242" rx="4" fill="#10aec2"/>
-            <rect x="230" y="88" width="9" height="242" rx="4" fill="#000" opacity=".12"/>
-            <rect x="248" y="132" width="16" height="5" rx="2" fill="#fff" opacity=".6"/>
-            <rect x="248" y="146" width="16" height="5" rx="2" fill="#fff" opacity=".35"/>
-
-            <rect x="274" y="118" width="32" height="212" rx="4" fill="#f0913a"/>
-            <rect x="274" y="118" width="7" height="212" rx="4" fill="#000" opacity=".1"/>
-
-            <rect x="310" y="104" width="36" height="226" rx="4" fill="#2f86c9"/>
-            <rect x="310" y="104" width="8" height="226" rx="4" fill="#000" opacity=".12"/>
-            <circle cx="328" cy="150" r="9" fill="#fff" opacity=".5"/>
+            <rect x="330" y="306" width="104" height="17" rx="3.5" fill="#2b3a67"/>
+            <rect x="330" y="306" width="104" height="5" rx="3.5" fill="#fff" opacity=".14"/>
+            <rect x="342" y="323" width="92" height="17" rx="3.5" fill="#f0913a"/>
+            <rect x="342" y="323" width="92" height="5" rx="3.5" fill="#fff" opacity=".16"/>
           </g>
+
+          <!-- standing books (bottoms ~330) -->
+          <!-- navy, leaning left -->
+          <g transform="rotate(-6 112 330)">
+            <rect x="96" y="150" width="32" height="180" rx="3" fill="#2b3a67"/>
+            <rect x="96" y="150" width="7" height="180" fill="#000" opacity=".16"/>
+            <rect x="121" y="150" width="7" height="180" fill="#fff" opacity=".08"/>
+            <rect x="104" y="160" width="16" height="4" rx="2" fill="#fff" opacity=".55"/>
+            <rect x="104" y="170" width="12" height="3" rx="1.5" fill="#fff" opacity=".3"/>
+          </g>
+          <!-- coral -->
+          <rect x="130" y="112" width="34" height="218" rx="3" fill="#ef5f3c"/>
+          <rect x="130" y="112" width="7" height="218" fill="#000" opacity=".13"/>
+          <rect x="157" y="112" width="7" height="218" fill="#fff" opacity=".1"/>
+          <circle cx="147" cy="150" r="8.5" fill="#fff" opacity=".55"/>
+          <rect x="138" y="172" width="18" height="4" rx="2" fill="#fff" opacity=".4"/>
+          <!-- gold -->
+          <rect x="166" y="132" width="26" height="198" rx="3" fill="#f5c451"/>
+          <rect x="166" y="132" width="6" height="198" fill="#000" opacity=".1"/>
+          <rect x="172" y="146" width="15" height="4" rx="2" fill="#8a6410" opacity=".5"/>
+          <rect x="172" y="156" width="11" height="3" rx="1.5" fill="#8a6410" opacity=".35"/>
+          <!-- teal (tallest) -->
+          <rect x="194" y="94" width="40" height="236" rx="3.5" fill="#10aec2"/>
+          <rect x="194" y="94" width="8" height="236" fill="#000" opacity=".14"/>
+          <rect x="226" y="94" width="8" height="236" fill="#fff" opacity=".1"/>
+          <rect x="204" y="122" width="20" height="5" rx="2.5" fill="#fff" opacity=".6"/>
+          <rect x="204" y="135" width="15" height="4" rx="2" fill="#fff" opacity=".35"/>
+          <!-- cream -->
+          <rect x="236" y="122" width="28" height="208" rx="3" fill="#f3ede0"/>
+          <rect x="236" y="122" width="6" height="208" fill="#000" opacity=".07"/>
+          <rect x="258" y="122" width="6" height="208" fill="#000" opacity=".05"/>
+          <rect x="243" y="150" width="15" height="4" rx="2" fill="#c39b52"/>
+          <rect x="243" y="160" width="11" height="3" rx="1.5" fill="#c39b52" opacity=".7"/>
+          <!-- orange -->
+          <rect x="266" y="110" width="34" height="220" rx="3" fill="#f0913a"/>
+          <rect x="266" y="110" width="7" height="220" fill="#000" opacity=".12"/>
+          <rect x="293" y="110" width="7" height="220" fill="#fff" opacity=".1"/>
+          <rect x="274" y="140" width="18" height="4" rx="2" fill="#fff" opacity=".45"/>
+          <!-- blue -->
+          <rect x="302" y="130" width="30" height="200" rx="3" fill="#2f86c9"/>
+          <rect x="302" y="130" width="7" height="200" fill="#000" opacity=".14"/>
+          <rect x="325" y="130" width="7" height="200" fill="#fff" opacity=".1"/>
+          <circle cx="317" cy="160" r="8" fill="#fff" opacity=".5"/>
+          <!-- ink, leaning right -->
+          <g transform="rotate(7 344 330)">
+            <rect x="332" y="124" width="26" height="206" rx="3" fill="#22304d"/>
+            <rect x="332" y="124" width="6" height="206" fill="#000" opacity=".16"/>
+            <rect x="352" y="124" width="6" height="206" fill="#fff" opacity=".08"/>
+            <rect x="338" y="152" width="14" height="4" rx="2" fill="#fff" opacity=".4"/>
+          </g>
+
           <!-- open book in front -->
-          <g transform="translate(120 296)">
-            <path d="M0 20 C40 4 80 4 120 18 L120 70 C80 56 40 56 0 72 Z" fill="#fff"/>
-            <path d="M240 20 C200 4 160 4 120 18 L120 70 C160 56 200 56 240 72 Z" fill="#f4f8f9"/>
-            <path d="M120 18 L120 70" stroke="#c9d8dc" stroke-width="2"/>
-            <path d="M14 30 H96 M14 42 H96 M14 54 H88" stroke="#cdd9dd" stroke-width="2.4" stroke-linecap="round"/>
-            <path d="M144 30 H226 M144 42 H226 M152 54 H226" stroke="#cdd9dd" stroke-width="2.4" stroke-linecap="round"/>
-            <path d="M0 20 C40 4 80 4 120 18 C160 4 200 4 240 20 L240 78 C200 62 160 62 120 78 C80 62 40 62 0 78 Z" fill="none" stroke="#000" stroke-opacity=".06" stroke-width="2"/>
+          <g transform="translate(114 288)">
+            <path d="M126 16 C86 0 40 0 4 16 L4 74 C40 58 86 58 126 74 Z" fill="url(#pg)"/>
+            <path d="M126 16 C166 0 212 0 248 16 L248 74 C212 58 166 58 126 74 Z" fill="url(#pg)"/>
+            <path d="M4 16 C40 0 86 0 126 16 C166 0 212 0 248 16" fill="none" stroke="#cdd9dd" stroke-width="1.5"/>
+            <path d="M126 16 L126 74" stroke="#c2d0d5" stroke-width="2.5"/>
+            <path d="M16 30 H112 M16 40 H112 M16 50 H104 M16 60 H108" stroke="#d3dee2" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M140 30 H236 M140 40 H236 M148 50 H236 M144 60 H232" stroke="#d3dee2" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M126 16 C150 6 178 4 200 8 L200 12 C178 8 150 10 126 20 Z" fill="#10aec2" opacity=".9"/>
           </g>
-          <!-- floating accents -->
-          <circle cx="382" cy="92" r="14" fill="#f5c451"/>
-          <line x1="382" y1="106" x2="382" y2="150" stroke="#fff" stroke-opacity=".5" stroke-width="2" stroke-dasharray="3 5"/>
-          <circle cx="96" cy="90" r="6" fill="#fff" opacity=".6"/>
-          <circle cx="410" cy="200" r="5" fill="#fff" opacity=".5"/>
-          <circle cx="70" cy="180" r="4" fill="#fff" opacity=".45"/>
+
+          <!-- accents -->
+          <circle cx="398" cy="84" r="14" fill="#f5c451"/>
+          <line x1="398" y1="98" x2="398" y2="142" stroke="#fff" stroke-opacity=".5" stroke-width="2" stroke-dasharray="3 5"/>
+          <circle cx="86" cy="96" r="6" fill="#fff" opacity=".6"/>
+          <circle cx="420" cy="196" r="5" fill="#fff" opacity=".5"/>
+          <circle cx="66" cy="182" r="4" fill="#fff" opacity=".45"/>
+          <circle cx="360" cy="70" r="3.5" fill="#fff" opacity=".5"/>
         </svg>
         <div class="hero-arrow right" onclick="heroNext()">›</div>
       </div>
@@ -848,14 +894,14 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <h2 class="features-heading">Два режима — под твой характер</h2>
     <div class="modes-grid">
       <div class="mode-card flow">
-        <div class="mode-card-top"><span class="mode-card-icon">🌊</span><span class="mode-badge">по умолчанию</span></div>
+        <div class="mode-card-top"><span class="mode-card-icon"><svg viewBox="0 0 24 24"><path d="M3 8c2.4-2.2 4.6-2.2 7 0s4.6 2.2 7 0"/><path d="M3 13c2.4-2.2 4.6-2.2 7 0s4.6 2.2 7 0"/><path d="M3 18c2.4-2.2 4.6-2.2 7 0s4.6 2.2 7 0"/></svg></span><span class="mode-badge">по умолчанию</span></div>
         <div class="mode-card-title">Писать в потоке</div>
         <div class="mode-card-tag">Спокойно и без давления</div>
         <div class="mode-card-desc">Просто пиши. Никакого таймера, ничего не удаляется — только ты, текст и цель дня. ИИ рядом, если понадобится идея. Идеально, чтобы начать и поймать привычку.</div>
         <div class="mode-card-note">Текст всегда сохраняется. Можно выдохнуть.</div>
       </div>
       <div class="mode-card burn">
-        <div class="mode-card-top"><span class="mode-card-icon">🔥</span></div>
+        <div class="mode-card-top"><span class="mode-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2.5c1.6 3.5 5.2 4.8 5.2 9.3a5.2 5.2 0 0 1-10.4 0c0-2 .9-3.4 2.3-4.8.4 1.6 1.4 2.2 2.3 2.2 0-2.1-1-4.2-1.7-6.9z"/></svg></span></div>
         <div class="mode-card-title">Сжигаем мосты!</div>
         <div class="mode-card-tag">Для тех, кому нужен драйв</div>
         <div class="mode-card-desc">Таймер на 15 секунд не даёт остановиться: пока пишешь — он сбрасывается. Замер надолго — черновик дня стирается. Только черновик текущего дня — все сохранённые главы в безопасности.</div>
@@ -908,10 +954,10 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       </div>
     </div>
     <div class="db-stats-row">
-      <div class="db-stat-card"><div class="db-stat-icon">📅</div><div class="db-stat-num" id="db-days">0</div><div class="db-stat-lbl">дней написано</div></div>
-      <div class="db-stat-card"><div class="db-stat-icon">🔥</div><div class="db-stat-num" id="db-streak">0</div><div class="db-stat-lbl">дней подряд</div></div>
-      <div class="db-stat-card"><div class="db-stat-icon">✍️</div><div class="db-stat-num" id="db-avg">0</div><div class="db-stat-lbl">слов в среднем</div></div>
-      <div class="db-stat-card"><div class="db-stat-icon">📚</div><div class="db-stat-num" id="db-books-count">0</div><div class="db-stat-lbl">книг в работе</div></div>
+      <div class="db-stat-card"><div class="db-stat-icon"></div><div class="db-stat-num" id="db-days">0</div><div class="db-stat-lbl">дней написано</div></div>
+      <div class="db-stat-card"><div class="db-stat-icon"></div><div class="db-stat-num" id="db-streak">0</div><div class="db-stat-lbl">дней подряд</div></div>
+      <div class="db-stat-card"><div class="db-stat-icon"></div><div class="db-stat-num" id="db-avg">0</div><div class="db-stat-lbl">слов в среднем</div></div>
+      <div class="db-stat-card"><div class="db-stat-icon"></div><div class="db-stat-num" id="db-books-count">0</div><div class="db-stat-lbl">книг в работе</div></div>
     </div>
     <div class="db-msg" id="db-msg">Начни первый день — первая строчка самая важная.</div>
     <div class="db-cta"><a class="hero-btn" onclick="handleWriteClick()">Писать сегодня</a></div>
@@ -921,8 +967,8 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <div class="demo-section" id="demo-section">
     <div class="demo-eyebrow">Попробуй прямо сейчас — без регистрации · займёт 30 секунд</div>
     <h2 class="demo-heading">Почувствуй как это работает</h2>
-    <p class="demo-sub">Это вкус режима «🔥 Сжигаем мосты!» — напиши 50 слов, застрял — попроси идею у ИИ.<br>А в спокойном режиме «🌊 Писать в потоке» таймера нет и ничего не удаляется.</p>
-    <div class="demo-mode-pill">🔥 Демо в режиме «Сжигаем мосты!» — с таймером</div>
+    <p class="demo-sub">Это вкус режима «Сжигаем мосты!» — напиши 50 слов, застрял — попроси идею у ИИ.<br>А в спокойном режиме «Писать в потоке» таймера нет и ничего не удаляется.</p>
+    <div class="demo-mode-pill">Демо в режиме «Сжигаем мосты!» — с таймером</div>
     <div class="demo-editor" id="demo-editor">
       <div class="demo-header" id="demo-header">
         <div class="demo-timer-wrap">
@@ -952,11 +998,11 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       </div>
       <div class="demo-textarea-wrap" id="demo-textarea-wrap">
         <textarea class="demo-textarea" id="demo-ta"
-          placeholder="Начни писать здесь… Любая мысль, любая история. Главное — не останавливайся.&#10;&#10;Если застрял — нажми «✨ Идеи от ИИ» внизу."></textarea>
+          placeholder="Начни писать здесь… Любая мысль, любая история. Главное — не останавливайся.&#10;&#10;Если застрял — нажми «Идеи от ИИ» внизу."></textarea>
       </div>
       <div class="demo-ai-panel" id="demo-ai-panel">
         <div class="demo-ai-head">
-          <span class="demo-ai-title">✨ Идеи для продолжения</span>
+          <span class="demo-ai-title">Идеи для продолжения</span>
           <div style="display:flex;align-items:center;gap:8px">
             <span class="demo-ai-badge">1 запрос в демо</span>
             <button class="demo-ai-close" onclick="demoCloseAI()">×</button>
@@ -972,22 +1018,22 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       </div>
       <div class="demo-footer" id="demo-footer">
         <div class="demo-footer-left">
-          <div class="demo-hint" id="demo-hint">⌨️ Печатай — таймер сбросится</div>
+          <div class="demo-hint" id="demo-hint">Печатай — таймер сбросится</div>
           <button class="demo-ai-btn" id="demo-ai-btn" onclick="demoTriggerAI()">
-            ✨ Идеи от ИИ <span class="demo-ai-counter" id="demo-ai-counter">1</span>
+            Идеи от ИИ <span class="demo-ai-counter" id="demo-ai-counter">1</span>
           </button>
         </div>
         <button class="demo-reg-btn" onclick="openAuth('register')">Регистрация →</button>
       </div>
       <div class="demo-finish" id="demo-finish">
-        <span class="demo-finish-emoji">🎉</span>
+        <span class="demo-finish-emoji"></span>
         <div class="demo-finish-title">50 слов написано — ты почувствовал ритм!</div>
         <div class="demo-finish-sub">В полной версии — 800 слов в день, 60 глав, готовая книга и безлимитный ИИ-помощник.</div>
         <div class="demo-features">
-          <div class="demo-feature"><span class="demo-feat-icon">📚</span><div class="demo-feat-text"><strong>Несколько книг</strong>Веди параллельно несколько проектов</div></div>
-          <div class="demo-feature"><span class="demo-feat-icon">✨</span><div class="demo-feat-text"><strong>Безлимитный ИИ</strong>Идеи на основе всей рукописи</div></div>
-          <div class="demo-feature"><span class="demo-feat-icon">🧠</span><div class="demo-feat-text"><strong>ИИ-корректура</strong>Орфография, логика, стиль</div></div>
-          <div class="demo-feature"><span class="demo-feat-icon">🏆</span><div class="demo-feat-text"><strong>Финишная прямая</strong>Конфетти и шеринг в соцсети</div></div>
+          <div class="demo-feature"><span class="demo-feat-icon"></span><div class="demo-feat-text"><strong>Несколько книг</strong>Веди параллельно несколько проектов</div></div>
+          <div class="demo-feature"><span class="demo-feat-icon"></span><div class="demo-feat-text"><strong>Безлимитный ИИ</strong>Идеи на основе всей рукописи</div></div>
+          <div class="demo-feature"><span class="demo-feat-icon"></span><div class="demo-feat-text"><strong>ИИ-корректура</strong>Орфография, логика, стиль</div></div>
+          <div class="demo-feature"><span class="demo-feat-icon"></span><div class="demo-feat-text"><strong>Финишная прямая</strong>Конфетти и шеринг в соцсети</div></div>
         </div>
         <button class="demo-finish-cta" onclick="openAuth('register')">Начать свою книгу бесплатно →</button>
         <button class="demo-retry" onclick="demoRetry()">Попробовать ещё раз</button>
@@ -1001,32 +1047,32 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <h2 class="features-heading">Один инструмент — полный путь от первой строчки до готовой рукописи</h2>
     <div class="features-grid">
       <div class="feature-card">
-        <div class="feature-icon">🌊</div>
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><rect x="2.5" y="8" width="19" height="8" rx="4"/><circle cx="7.5" cy="12" r="2.4"/></svg></div>
         <div class="feature-title">Два режима письма</div>
         <div class="feature-desc">«Писать в потоке» — спокойно, без таймера, ничего не удаляется. «Сжигаем мосты!» — таймер на 15 секунд для азарта. Переключаешь одной кнопкой, когда захочешь.</div>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">✨</div>
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M11 3l1.7 4.1L17 8.5l-4.3 1.4L11 14l-1.7-4.1L5 8.5l4.3-1.4z"/><path d="M18 13.5l.8 1.9 1.9.8-1.9.8-.8 1.9-.8-1.9-1.9-.8 1.9-.8z"/></svg></div>
         <div class="feature-title">ИИ-помощник</div>
         <div class="feature-desc">Написал 400 слов и застрял? ИИ прочитает все твои главы и предложит три конкретные идеи для продолжения — на основе твоей истории.</div>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">📚</div>
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><rect x="3.5" y="4" width="4.5" height="16" rx="1"/><rect x="9.5" y="4" width="4.5" height="16" rx="1"/><path d="M16.2 5.2l3.8 1-2.7 14.6-3.8-1z"/></svg></div>
         <div class="feature-title">Несколько книг</div>
         <div class="feature-desc">Веди параллельно несколько проектов. Роман, мемуары, детектив — каждая книга живёт отдельно со своими главами и прогрессом.</div>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">🧠</div>
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M15 4H6a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M15 4v5h5"/><path d="M8.5 15l2 2 4.5-4.5"/></svg></div>
         <div class="feature-title">ИИ-корректура</div>
         <div class="feature-desc">После 50 000 слов ИИ проверит орфографию, логику сюжета и стиль всей рукописи. Структурированный отчёт с конкретными правками.</div>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">🎨</div>
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="9" cy="9" r="1.7"/><path d="M4 16.5l4.5-4 3 3 4-4L20 15"/></svg></div>
         <div class="feature-title">Создание обложки</div>
         <div class="feature-desc">Загрузи своё фото, введи имя и название — получи готовую обложку. Четыре стиля оформления на выбор.</div>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">🏆</div>
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M6 21V4"/><path d="M6 4h12l-2.4 3.2L18 10.5H6"/></svg></div>
         <div class="feature-title">Финишная прямая</div>
         <div class="feature-desc">50 000 слов — конфетти, твоя статистика за 60 дней и кнопка поделиться в ВКонтакте и Telegram.</div>
       </div>
@@ -1040,26 +1086,26 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <div class="vs-wrap">
       <div class="vs-col">
         <div class="vs-col-head vs-before">Без «О, Писец!»</div>
-        <div class="vs-item vs-bad"><span class="vs-icon">✕</span>Пишу «когда вдохновит»</div>
-        <div class="vs-item vs-bad"><span class="vs-icon">✕</span>Редактирую каждое предложение</div>
-        <div class="vs-item vs-bad"><span class="vs-icon">✕</span>Бросаю на третьей главе</div>
-        <div class="vs-item vs-bad"><span class="vs-icon">✕</span>Книга живёт только в голове</div>
-        <div class="vs-item vs-bad"><span class="vs-icon">✕</span>Жду идеального момента</div>
-        <div class="vs-item vs-bad"><span class="vs-icon">✕</span>«Начну с понедельника»</div>
+        <div class="vs-item vs-bad"><span class="vs-icon"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Пишу «когда вдохновит»</div>
+        <div class="vs-item vs-bad"><span class="vs-icon"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Редактирую каждое предложение</div>
+        <div class="vs-item vs-bad"><span class="vs-icon"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Бросаю на третьей главе</div>
+        <div class="vs-item vs-bad"><span class="vs-icon"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Книга живёт только в голове</div>
+        <div class="vs-item vs-bad"><span class="vs-icon"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Жду идеального момента</div>
+        <div class="vs-item vs-bad"><span class="vs-icon"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></span>«Начну с понедельника»</div>
       </div>
       <div class="vs-divider">
         <div class="vs-divider-line"></div>
-        <div class="vs-divider-arrow">→</div>
+        <div class="vs-divider-arrow"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
         <div class="vs-divider-line"></div>
       </div>
       <div class="vs-col">
         <div class="vs-col-head vs-after">С «О, Писец!»</div>
-        <div class="vs-item vs-good"><span class="vs-icon">✓</span>800 слов каждый день</div>
-        <div class="vs-item vs-good"><span class="vs-icon">✓</span>Сначала пишу, потом правлю</div>
-        <div class="vs-item vs-good"><span class="vs-icon">✓</span>ИИ помогает продолжить</div>
-        <div class="vs-item vs-good"><span class="vs-icon">✓</span>50 000 слов в файле через 60 дней</div>
-        <div class="vs-item vs-good"><span class="vs-icon">✓</span>Момент для письма появляется сам</div>
-        <div class="vs-item vs-good"><span class="vs-icon">✓</span>Начинаешь прямо сейчас</div>
+        <div class="vs-item vs-good"><span class="vs-icon"><svg viewBox="0 0 24 24"><path d="M20 6.5L9.2 17.5 4 12.3"/></svg></span>800 слов каждый день</div>
+        <div class="vs-item vs-good"><span class="vs-icon"><svg viewBox="0 0 24 24"><path d="M20 6.5L9.2 17.5 4 12.3"/></svg></span>Сначала пишу, потом правлю</div>
+        <div class="vs-item vs-good"><span class="vs-icon"><svg viewBox="0 0 24 24"><path d="M20 6.5L9.2 17.5 4 12.3"/></svg></span>ИИ помогает продолжить</div>
+        <div class="vs-item vs-good"><span class="vs-icon"><svg viewBox="0 0 24 24"><path d="M20 6.5L9.2 17.5 4 12.3"/></svg></span>50 000 слов в файле через 60 дней</div>
+        <div class="vs-item vs-good"><span class="vs-icon"><svg viewBox="0 0 24 24"><path d="M20 6.5L9.2 17.5 4 12.3"/></svg></span>Момент для письма появляется сам</div>
+        <div class="vs-item vs-good"><span class="vs-icon"><svg viewBox="0 0 24 24"><path d="M20 6.5L9.2 17.5 4 12.3"/></svg></span>Начинаешь прямо сейчас</div>
       </div>
     </div>
     <div class="vs-cta-wrap">
@@ -1110,7 +1156,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
           <span>Текст удаляется навсегда?</span>
           <span class="faq-arrow">+</span>
         </div>
-        <div class="faq-a">Только если ты сам включил режим «🔥 Сжигаем мосты!». В спокойном режиме «🌊 Писать в потоке» таймера нет и ничего не удаляется вообще. Но даже в азартном режиме под угрозой лишь черновик <em>текущего дня</em> — все сохранённые главы остаются нетронутыми. Можно в любой момент перечитать, отредактировать или скачать.</div>
+        <div class="faq-a">Только если ты сам включил режим «Сжигаем мосты!». В спокойном режиме «Писать в потоке» таймера нет и ничего не удаляется вообще. Но даже в азартном режиме под угрозой лишь черновик <em>текущего дня</em> — все сохранённые главы остаются нетронутыми. Можно в любой момент перечитать, отредактировать или скачать.</div>
       </div>
 
       <div class="faq-item" onclick="faqToggle(this)">
@@ -1180,9 +1226,9 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <div class="footer-bottom">
       <div class="footer-copy">© 2026 «О, Писец!» · Ни дня без строчки</div>
       <div class="footer-social">
-        <span title="Telegram" onclick="window.open('https://t.me','_blank')">✈️</span>
-        <span title="ВКонтакте" onclick="window.open('https://vk.com','_blank')">💬</span>
-        <span title="Наверх" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</span>
+        <span title="Telegram" onclick="window.open('https://t.me','_blank')"><svg viewBox="0 0 24 24"><path d="M22 3L2 10.6l6.1 2.2L20 5.4l-9 8.6v4.6l3-3.4 4.2 3.1z"/></svg></span>
+        <span title="ВКонтакте" onclick="window.open('https://vk.com','_blank')"><svg viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 0 1-8.5 8.5H4l1.8-3.1A8.5 8.5 0 1 1 20.5 12z"/></svg></span>
+        <span title="Наверх" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg></span>
       </div>
     </div>
   </footer>
@@ -1250,27 +1296,27 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
             <div class="word-counter">Слов: <span id="word-count">0</span> / 800</div>
           </div>
           <div class="toolbar-actions">
-            <button class="toolbar-btn save-btn" id="save-btn" onclick="saveChapter()">💾 Сохранить</button>
+            <button class="toolbar-btn save-btn" id="save-btn" onclick="saveChapter()">Сохранить</button>
             <button class="toolbar-btn correction-btn" id="correction-btn" onclick="startCorrection()" style="display:none">Корректура</button>
             <button class="toolbar-btn giveup-btn" id="giveup-btn" onclick="showGiveUp()" style="display:none">Сдаться</button>
           </div>
         </div>
         <div class="timer-zone">
           <div class="mode-switch" id="mode-switch">
-            <button class="mode-opt active" id="mode-flow" onclick="setWritingMode('flow')">🌊 Писать в потоке</button>
-            <button class="mode-opt" id="mode-burn" onclick="setWritingMode('burn')">🔥 Сжигаем мосты!</button>
+            <button class="mode-opt active" id="mode-flow" onclick="setWritingMode('flow')">Писать в потоке</button>
+            <button class="mode-opt" id="mode-burn" onclick="setWritingMode('burn')">Сжигаем мосты!</button>
           </div>
-          <div class="timer-display" id="timer-display">🌊</div>
+          <div class="timer-display" id="timer-display">&#8734;</div>
           <div class="timer-sub-label" id="timer-sub-label">режим потока — текст сохраняется</div>
           <div class="timer-controls">
-            <button class="timer-btn start-btn" id="start-btn" onclick="startWriting()">🚀 Начать писать</button>
-            <button class="timer-btn stop-btn" id="stop-btn" style="display:none" onclick="handleStopClick()">⏸ Пауза</button>
+            <button class="timer-btn start-btn" id="start-btn" onclick="startWriting()">Начать писать</button>
+            <button class="timer-btn stop-btn" id="stop-btn" style="display:none" onclick="handleStopClick()">Пауза</button>
           </div>
         </div>
         <div style="position:relative;flex:1;display:flex;flex-direction:column">
           <textarea class="writing-area" id="writing-area" placeholder="Начните писать свою историю..." disabled style="flex:1"></textarea>
           <div class="warmup-prompt" id="warmup-prompt" style="display:none">
-            <div class="wu-icon" id="wu-icon">✍️</div>
+            <div class="wu-icon" id="wu-icon"></div>
             <div class="wu-body">
               <div class="wu-label" id="wu-label">Подсказка</div>
               <div class="wu-text" id="wu-text"></div>
@@ -1283,12 +1329,12 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
           </div>
         </div>
         <div class="ai-trigger-wrap">
-          <button class="ai-trigger-btn" id="ai-trigger-btn" onclick="showAIIdeas()" disabled>✨ Идеи от ИИ</button>
+          <button class="ai-trigger-btn" id="ai-trigger-btn" onclick="showAIIdeas()" disabled>Идеи от ИИ</button>
           <span class="ai-trigger-hint" id="ai-trigger-hint">Напиши 400 слов — и ИИ предложит идеи</span>
         </div>
         <div class="ai-ideas" id="ai-ideas">
           <div class="ai-ideas-header">
-            <h4>✨ Писец думает, что дальше...</h4>
+            <h4>Писец думает, что дальше...</h4>
             <button class="ai-ideas-close" onclick="closeAIIdeas()">×</button>
           </div>
           <div id="ai-ideas-list"></div>
@@ -1302,9 +1348,9 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 <!-- CORRECTION -->
 <div id="correction-screen" class="screen correction-screen">
   <div class="correction-container">
-    <h1 class="correction-title">✍️ Корректура текста</h1>
+    <h1 class="correction-title">Корректура текста</h1>
     <p class="correction-subtitle">ИИ проанализирует вашу рукопись: орфографию, логику, смысл и стиль.</p>
-    <button class="correction-start-btn" id="correction-start-btn" onclick="runAICorrection()">🤖 Запустить ИИ-корректуру</button>
+    <button class="correction-start-btn" id="correction-start-btn" onclick="runAICorrection()">Запустить ИИ-корректуру</button>
     <div class="correction-progress-wrap" id="correction-progress">
       <div class="correction-progress-label" id="correction-progress-label">Анализ текста...</div>
       <div class="correction-progress-bar"><div class="correction-progress-fill" id="correction-progress-fill"></div></div>
@@ -1345,7 +1391,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <div class="finale-wrap">
     <canvas id="confetti-canvas"></canvas>
     <div class="finale-card">
-      <span class="finale-trophy">🏆</span>
+      <span class="finale-trophy"></span>
       <div class="finale-title">Книга написана!</div>
       <div class="finale-sub">Ты сделал то, о чём большинство только мечтает.<br>Настоящая рукопись. Твоя история.</div>
       <div class="finale-stats">
@@ -1354,7 +1400,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
         <div class="fin-stat"><div class="fin-stat-num" id="fin-chapters">0</div><div class="fin-stat-lbl">глав в книге</div></div>
       </div>
       <div class="finale-actions">
-        <button class="finale-btn-primary" onclick="startCorrection()">✍️ Перейти к корректуре →</button>
+        <button class="finale-btn-primary" onclick="startCorrection()">Перейти к корректуре →</button>
         <div class="finale-share-row">
           <button class="finale-share-btn" onclick="finShareVK()">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14C20.67 22 22 20.67 22 15.07V8.93C22 3.33 20.67 2 15.07 2zm3.08 13.5h-1.55c-.59 0-.77-.47-1.82-1.54-1-.93-1.43-.93-1.67 0 0 1.04-.27 1.54-1.65 1.54-2.35 0-4.72-1.46-6.45-4.21C4.07 9.17 3.5 7.5 3.5 7.5s-.07-.22.15-.22h1.56c.44 0 .61.2.78.67.86 2.48 2.3 4.65 2.89 4.65.22 0 .33-.1.33-.65V9.74c-.07-1.17-.68-1.27-.68-1.68 0-.2.16-.4.42-.4h2.45c.37 0 .5.2.5.63v3.37c0 .37.16.5.27.5.22 0 .4-.13.8-.53 1.24-1.39 2.13-3.52 2.13-3.52.12-.25.33-.48.77-.48h1.55c.47 0 .57.24.47.57-.2.92-2.1 3.6-2.1 3.6-.17.28-.23.4 0 .71.17.24.73.74 1.1 1.19.68.78 1.2 1.44 1.34 1.9.13.45-.1.68-.55.68z"/></svg>
@@ -1383,7 +1429,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 <div class="save-dialog" id="save-dialog"><div class="dialog-box"><h3>Название главы</h3><input type="text" id="chapter-name-input" placeholder="Название главы..."><div class="modal-actions" style="justify-content:center"><button class="modal-btn primary" onclick="confirmSaveChapter()">Сохранить</button></div></div></div>
 <div class="continue-dialog" id="continue-dialog">
   <div class="day-saved-box">
-    <span class="day-saved-emoji" id="ds-emoji">🎉</span>
+    <span class="day-saved-emoji" id="ds-emoji"></span>
     <div class="day-saved-title" id="ds-title">День сохранён!</div>
     <div class="day-saved-chapter" id="ds-chapter-name"></div>
     <div class="day-saved-stats">
@@ -1396,7 +1442,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       <div class="dsp-bar"><div class="dsp-fill" id="ds-fill" style="width:0%"></div></div>
       <div class="dsp-sub"><span id="ds-days-left"></span><span id="ds-day-of"></span></div>
     </div>
-    <div class="day-saved-streak"><span class="dss-icon" id="ds-streak-icon">🔥</span><div class="dss-text" id="ds-streak-text"></div></div>
+    <div class="day-saved-streak"><span class="dss-icon" id="ds-streak-icon"></span><div class="dss-text" id="ds-streak-text"></div></div>
     <div class="day-saved-motivation" id="ds-motivation"></div>
     <div class="day-saved-actions">
       <button class="modal-btn primary" onclick="continueWriting()" style="width:100%;border-radius:10px;padding:13px">Продолжить писать →</button>
@@ -1406,7 +1452,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 </div>
 <div class="stop-warning" id="stop-warning">
   <div class="dialog-box">
-    <h3 style="color:var(--terra)">😔 Хочешь сдаться?</h3>
+    <h3 style="color:var(--terra)">Хочешь сдаться?</h3>
     <p id="gu-desc"></p>
     <div class="giveup-stats">
       <div class="gu-stat"><div class="gu-stat-num" id="gu-words">0</div><div class="gu-stat-lbl">слов написано</div></div>
@@ -1421,7 +1467,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   </div>
 </div>
 <div class="new-book-dialog" id="new-book-dialog"><div class="dialog-box"><h3>Новая книга</h3><p>Дайте название новой книге.</p><input type="text" id="new-book-input" placeholder="Название книги..."><div class="modal-actions" style="justify-content:center"><button class="modal-btn secondary" onclick="closeNewBook()">Отмена</button><button class="modal-btn primary" onclick="confirmNewBook()">Создать</button></div></div></div>
-<div class="del-confirm-overlay" id="del-confirm-overlay"><div class="del-confirm-box"><h3>🗑 Удалить главу?</h3><p id="del-confirm-text">Это нельзя отменить.</p><div class="del-confirm-btns"><button class="del-cancel-btn" onclick="closeDel()">Отмена</button><button class="del-confirm-btn" onclick="confirmDelete()">Удалить</button></div></div></div>
+<div class="del-confirm-overlay" id="del-confirm-overlay"><div class="del-confirm-box"><h3>Удалить главу?</h3><p id="del-confirm-text">Это нельзя отменить.</p><div class="del-confirm-btns"><button class="del-cancel-btn" onclick="closeDel()">Отмена</button><button class="del-confirm-btn" onclick="confirmDelete()">Удалить</button></div></div></div>
 
 <!-- ONBOARDING -->
 <div class="onboarding-overlay" id="ob-overlay">
@@ -1430,7 +1476,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       <div id="ob-s0" style="display:flex;flex-direction:column;align-items:center;gap:8px">
         <div style="position:relative;width:64px;height:64px">
           <svg width="64" height="64" viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" fill="none" stroke="var(--cream-dark)" stroke-width="5"/><circle cx="32" cy="32" r="26" fill="none" stroke="var(--terra)" stroke-width="5" stroke-dasharray="163.4" id="ob-ring" stroke-dashoffset="0" stroke-linecap="round" transform="rotate(-90 32 32)"/></svg>
-          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:700;color:var(--brown-deep)" id="ob-timer-n">15</div>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:1.2rem;font-weight:700;color:var(--brown-deep)" id="ob-timer-n">15</div>
         </div>
         <div style="font-family:'Inter',sans-serif;font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em">секунд до удаления</div>
       </div>
@@ -1439,7 +1485,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
         <div style="display:flex;flex-direction:column;align-items:center;gap:3px"><div style="width:14px;height:46px;background:var(--ochre);border-radius:2px 2px 0 0;opacity:.8"></div><div style="font-size:8px;color:var(--text-muted);font-family:'Inter',sans-serif">вт</div></div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:3px"><div style="width:14px;height:38px;background:var(--teal);border-radius:2px 2px 0 0;opacity:.7"></div><div style="font-size:8px;color:var(--text-muted);font-family:'Inter',sans-serif">ср</div></div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:3px"><div style="width:14px;height:54px;background:var(--cream-dark);border-radius:2px 2px 0 0"></div><div style="font-size:8px;color:var(--text-muted);font-family:'Inter',sans-serif">чт</div></div>
-        <div style="font-size:1.6rem;margin-left:6px">🔥</div>
+        <div style="font-size:1.6rem;margin-left:6px"></div>
       </div>
       <div id="ob-s2" style="display:none;flex-direction:column;gap:7px;width:76%">
         <div style="align-self:flex-end;background:var(--cream-dark);border-radius:10px;padding:7px 12px;font-family:'Inter',sans-serif;font-size:12px;color:var(--brown-mid)">Не знаю, что писать дальше…</div>
@@ -1452,7 +1498,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       </div>
     </div>
     <div class="ob-body">
-      <div id="ob-t0"><p class="ob-step-title">Два режима — выбираешь ты</p><p class="ob-step-text">🌊 «Писать в потоке» — спокойно, без таймера, ничего не удаляется. 🔥 «Сжигаем мосты!» — таймер на 15 секунд для азарта. Переключаешь одной кнопкой в любой момент.</p><span class="ob-rule-pill">Цель — 800 слов в день</span></div>
+      <div id="ob-t0"><p class="ob-step-title">Два режима — выбираешь ты</p><p class="ob-step-text">«Писать в потоке» — спокойно, без таймера, ничего не удаляется. «Сжигаем мосты!» — таймер на 15 секунд для азарта. Переключаешь одной кнопкой в любой момент.</p><span class="ob-rule-pill">Цель — 800 слов в день</span></div>
       <div id="ob-t1" style="display:none"><p class="ob-step-title">Строй серию дней</p><p class="ob-step-text">Каждый сохранённый день — это глава. 60 дней × 800 слов = 50 000 слов, полноценная книга.</p><span class="ob-rule-pill">Сохрани день — дай главе название</span></div>
       <div id="ob-t2" style="display:none"><p class="ob-step-title">ИИ придёт на помощь</p><p class="ob-step-text">Написал 400 слов и застрял? ИИ прочитает все твои главы и предложит три конкретные идеи для продолжения.</p><span class="ob-rule-pill">После 50 000 слов — корректура и обложка</span></div>
     </div>
@@ -1627,7 +1673,7 @@ function buildShelf(){
 // ── RENDER BOOKS ──
 function renderBooksList(){
   const el=document.getElementById('books-list');if(!books.length){el.innerHTML='';return}
-  el.innerHTML=books.map((b,i)=>{const total=b.chapters.reduce((s,c)=>s+c.words,0),pct=Math.min(total/50000*100,100),active=i===activeBookIdx;return`<div class="book-item${active?' active':''}" onclick="selectBook(${i})"><div class="book-item-icon">📖</div><div class="book-item-info"><div class="book-item-title">${esc(b.title)}</div><div class="book-item-meta">${b.chapters.length} глав · ${total.toLocaleString('ru')} слов</div><div class="book-item-progress"><div class="book-item-fill" style="width:${pct}%"></div></div></div></div>`}).join('')
+  el.innerHTML=books.map((b,i)=>{const total=b.chapters.reduce((s,c)=>s+c.words,0),pct=Math.min(total/50000*100,100),active=i===activeBookIdx;return`<div class="book-item${active?' active':''}" onclick="selectBook(${i})"><div class="book-item-icon"></div><div class="book-item-info"><div class="book-item-title">${esc(b.title)}</div><div class="book-item-meta">${b.chapters.length} глав · ${total.toLocaleString('ru')} слов</div><div class="book-item-progress"><div class="book-item-fill" style="width:${pct}%"></div></div></div></div>`}).join('')
 }
 function selectBook(i){activeBookIdx=i;renderBooksList();renderChaptersList();updateTotalWords();const b=getActiveBook();if(b){document.getElementById('active-book-badge').textContent=b.title;currentDay=b.chapters.length+1}document.getElementById('writing-area').value='';document.getElementById('writing-area').disabled=true;reached800=false;updateWordCount();stopTimer()}
 function showNewBookDialog(){document.getElementById('new-book-input').value='';document.getElementById('new-book-dialog').classList.add('active');setTimeout(()=>document.getElementById('new-book-input').focus(),80)}
@@ -1640,7 +1686,7 @@ function renderChaptersList(){
   if(!b){scroll.innerHTML='<div class="no-chapters">Выберите книгу</div>';return}
   title.textContent=b.title;count.textContent=b.chapters.length?b.chapters.length+' глав':'';
   if(!b.chapters.length){scroll.innerHTML='<div class="no-chapters">Пока нет глав</div>';return}
-  scroll.innerHTML=b.chapters.map((ch,i)=>`<div class="chapter-item"><span class="ch-day">День ${ch.day}</span><span class="ch-name">${esc(ch.name)}</span><span class="ch-words">${ch.words}</span><div class="ch-actions"><button class="ch-btn view" onclick="viewChapter(${i})">👁</button><button class="ch-btn edit" onclick="editChapter(${i})">✏️</button><button class="ch-btn del" onclick="showDelConfirm(${i})">🗑</button></div></div>`).join('')
+  scroll.innerHTML=b.chapters.map((ch,i)=>`<div class="chapter-item"><span class="ch-day">День ${ch.day}</span><span class="ch-name">${esc(ch.name)}</span><span class="ch-words">${ch.words}</span><div class="ch-actions"><button class="ch-btn view" onclick="viewChapter(${i})"></button><button class="ch-btn edit" onclick="editChapter(${i})"></button><button class="ch-btn del" onclick="showDelConfirm(${i})"></button></div></div>`).join('')
 }
 function updateTotalWords(){const b=getActiveBook();if(!b){document.getElementById('active-book-badge').textContent='—';return}const total=b.chapters.reduce((s,c)=>s+c.words,0);document.getElementById('active-book-badge').textContent=b.title;document.getElementById('correction-btn').style.display=total>=50000?'inline-block':'none'}
 
@@ -1676,7 +1722,7 @@ function applyIdleTimerUI(){
   document.getElementById('stop-btn').style.display='none';
   document.getElementById('giveup-btn').style.display='none';
   if(writingMode==='burn'){timeLeft=15;disp.textContent='00:15';sub.textContent='до удаления текста'}
-  else{disp.textContent='🌊';sub.textContent='режим потока — текст сохраняется'}
+  else{disp.textContent='\u221E';sub.textContent='режим потока — текст сохраняется'}
 }
 function startWriting(){
   const b=getActiveBook();if(!b){alert('Выберите книгу');return}
@@ -1688,18 +1734,18 @@ function startWriting(){
   if(writingMode==='burn'){
     timerRunning=true;timeLeft=15;updateTimerDisplay();
     document.getElementById('giveup-btn').style.display='inline-block';
-    document.getElementById('stop-btn').textContent='⏹ Сдаться';
+    document.getElementById('stop-btn').textContent='Сдаться';
     sub.textContent='до удаления текста';
     startTimer();
   }else{
     timerRunning=false;
     document.getElementById('giveup-btn').style.display='none';
-    document.getElementById('stop-btn').textContent='⏸ Пауза';
+    document.getElementById('stop-btn').textContent='Пауза';
     disp.classList.remove('warning');sub.classList.remove('urgent');
-    disp.textContent='🌊';sub.textContent='пиши свободно — текст сохраняется';
+    disp.textContent='\u221E';sub.textContent='пиши свободно — текст сохраняется';
   }
 }
-function startTimer(){clearInterval(timerInterval);timerInterval=setInterval(()=>{timeLeft--;updateTimerDisplay();if(timeLeft<=5&&timeLeft>0){playTick();document.getElementById('timer-display').classList.add('warning');document.getElementById('timer-sub-label').classList.add('urgent')}if(timeLeft<=0){clearInterval(timerInterval);timerRunning=false;const wc=countWords(document.getElementById('writing-area').value);if(wc<800){document.getElementById('writing-area').value='';updateWordCount();alert('⏰ Время вышло! Текст удалён.')}resetTimerUI()}},1000)}
+function startTimer(){clearInterval(timerInterval);timerInterval=setInterval(()=>{timeLeft--;updateTimerDisplay();if(timeLeft<=5&&timeLeft>0){playTick();document.getElementById('timer-display').classList.add('warning');document.getElementById('timer-sub-label').classList.add('urgent')}if(timeLeft<=0){clearInterval(timerInterval);timerRunning=false;const wc=countWords(document.getElementById('writing-area').value);if(wc<800){document.getElementById('writing-area').value='';updateWordCount();alert('Время вышло! Текст удалён.')}resetTimerUI()}},1000)}
 function resetTimer(){timeLeft=15;updateTimerDisplay();document.getElementById('timer-display').classList.remove('warning');document.getElementById('timer-sub-label').classList.remove('urgent')}
 function handleStopClick(){if(writingMode==='burn')showGiveUp();else pauseFlow()}
 function pauseFlow(){document.getElementById('writing-area').disabled=true;wuStop();applyIdleTimerUI()}
@@ -1726,18 +1772,18 @@ function updateWordCount(){
 // ── WARMUP ──
 const WU_PROMPTS={
   empty:[
-    {icon:'✍️',label:'С чего начать',text:'Опиши комнату, в которой сейчас находится твой главный герой. Что он видит, слышит, чувствует?'},
-    {icon:'🌅',label:'Первая строчка',text:'Напиши первое предложение, которое придёт в голову. Любое. Его можно будет переписать — сейчас важно начать.'},
-    {icon:'🎭',label:'Представь героя',text:'Как зовут твоего главного героя? Сколько ему лет? Что он хочет прямо сейчас больше всего на свете?'},
-    {icon:'🚪',label:'Открой сцену',text:'Дверь открылась. Кто вошёл — и что это меняет для твоего героя?'},
+    {icon:'',label:'С чего начать',text:'Опиши комнату, в которой сейчас находится твой главный герой. Что он видит, слышит, чувствует?'},
+    {icon:'',label:'Первая строчка',text:'Напиши первое предложение, которое придёт в голову. Любое. Его можно будет переписать — сейчас важно начать.'},
+    {icon:'',label:'Представь героя',text:'Как зовут твоего главного героя? Сколько ему лет? Что он хочет прямо сейчас больше всего на свете?'},
+    {icon:'',label:'Открой сцену',text:'Дверь открылась. Кто вошёл — и что это меняет для твоего героя?'},
   ],
   writing:[
-    {icon:'🔀',label:'Разворот',text:'Что если прямо сейчас кто-то постучит в дверь — и это окажется человек из прошлого героя?'},
-    {icon:'💬',label:'Диалог',text:'Позволь двум персонажам поговорить. Пусть один скажет что-то, что удивит другого.'},
-    {icon:'⏩',label:'Прыжок вперёд',text:'Перемотай на три часа вперёд. Где находится герой и что он делает?'},
-    {icon:'🧠',label:'Мысли героя',text:'О чём думает твой герой прямо сейчас? Напиши поток его мыслей — без цензуры, как есть.'},
-    {icon:'🌧️',label:'Атмосфера',text:'Опиши погоду за окном. Как она влияет на настроение сцены?'},
-    {icon:'📦',label:'Деталь',text:'Найди один предмет в сцене и опиши его так подробно, чтобы читатель мог его потрогать.'},
+    {icon:'',label:'Разворот',text:'Что если прямо сейчас кто-то постучит в дверь — и это окажется человек из прошлого героя?'},
+    {icon:'',label:'Диалог',text:'Позволь двум персонажам поговорить. Пусть один скажет что-то, что удивит другого.'},
+    {icon:'',label:'Прыжок вперёд',text:'Перемотай на три часа вперёд. Где находится герой и что он делает?'},
+    {icon:'',label:'Мысли героя',text:'О чём думает твой герой прямо сейчас? Напиши поток его мыслей — без цензуры, как есть.'},
+    {icon:'',label:'Атмосфера',text:'Опиши погоду за окном. Как она влияет на настроение сцены?'},
+    {icon:'',label:'Деталь',text:'Найди один предмет в сцене и опиши его так подробно, чтобы читатель мог его потрогать.'},
   ]
 };
 let wuTimeout=null,wuCurrentPrompt=null,wuCurrentSet=[];
@@ -1752,16 +1798,16 @@ function wuDismiss(){wuStop();wuStart()}
 function showDaySavedDialog(){
   const b=getActiveBook(),wc=countWords(document.getElementById('writing-area').value);
   const totalW=(b?b.chapters.reduce((s,c)=>s+c.words,0):0)+wc,pct=Math.min(totalW/50000*100,100),left=Math.max(0,50000-totalW),streak=b?b.chapters.length:0;
-  document.getElementById('ds-emoji').textContent=totalW>=50000?'🏆':wc>=800?'🎉':'✅';
+  document.getElementById('ds-emoji').textContent=totalW>=50000?'':wc>=800?'':'';
   document.getElementById('ds-title').textContent='День '+(b?b.chapters.length+1:1)+' завершён!';
   document.getElementById('ds-chapter-name').textContent=b?'Книга: «'+b.title+'»':'';
   document.getElementById('ds-today').textContent=wc.toLocaleString('ru');document.getElementById('ds-today').style.color=wc>=800?'var(--sage)':'var(--brown-deep)';
   document.getElementById('ds-total').textContent=totalW.toLocaleString('ru');document.getElementById('ds-left').textContent=left.toLocaleString('ru');
   const pctR=Math.round(pct*10)/10;document.getElementById('ds-pct').textContent=pctR+'%';document.getElementById('ds-fill').style.width=pct+'%';
   document.getElementById('ds-days-left').textContent=left>0?'осталось ~'+Math.ceil(left/800)+' дней':'готово к корректуре!';document.getElementById('ds-day-of').textContent='день '+(streak+1)+' из 60';
-  document.getElementById('ds-streak-icon').textContent=streak>=14?'🔥🔥':streak>=7?'🔥':'✨';
+  document.getElementById('ds-streak-icon').textContent='';
   document.getElementById('ds-streak-text').innerHTML=streak>=7?'<strong>'+streak+' дней подряд!</strong> Неделя без пропусков — уже привычка.':'<strong>'+(streak+1)+'-й день подряд.</strong> Не останавливайся завтра.';
-  const motives=['Начни первый день — первая строчка самая важная.','Каждое слово приближает к готовой книге.','Ты набираешь темп — скоро писать станет привычкой.','Четверть книги написана. Многие бросают здесь — ты продолжаешь.','Половина позади! Ты точно дойдёшь до конца.','Финишная прямая. Осталось меньше, чем уже написано.','🎉 50 000 слов! Пора на корректуру.'];
+  const motives=['Начни первый день — первая строчка самая важная.','Каждое слово приближает к готовой книге.','Ты набираешь темп — скоро писать станет привычкой.','Четверть книги написана. Многие бросают здесь — ты продолжаешь.','Половина позади! Ты точно дойдёшь до конца.','Финишная прямая. Осталось меньше, чем уже написано.','50 000 слов! Пора на корректуру.'];
   const mi=totalW>=50000?6:pct>=75?5:pct>=50?4:pct>=25?3:streak<=3?1:2;
   document.getElementById('ds-motivation').textContent=motives[mi];document.getElementById('continue-dialog').classList.add('active')
 }
@@ -1812,31 +1858,31 @@ function useIdea(el){const area=document.getElementById('writing-area');area.val
 async function runAICorrection(){
   const b=getActiveBook();if(!b||!b.chapters.length){alert('Нет сохранённых глав для корректуры.');return}
   const btn=document.getElementById('correction-start-btn'),progress=document.getElementById('correction-progress'),results=document.getElementById('correction-results'),footer=document.getElementById('correction-footer');
-  btn.disabled=true;btn.textContent='⏳ Анализ выполняется...';progress.classList.add('active');results.innerHTML='';footer.style.display='none';
+  btn.disabled=true;btn.textContent='Анализ выполняется...';progress.classList.add('active');results.innerHTML='';footer.style.display='none';
   const allText=b.chapters.map(c=>`=== День ${c.day}: ${c.name} ===\n${c.text}`).join('\n\n');
   const steps=[{pct:15,label:'Читаю рукопись...',status:'Передаю текст ИИ'},{pct:40,label:'Анализирую орфографию...',status:'Проверка слов'},{pct:65,label:'Проверяю логику...',status:'Ищу несоответствия'},{pct:85,label:'Оцениваю стиль...',status:'Анализ ритма'},{pct:95,label:'Формирую отчёт...',status:'Почти готово'}];
   let si=0;const pF=document.getElementById('correction-progress-fill'),pL=document.getElementById('correction-progress-label'),pS=document.getElementById('correction-progress-status');
   const pT=setInterval(()=>{if(si<steps.length){const s=steps[si++];pF.style.width=s.pct+'%';pL.textContent=s.label;pS.textContent=s.status}},1800);
   try{
-    const r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:`Ты профессиональный редактор. Рукопись:\n${allText.slice(0,40000)}\n\nВерни строго JSON:\n{"summary":"...","sections":[{"icon":"✏️","title":"Орфография","badge":"warn|ok|info","issues":[{"original":"...","suggested":"...","comment":"..."}]}]}\nТолько JSON.`,max_tokens:4000})});
+    const r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:`Ты профессиональный редактор. Рукопись:\n${allText.slice(0,40000)}\n\nВерни строго JSON:\n{"summary":"...","sections":[{"icon":"","title":"Орфография","badge":"warn|ok|info","issues":[{"original":"...","suggested":"...","comment":"..."}]}]}\nТолько JSON.`,max_tokens:4000})});
     clearInterval(pT);pF.style.width='100%';pL.textContent='Готово!';pS.textContent='Корректура завершена';
     const d=await r.json();if(d.error)throw new Error(d.error);
     const parsed=JSON.parse(d.text.replace(/```json|```/g,'').trim());
     let html='';if(parsed.summary)html+=`<div style="background:rgba(74,143,168,.08);border-radius:14px;padding:20px 24px;margin-bottom:22px;font-family:'Inter',sans-serif;font-size:15px;line-height:1.8;color:var(--brown-mid);border-left:4px solid var(--teal)"><strong style="color:var(--brown-deep)">Общая оценка:</strong><br>${parsed.summary}</div>`;
-    const bm={ok:['badge-ok','✓ Хорошо'],warn:['badge-warn','⚠ Внимание'],info:['badge-info','ℹ Рекомендации']};
-    (parsed.sections||[]).forEach(sec=>{const[bc,bt]=bm[sec.badge]||bm.info;const iss=!sec.issues||!sec.issues.length?`<p class="correction-empty">Проблем не обнаружено.</p>`:sec.issues.map(i=>`<div class="correction-issue">${i.original?`<span class="issue-original">${esc(i.original)}</span><span class="issue-arrow">→</span><span class="issue-suggested">${esc(i.suggested)}</span>`:`<span class="issue-suggested">${esc(i.suggested||i.comment||'')}</span>`}${i.comment?`<span class="issue-comment">${esc(i.comment)}</span>`:''}</div>`).join('');html+=`<div class="correction-section"><div class="correction-section-header"><span class="correction-section-icon">${sec.icon||'📌'}</span><span class="correction-section-title">${esc(sec.title)}</span><span class="correction-section-badge ${bc}">${bt}</span></div><div class="correction-section-body">${iss}</div></div>`});
+    const bm={ok:['badge-ok','✓ Хорошо'],warn:['badge-warn','Внимание'],info:['badge-info','ℹ Рекомендации']};
+    (parsed.sections||[]).forEach(sec=>{const[bc,bt]=bm[sec.badge]||bm.info;const iss=!sec.issues||!sec.issues.length?`<p class="correction-empty">Проблем не обнаружено.</p>`:sec.issues.map(i=>`<div class="correction-issue">${i.original?`<span class="issue-original">${esc(i.original)}</span><span class="issue-arrow">→</span><span class="issue-suggested">${esc(i.suggested)}</span>`:`<span class="issue-suggested">${esc(i.suggested||i.comment||'')}</span>`}${i.comment?`<span class="issue-comment">${esc(i.comment)}</span>`:''}</div>`).join('');html+=`<div class="correction-section"><div class="correction-section-header"><span class="correction-section-icon">${sec.icon||''}</span><span class="correction-section-title">${esc(sec.title)}</span><span class="correction-section-badge ${bc}">${bt}</span></div><div class="correction-section-body">${iss}</div></div>`});
     results.innerHTML=html;footer.style.display='block';
-  }catch(e){clearInterval(pT);results.innerHTML=`<div class="correction-section"><div class="correction-section-body"><p style="color:var(--terra);font-family:'Inter',sans-serif">Ошибка. Попробуйте снова.</p></div></div>`;btn.disabled=false;btn.textContent='🔄 Попробовать снова'}
+  }catch(e){clearInterval(pT);results.innerHTML=`<div class="correction-section"><div class="correction-section-body"><p style="color:var(--terra);font-family:'Inter',sans-serif">Ошибка. Попробуйте снова.</p></div></div>`;btn.disabled=false;btn.textContent='Попробовать снова'}
   progress.classList.remove('active');btn.style.display='none'
 }
 function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
-function startCorrection(){showScreen('correction');document.getElementById('correction-start-btn').style.display='block';document.getElementById('correction-start-btn').disabled=false;document.getElementById('correction-start-btn').textContent='🤖 Запустить ИИ-корректуру';document.getElementById('correction-progress').classList.remove('active');document.getElementById('correction-results').innerHTML='';document.getElementById('correction-footer').style.display='none';document.getElementById('correction-progress-fill').style.width='0%'}
+function startCorrection(){showScreen('correction');document.getElementById('correction-start-btn').style.display='block';document.getElementById('correction-start-btn').disabled=false;document.getElementById('correction-start-btn').textContent='Запустить ИИ-корректуру';document.getElementById('correction-progress').classList.remove('active');document.getElementById('correction-results').innerHTML='';document.getElementById('correction-footer').style.display='none';document.getElementById('correction-progress-fill').style.width='0%'}
 
 // ── COVER ──
 function showCoverScreen(){showScreen('cover')}
 function updateCover(){document.getElementById('cover-author').textContent=document.getElementById('author-input').value||'Имя автора';document.getElementById('cover-book-title').textContent=document.getElementById('title-input').value||'Название книги';document.getElementById('cover-year').textContent=document.getElementById('year-input').value||'2025'}
 function uploadCoverImage(e){const file=e.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=ev=>{const img=document.getElementById('cover-bg-img');img.src=ev.target.result;img.style.display='block';document.getElementById('cover-preview').classList.add('has-image')};reader.readAsDataURL(file)}
-function exportBook(){const b=getActiveBook();const allText=b?b.chapters.map(c=>`=== День ${c.day}: ${c.name} ===\n\n${c.text}`).join('\n\n\n'):'';const author=document.getElementById('author-input').value||'Автор',title=document.getElementById('title-input').value||(b?b.title:'Моя книга');const blob=new Blob([`${title}\n${author}\n${'='.repeat(40)}\n\n${allText}`],{type:'text/plain;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=title.replace(/\s+/g,'_')+'.txt';a.click();alert('📖 Книга сохранена!')}
+function exportBook(){const b=getActiveBook();const allText=b?b.chapters.map(c=>`=== День ${c.day}: ${c.name} ===\n\n${c.text}`).join('\n\n\n'):'';const author=document.getElementById('author-input').value||'Автор',title=document.getElementById('title-input').value||(b?b.title:'Моя книга');const blob=new Blob([`${title}\n${author}\n${'='.repeat(40)}\n\n${allText}`],{type:'text/plain;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=title.replace(/\s+/g,'_')+'.txt';a.click();alert('Книга сохранена!')}
 
 // ── FINALE ──
 let confettiRAF=null,confettiParticles=[];
@@ -1852,9 +1898,9 @@ function startConfetti(){
   cancelAnimationFrame(confettiRAF);
   function loop(){ctx.clearRect(0,0,canvas.width,canvas.height);confettiParticles=confettiParticles.filter(p=>p.alpha>0.01);confettiParticles.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.05;p.rot+=p.rotV;if(p.y>canvas.height*1.1)p.alpha=0;ctx.save();ctx.globalAlpha=p.alpha;ctx.fillStyle=p.color;ctx.translate(p.x,p.y);ctx.rotate(p.rot*Math.PI/180);if(p.shape==='rect')ctx.fillRect(-p.r,-p.r/2,p.r*2,p.r);else{ctx.beginPath();ctx.arc(0,0,p.r,0,Math.PI*2);ctx.fill()}ctx.restore();p.alpha-=.005});confettiRAF=requestAnimationFrame(loop)}loop()
 }
-function finShareVK(){const b=getActiveBook();const t=`Я написал книгу «${b?b.title:'Моя книга'}» за 60 дней на opisetz.vercel.app! ✍️`;window.open('https://vk.com/share.php?url='+encodeURIComponent('https://opisetz.vercel.app')+'&title='+encodeURIComponent(t),'_blank')}
-function finShareTG(){const b=getActiveBook();const t=`Я написал книгу «${b?b.title:'Моя книга'}» за 60 дней! Попробуй и ты → opisetz.vercel.app ✍️`;window.open('https://t.me/share/url?url='+encodeURIComponent('https://opisetz.vercel.app')+'&text='+encodeURIComponent(t),'_blank')}
-function finCopyLink(){const b=getActiveBook();const t=`Я написал книгу «${b?b.title:'Моя книга'}» за 60 дней на opisetz.vercel.app ✍️`;navigator.clipboard.writeText(t).catch(()=>{});const el=document.getElementById('fin-copy-toast');el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2200)}
+function finShareVK(){const b=getActiveBook();const t=`Я написал книгу «${b?b.title:'Моя книга'}» за 60 дней на opisetz.vercel.app!`;window.open('https://vk.com/share.php?url='+encodeURIComponent('https://opisetz.vercel.app')+'&title='+encodeURIComponent(t),'_blank')}
+function finShareTG(){const b=getActiveBook();const t=`Я написал книгу «${b?b.title:'Моя книга'}» за 60 дней! Попробуй и ты → opisetz.vercel.app`;window.open('https://t.me/share/url?url='+encodeURIComponent('https://opisetz.vercel.app')+'&text='+encodeURIComponent(t),'_blank')}
+function finCopyLink(){const b=getActiveBook();const t=`Я написал книгу «${b?b.title:'Моя книга'}» за 60 дней на opisetz.vercel.app`;navigator.clipboard.writeText(t).catch(()=>{});const el=document.getElementById('fin-copy-toast');el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2200)}
 
 // ── HOME DASHBOARD ──
 function updateHomeDashboard(){
@@ -1868,9 +1914,9 @@ function updateHomeDashboard(){
   document.getElementById('db-total-words').textContent=total.toLocaleString('ru');
   document.getElementById('db-book-name').textContent='«'+b.title+'» · из 50 000 слов';
   document.getElementById('db-prog-fill').style.width=pct+'%';
-  document.getElementById('db-prog-lbl').textContent=left>0?'осталось '+left.toLocaleString('ru')+' слов':'🎉 Книга написана!';
+  document.getElementById('db-prog-lbl').textContent=left>0?'осталось '+left.toLocaleString('ru')+' слов':'Книга написана!';
   document.getElementById('db-days').textContent=days;document.getElementById('db-streak').textContent=streak;document.getElementById('db-avg').textContent=avg;document.getElementById('db-books-count').textContent=books.length;
-  const msgs=['Начни первый день — первая строчка самая важная.','Каждое слово приближает к готовой книге.','Четверть книги написана. Многие бросают здесь — ты продолжаешь.','Половина позади! Ты точно дойдёшь до конца.','Финишная прямая. Осталось меньше, чем уже написано.','🎉 Книга написана! Пора на корректуру.'];
+  const msgs=['Начни первый день — первая строчка самая важная.','Каждое слово приближает к готовой книге.','Четверть книги написана. Многие бросают здесь — ты продолжаешь.','Половина позади! Ты точно дойдёшь до конца.','Финишная прямая. Осталось меньше, чем уже написано.','Книга написана! Пора на корректуру.'];
   const mi=total>=50000?5:pct>=75?4:pct>=50?3:pct>=25?2:days>0?1:0;document.getElementById('db-msg').textContent=msgs[mi]
 }
 
@@ -1944,7 +1990,7 @@ function faqToggle(el){
     ring.style.stroke=danger?'var(--terra)':'var(--brown-mid)';
     num.textContent=dtv;
     num.className='demo-timer-num'+(danger?' danger demo-timer-pulse':'');
-    if(!dRunning||dAiOpen)lbl.textContent=dAiOpen?'⏸ Пауза (ИИ)':'Нажми и пиши';
+    if(!dRunning||dAiOpen)lbl.textContent=dAiOpen?'Пауза (ИИ)':'Нажми и пиши';
     else if(danger)lbl.textContent='Не останавливайся!';
     else lbl.textContent='Пишешь!';
   }
@@ -1966,9 +2012,9 @@ function faqToggle(el){
     dWiped=true;
     const ta=document.getElementById('demo-ta');
     ta.value='';dSetWords(0);
-    document.getElementById('demo-hint').textContent='💥 Текст удалён! Начни заново.';
+    document.getElementById('demo-hint').textContent='Текст удалён! Начни заново.';
     document.getElementById('demo-timer-label').textContent='Время вышло';
-    setTimeout(()=>{dWiped=false;document.getElementById('demo-hint').textContent='⌨️ Печатай — таймер сбросится';},2500);
+    setTimeout(()=>{dWiped=false;document.getElementById('demo-hint').textContent='Печатай — таймер сбросится';},2500);
   }
 
   function dSetWords(n){
@@ -1996,7 +2042,7 @@ function faqToggle(el){
     document.getElementById('demo-ai-used').style.display='none';
     dSetWords(0);dtv=DTMAX;dRunning=false;dWiped=false;dAiOpen=false;
     dUpdateTUI();
-    document.getElementById('demo-hint').textContent='⌨️ Печатай — таймер сбросится';
+    document.getElementById('demo-hint').textContent='Печатай — таймер сбросится';
   };
 
   window.demoTriggerAI=async function(){
@@ -2006,7 +2052,7 @@ function faqToggle(el){
     }
     dAiOpen=true;
     clearInterval(dtInt);
-    document.getElementById('demo-timer-label').textContent='⏸ Пауза (ИИ)';
+    document.getElementById('demo-timer-label').textContent='Пауза (ИИ)';
     const panel=document.getElementById('demo-ai-panel');
     panel.style.display='block';
     document.getElementById('demo-ai-body').innerHTML=
@@ -2084,7 +2130,7 @@ function heroNext(){heroGo(heroIdx+1)}
 function heroPrev(){heroGo(heroIdx-1)}
 function heroRestart(){clearInterval(heroTimer);heroTimer=setInterval(heroNext,6500)}
 function scrollToDemo(){const d=document.getElementById('demo-section');if(d)d.scrollIntoView({behavior:'smooth',block:'start'})}
-function footerSubscribe(){const inp=document.getElementById('footer-email'),note=document.getElementById('footer-news-note'),v=(inp.value||'').trim();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){note.style.color='#ffb3a3';note.textContent='Введите корректный email';return}note.style.color='rgba(255,255,255,.7)';note.textContent='Готово! Спасибо, что подписался ✍️';inp.value=''}
+function footerSubscribe(){const inp=document.getElementById('footer-email'),note=document.getElementById('footer-news-note'),v=(inp.value||'').trim();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){note.style.color='#ffb3a3';note.textContent='Введите корректный email';return}note.style.color='rgba(255,255,255,.7)';note.textContent='Готово! Спасибо, что подписался';inp.value=''}
 
 (function init(){
   const user=getCurrentUser();
