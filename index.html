@@ -158,7 +158,8 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 /* ABOUT */
 .about-screen{background:var(--cream)}
-.about-container{max-width:720px;margin:0 auto;padding:80px 40px 60px}
+.about-section{background:var(--cream);scroll-margin-top:80px}
+.about-container{max-width:720px;margin:0 auto;padding:56px 40px 64px}
 .about-main-title{font-family:'Montserrat',sans-serif;font-size:58px;font-weight:900;text-align:center;margin-bottom:60px;color:var(--brown-deep)}
 .about-block{margin-bottom:50px}
 .about-block-title{font-family:'Montserrat',sans-serif;font-size:26px;font-weight:700;color:var(--brown-deep);margin-bottom:18px;line-height:1.3}
@@ -737,7 +738,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   .faq-section{padding:0 22px 50px}
   .vs-wrap{grid-template-columns:1fr;gap:12px;margin-bottom:24px}
   .vs-divider{display:none}
-  .about-container{padding:96px 22px 50px}
+  .about-container{padding:40px 22px 48px}
   .auth-box{padding:34px 24px}
   .legal-body{padding:20px 20px 24px}
   .legal-head{padding:18px 20px}
@@ -765,7 +766,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <div class="nav-collapse" id="nav-collapse">
     <div class="nav-links">
       <a data-nav="home" onclick="showScreen('home');closeMenu()">Главная</a>
-      <a data-nav="about" onclick="showScreen('about');closeMenu()">О проекте</a>
+      <a onclick="goHomeSection('about-section');closeMenu()">О проекте</a>
       <a onclick="scrollToDemo();closeMenu()">Как это работает</a>
       <a data-nav="cabinet" onclick="handleCabinetNav();closeMenu()">Личный кабинет</a>
       <a class="warm-link" onclick="handleWriteClick();closeMenu()">Начать</a>
@@ -1010,6 +1011,43 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     </div>
   </div>
 
+    <!-- О ПРОЕКТЕ -->
+  <section class="about-section" id="about-section">
+    <div class="about-container">
+
+    <h2 class="about-main-title">О проекте</h2>
+    <div class="about-block">
+      <h2 class="about-block-title">Когда-нибудь я напишу книгу</h2>
+      <p>Вы наверняка хотя бы раз думали:<br><em>«Когда-нибудь я напишу книгу.»</em></p>
+      <p>Но проходит месяц. Потом ещё один. Вы придумываете сюжет, мысленно разговариваете с героями, представляете будущую обложку… а первая глава так и не появляется.</p>
+    </div>
+    <div class="about-block">
+      <h2 class="about-block-title">Проблема не в отсутствии таланта</h2>
+      <p>Проблема в том, что вы слишком рано включаете внутреннего редактора.</p>
+      <p>Большинство начинающих авторов совершают одну и ту же ошибку. Они начинают редактировать книгу, которую ещё не написали.</p>
+    </div>
+    <div class="about-block">
+      <h2 class="about-block-title">Писатель и редактор — две разные профессии</h2>
+      <p>В проекте «О, Писец!» действует всего одно правило:</p>
+      <p class="highlight">Каждый день писать не менее 800 слов.</p>
+      <ul class="rule-list"><li>Не исправлять.</li><li>Не перечитывать.</li><li>Не редактировать.</li><li>Просто писать одним потоком.</li></ul>
+      <p class="highlight">И только после этого наступает время редактора.</p>
+    </div>
+    <div class="about-block">
+      <h2 class="about-block-title">Мы помогаем не бросить на полпути</h2>
+      <p class="highlight">Мы не позволим этому случиться.</p>
+      <p>А если вы застряли — ИИ поможет найти направление. Но он никогда не напишет книгу вместо вас.</p>
+      <p class="highlight">Потому что эта история должна быть вашей.</p>
+    </div>
+    <div class="about-finale">
+      <p>Писатель пишет. Редактор редактирует. Не одновременно.</p>
+      <p>Добро пожаловать в «О, Писец!»</p>
+      <span class="tagline">Ни дня без строчки</span>
+      <a class="about-cta-btn" onclick="handleWriteClick()">Писать сегодня</a>
+    </div>
+      </div>
+  </section>
+
   <!-- FAQ -->
   <div class="faq-section">
     <div class="features-eyebrow">Частые вопросы</div>
@@ -1104,7 +1142,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       </div>
       <div class="footer-col">
         <h4>Проект</h4>
-        <a onclick="showScreen('about')">О проекте</a>
+        <a onclick="goHomeSection('about-section')">О проекте</a>
         <a onclick="scrollToDemo()">Два режима письма</a>
         <a onclick="openLegal('offer')">Публичная оферта</a>
         <a onclick="openLegal('privacy')">Политика конфиденциальности</a>
@@ -1130,42 +1168,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     </div>
   </footer>
 
-</div>
-
-<!-- ABOUT -->
-<div id="about-screen" class="screen about-screen">
-  <div class="about-container">
-    <h1 class="about-main-title">О проекте</h1>
-    <div class="about-block">
-      <h2 class="about-block-title">Когда-нибудь я напишу книгу</h2>
-      <p>Вы наверняка хотя бы раз думали:<br><em>«Когда-нибудь я напишу книгу.»</em></p>
-      <p>Но проходит месяц. Потом ещё один. Вы придумываете сюжет, мысленно разговариваете с героями, представляете будущую обложку… а первая глава так и не появляется.</p>
-    </div>
-    <div class="about-block">
-      <h2 class="about-block-title">Проблема не в отсутствии таланта</h2>
-      <p>Проблема в том, что вы слишком рано включаете внутреннего редактора.</p>
-      <p>Большинство начинающих авторов совершают одну и ту же ошибку. Они начинают редактировать книгу, которую ещё не написали.</p>
-    </div>
-    <div class="about-block">
-      <h2 class="about-block-title">Писатель и редактор — две разные профессии</h2>
-      <p>В проекте «О, Писец!» действует всего одно правило:</p>
-      <p class="highlight">Каждый день писать не менее 800 слов.</p>
-      <ul class="rule-list"><li>Не исправлять.</li><li>Не перечитывать.</li><li>Не редактировать.</li><li>Просто писать одним потоком.</li></ul>
-      <p class="highlight">И только после этого наступает время редактора.</p>
-    </div>
-    <div class="about-block">
-      <h2 class="about-block-title">Мы помогаем не бросить на полпути</h2>
-      <p class="highlight">Мы не позволим этому случиться.</p>
-      <p>А если вы застряли — ИИ поможет найти направление. Но он никогда не напишет книгу вместо вас.</p>
-      <p class="highlight">Потому что эта история должна быть вашей.</p>
-    </div>
-    <div class="about-finale">
-      <p>Писатель пишет. Редактор редактирует. Не одновременно.</p>
-      <p>Добро пожаловать в «О, Писец!»</p>
-      <span class="tagline">Ни дня без строчки</span>
-      <a class="about-cta-btn" onclick="handleWriteClick()">Писать сегодня</a>
-    </div>
-  </div>
 </div>
 
 <!-- CABINET -->
@@ -2027,6 +2029,7 @@ function heroNext(){heroGo(heroIdx+1)}
 function heroPrev(){heroGo(heroIdx-1)}
 function heroRestart(){clearInterval(heroTimer);heroTimer=setInterval(heroNext,6500)}
 function scrollToDemo(){const d=document.getElementById('demo-section');if(d)d.scrollIntoView({behavior:'smooth',block:'start'})}
+function goHomeSection(id){showScreen('home');setTimeout(()=>{const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})},60)}
 function footerSubscribe(){const inp=document.getElementById('footer-email'),note=document.getElementById('footer-news-note'),v=(inp.value||'').trim();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){note.style.color='#ffb3a3';note.textContent='Введите корректный email';return}note.style.color='rgba(255,255,255,.7)';note.textContent='Готово! Спасибо, что подписался';inp.value=''}
 
 (function init(){
