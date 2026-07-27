@@ -1601,7 +1601,7 @@ function playTick(){try{const o=audioCtx.createOscillator(),g=audioCtx.createGai
 function playTypeSound(){try{const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.connect(g);g.connect(audioCtx.destination);o.type='sine';o.frequency.setValueAtTime(200+Math.random()*100,audioCtx.currentTime);g.gain.setValueAtTime(.03,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+.05);o.start();o.stop(audioCtx.currentTime+.05)}catch(e){}}
 
 // ── SCREEN ──
-function showScreen(name){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(name+'-screen').classList.add('active');setActiveNav(name);if(name!=='cabinet')stopTimer();if(name==='cabinet'){renderChaptersList();applyIdleTimerUI()}if(name==='home')updateHomeDashboard();if(name==='finale')startConfetti()}
+function showScreen(name){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(name+'-screen').classList.add('active');setActiveNav(name);if(name!=='cabinet')stopTimer();if(name==='cabinet'){renderChaptersList();applyIdleTimerUI()}if(name==='home')updateHomeDashboard();if(name==='finale')startConfetti();const nb=document.querySelector('.navbar');if(nb){if(name==='home'){onScrollNav()}else{nb.classList.add('scrolled')}}}
 
 // ── TIMER / MODES ──
 let writingMode='flow'; // 'flow' = без таймера, 'burn' = со стирающим таймером
@@ -2008,7 +2008,7 @@ function faqToggle(el){
 // ── NAV SCROLL + HERO CAROUSEL ──
 function toggleMenu(){document.querySelector('.navbar').classList.toggle('nav-open')}
 function closeMenu(){document.querySelector('.navbar').classList.remove('nav-open')}
-function onScrollNav(){const nb=document.querySelector('.navbar');if(nb){nb.classList.toggle('scrolled',window.scrollY>40);if(window.scrollY>60)nb.classList.remove('nav-open')}}
+function onScrollNav(){const nb=document.querySelector('.navbar');if(!nb)return;const onHome=document.getElementById('home-screen').classList.contains('active');if(onHome){nb.classList.toggle('scrolled',window.scrollY>40);if(window.scrollY>60)nb.classList.remove('nav-open')}}
 window.addEventListener('scroll',onScrollNav,{passive:true});
 
 const HERO_SLIDES=[
