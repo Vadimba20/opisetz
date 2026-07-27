@@ -83,12 +83,12 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 /* ── HOME ── */
 .home-screen{background:var(--cream)}
-.hero-section{position:relative;background:var(--hero-grad);padding:80px 60px 52px;overflow:hidden}
+.hero-section{position:relative;background:var(--hero-grad);padding:74px 60px 46px;overflow:hidden}
 .hero-section::before{content:'';position:absolute;inset:0;background:radial-gradient(120% 90% at 85% 15%,rgba(255,255,255,.14),transparent 55%);pointer-events:none}
 .hero-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.12fr .88fr;gap:36px;align-items:center;position:relative;z-index:2}
 .hero-copy{text-align:left}
 .hero-eyebrow{display:inline-block;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:#fff;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);padding:6px 16px;border-radius:980px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
-.hero-title{font-family:'Montserrat',sans-serif;font-size:56px;font-weight:800;color:#fff;line-height:1.08;margin-bottom:16px;letter-spacing:-.01em;transition:opacity .35s;height:132px;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.hero-title{font-family:'Montserrat',sans-serif;font-size:48px;font-weight:800;color:#fff;line-height:1.1;margin-bottom:16px;letter-spacing:-.01em;transition:opacity .35s;height:168px;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
 .hero-title em{font-style:normal;color:#fff8e6}
 .hero-subtitle{font-family:'Inter',sans-serif;font-size:18px;color:rgba(255,255,255,.92);font-weight:400;line-height:1.6;margin-bottom:26px;max-width:480px;height:58px;overflow:hidden;transition:opacity .35s}
 .hero-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
@@ -710,7 +710,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   .hero-copy{text-align:center}
   .hero-actions,.hero-dots{justify-content:center}
   .hero-eyebrow{margin-left:auto;margin-right:auto}
-  .hero-subtitle{margin-left:auto;margin-right:auto;height:auto;overflow:visible}
+  .hero-subtitle{margin-left:auto;margin-right:auto;height:90px;overflow:hidden}
   .hero-visual{order:-1;min-height:240px}
   .hero-illustration{max-width:340px}
   .hero-arrow{display:none}
@@ -722,6 +722,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   .nav-links a{font-size:13px}
   .hero-section{padding:104px 22px 70px}
   .hero-title{font-size:38px;height:auto;overflow:visible}
+  .hero-subtitle{height:auto;overflow:visible}
   .features-heading{font-size:30px}
   .about-main-title{font-size:38px}
   .modes-section{padding:20px 22px 30px}
@@ -806,9 +807,9 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
   <!-- ДЕМО-РЕДАКТОР -->
   <div class="demo-section" id="demo-section">
-    <div class="demo-eyebrow">Попробуй прямо сейчас — без регистрации · займёт 30 секунд</div>
-    <h2 class="demo-heading">Почувствуй как это работает</h2>
-    <p class="demo-sub">Это вкус режима «Сжигаем мосты!» — напиши 50 слов, застрял — попроси идею у ИИ.<br>А в спокойном режиме «Писать в потоке» таймера нет и ничего не удаляется.</p>
+    <div class="demo-eyebrow" style="visibility:hidden">Попробуй прямо сейчас — без регистрации · займёт 30 секунд</div>
+    <h2 class="demo-heading">Попробуй как это работает!</h2>
+    <p class="demo-sub">Почувствуй вкус режима «Сжигаем мосты!» с таймером отсчёта и подсказками от ИИ!<br>А в спокойном режиме «Писать в потоке» таймера нет и ничего не удаляется.</p>
     <div class="demo-mode-pill">Демо в режиме «Сжигаем мосты!» — с таймером</div>
     <div class="demo-editor" id="demo-editor">
       <div class="demo-header" id="demo-header">
